@@ -34,93 +34,117 @@ main {
   padding: 20px;
 }
 .intro, .section {
-  background: white;
-  padding: 22px;
-  margin: 18px 0;
-  border-radius: 10px;
-}
-h2 { color: #174d3a; }
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-  gap: 15px;
-}
-.item {
-  background: #eef5f1;
-  padding: 18px;
-  border-radius: 8px;
-}
-.item a {
-  color: #174d3a;
-  font-weight: bold;
-}
-footer {
-  background: #102b46;
-  color: white;
-  text-align: center;
-  padding: 20px;
-}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formation universitaire | WiderWay</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f7f6;color:#173047}
+header{background:#102b46;color:white;text-align:center;padding:30px 15px}
+header h1{margin:0;font-size:32px}
+nav{background:#174d3a;padding:15px;text-align:center}
+nav a{color:white;text-decoration:none;margin:8px;font-weight:bold}
+main{max-width:1000px;margin:auto;padding:20px}
+.intro,.section{background:white;padding:22px;margin:18px 0;border-radius:12px}
+h2{color:#174d3a}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px}
+.item{background:#eef5f1;padding:18px;border-radius:10px;text-align:center}
+.item h3{margin-top:5px}
+.btn{display:inline-block;background:#174d3a;color:white;padding:11px 18px;border-radius:7px;text-decoration:none;margin-top:8px}
+.btn:hover{background:#102b46}
+.note{background:#fff6dc;padding:15px;border-radius:8px}
+footer{background:#102b46;color:white;text-align:center;padding:22px;margin-top:30px}
 </style>
 </head>
 <body>
 
 <header>
-  <h1>WiderWay</h1>
-  <p>La connaissance ouvre toutes les voies</p>
+<h1>WiderWay</h1>
+<p>Éducation, savoir et recherche pour tous</p>
 </header>
 
 <nav>
-  <a href="index.html">Accueil</a>
-  <a href="formation.html">Formation universitaire</a>
-  <a href="bibliotheque.html">Bibliothèque</a>
-  <a href="recherche.html">Recherche</a>
+<a href="index.html">Accueil</a>
+<a href="formation.html">Formation</a>
+<a href="bibliotheque.html">Bibliothèque</a>
+<a href="recherche.html">Recherche</a>
 </nav>
 
 <main>
-  <section class="intro">
-    <h2>Formation universitaire en Afrique</h2>
-    <p>
-      Bienvenue dans l'espace de formation universitaire de WiderWay.
-      Découvrez progressivement les cours, les ressources et les supports
-      pédagogiques des universités africaines.
-    </p>
-  </section>
 
-  <section class="section">
-    <h2>Choisir son niveau</h2>
-    <div class="grid">
-      <div class="item"><h3>Licence 1 (L1)</h3><p>Première année universitaire.</p></div>
-      <div class="item"><h3>Licence 2 (L2)</h3><p>Deuxième année universitaire.</p></div>
-      <div class="item"><h3>Licence 3 (L3)</h3><p>Troisième année universitaire.</p></div>
-    </div>
-  </section>
+<section class="intro">
+<h2>Formation universitaire en Afrique</h2>
+<p>Bienvenue sur l'espace de formation universitaire de WiderWay.
+Retrouvez progressivement des ressources pédagogiques issues des universités africaines.</p>
+<p>Choisissez votre niveau, votre filière et votre pays pour explorer les formations.</p>
+</section>
 
-  <section class="section">
-    <h2>Explorer les filières</h2>
-    <div class="grid">
-      <div class="item"><h3>Sciences et technologies</h3><p>Mathématiques, physique, informatique et technologie.</p></div>
-      <div class="item"><h3>SVT</h3><p>Biologie, géologie et sciences de la vie.</p></div>
-      <div class="item"><h3>Santé</h3><p>Médecine et sciences de la santé.</p></div>
-      <div class="item"><h3>Droit</h3><p>Droit et sciences politiques.</p></div>
-      <div class="item"><h3>Économie et gestion</h3><p>Économie, gestion et comptabilité.</p></div>
-      <div class="item"><h3>Sciences humaines</h3><p>Lettres, langues et sciences sociales.</p></div>
-      <div class="item"><h3>Agronomie</h3><p>Agriculture et sciences agronomiques.</p></div>
-      <div class="item"><h3>Sciences de l'ingénieur</h3><p>Génie civil, industriel et autres spécialités.</p></div>
-    </div>
-  </section>
+<section class="section">
+<h2>1. Choisir son niveau</h2>
+<div class="grid">
+<div class="item">
+<h3>Licence 1 (L1)</h3>
+<p>Première année universitaire</p>
+<a class="btn" href="#filieres">Explorer L1</a>
+</div>
+<div class="item">
+<h3>Licence 2 (L2)</h3>
+<p>Deuxième année universitaire</p>
+<a class="btn" href="#filieres">Explorer L2</a>
+</div>
+<div class="item">
+<h3>Licence 3 (L3)</h3>
+<p>Troisième année universitaire</p>
+<a class="btn" href="#filieres">Explorer L3</a>
+</div>
+</div>
+</section>
 
-  <section class="section">
-    <h2>Explorer par pays</h2>
-    <p>
-      WiderWay ambitionne de proposer des ressources universitaires
-      pour les 54 pays africains. Les contenus seront ajoutés progressivement.
-    </p>
-    <p>Burkina Faso · Sénégal · Côte d'Ivoire · Mali · Bénin · Niger · Ghana · Togo</p>
-  </section>
+<section class="section" id="filieres">
+<h2>2. Choisir sa filière</h2>
+<div class="grid">
+<div class="item"><h3>Sciences de la vie et de la Terre</h3><p>Biologie, géologie, écologie</p></div>
+<div class="item"><h3>Sciences et technologies</h3><p>Mathématiques, physique, chimie</p></div>
+<div class="item"><h3>Informatique</h3><p>Programmation, réseaux, systèmes</p></div>
+<div class="item"><h3>Santé</h3><p>Médecine et sciences de la santé</p></div>
+<div class="item"><h3>Droit</h3><p>Droit public et privé</p></div>
+<div class="item"><h3>Économie et gestion</h3><p>Économie, gestion, comptabilité</p></div>
+<div class="item"><h3>Lettres et langues</h3><p>Littérature et linguistique</p></div>
+<div class="item"><h3>Sciences humaines</h3><p>Sociologie, histoire, géographie</p></div>
+<div class="item"><h3>Agronomie</h3><p>Agriculture et environnement</p></div>
+<div class="item"><h3>Sciences de l'ingénieur</h3><p>Génie civil et industriel</p></div>
+</div>
+</section>
+
+<section class="section">
+<h2>3. Choisir son pays</h2>
+<div class="grid">
+<div class="item"><h3>Burkina Faso</h3></div>
+<div class="item"><h3>Côte d'Ivoire</h3></div>
+<div class="item"><h3>Sénégal</h3></div>
+<div class="item"><h3>Mali</h3></div>
+<div class="item"><h3>Bénin</h3></div>
+<div class="item"><h3>Niger</h3></div>
+<div class="item"><h3>Ghana</h3></div>
+<div class="item"><h3>Togo</h3></div>
+</div>
+<p class="note">Notre ambition est de couvrir les 54 pays africains. Les autres pays et leurs ressources seront ajoutés progressivement.</p>
+</section>
+
+<section class="section">
+<h2>4. Accéder aux ressources</h2>
+<p>Les cours seront organisés par pays, université, filière, niveau et semestre.</p>
+<p>Chaque ressource précisera son établissement d'origine et sa date de publication.</p>
+</section>
+
 </main>
 
 <footer>
-  <p>WiderWay — Éducation, savoir et recherche pour tous.</p>
+<p>WiderWay — Le savoir ouvre toutes les voies.</p>
+<p>Une plateforme gratuite pour apprendre et découvrir.</p>
 </footer>
 
 </body>
