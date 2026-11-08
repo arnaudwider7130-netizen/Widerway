@@ -3,62 +3,93 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WiderWay - Éducation et recherche</title>
+<meta name="description" content="WiderWay : plateforme gratuite d'éducation et de recherche scientifique pour l'Afrique et le monde.">
+<title>WiderWay | Éducation et recherche</title>
 
 <style>
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #f4f7f6;
   color: #173047;
+  line-height: 1.6;
 }
+
 header {
-  background: #102b46;
+  background: linear-gradient(135deg, #102b46, #174d3a);
   color: white;
   text-align: center;
-  padding: 45px 15px;
+  padding: 55px 15px;
 }
-header h1 { font-size: 38px; margin: 0; }
-header p { font-size: 17px; }
+
+header h1 {
+  font-size: 42px;
+  margin: 0;
+}
+
+header p {
+  font-size: 17px;
+}
+
 nav {
   background: #174d3a;
-  padding: 15px;
+  padding: 12px;
   text-align: center;
   position: sticky;
   top: 0;
+  z-index: 100;
 }
+
 nav a {
   color: white;
   text-decoration: none;
-  margin: 8px;
+  margin: 7px 10px;
   display: inline-block;
   font-weight: bold;
 }
-nav a:hover { text-decoration: underline; }
-main {
-  max-width: 1100px;
-  margin: auto;
-  padding: 20px;
+
+nav a:hover {
+  text-decoration: underline;
 }
+
+main {
+  max-width: 1150px;
+  margin: auto;
+  padding: 18px;
+}
+
 section {
   background: white;
   padding: 25px;
   margin: 22px 0;
   border-radius: 12px;
 }
-h2 { color: #174d3a; }
+
+h2 {
+  color: #174d3a;
+}
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(210px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
   gap: 15px;
 }
+
 .card {
   background: #eef5f1;
   padding: 20px;
   border-radius: 10px;
 }
-.card h3 { color: #174d3a; }
+
+.card h3 {
+  color: #174d3a;
+}
+
 .btn {
   display: inline-block;
   background: #174d3a;
@@ -68,7 +99,11 @@ h2 { color: #174d3a; }
   text-decoration: none;
   margin-top: 8px;
 }
-.btn:hover { background: #102b46; }
+
+.btn:hover {
+  background: #102b46;
+}
+
 input {
   width: 100%;
   padding: 14px;
@@ -76,6 +111,7 @@ input {
   border-radius: 8px;
   font-size: 16px;
 }
+
 footer {
   background: #102b46;
   color: white;
@@ -83,130 +119,217 @@ footer {
   padding: 25px;
   margin-top: 30px;
 }
+
+footer a {
+  color: white;
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 32px;
+  }
+
+  nav a {
+    margin: 5px;
+    font-size: 14px;
+  }
+
+  section {
+    padding: 18px;
+  }
+}
 </style>
 </head>
 
 <body>
 
 <header id="accueil">
-<h1>WiderWay</h1>
-<p>Éducation, savoir et recherche pour tous</p>
-<h3>Le savoir ouvre toutes les voies.</h3>
-<p>Une plateforme gratuite pour apprendre, comprendre et progresser.</p>
+  <h1>WiderWay</h1>
+  <p>Éducation, savoir et recherche pour tous</p>
+  <h3>Le savoir ouvre toutes les voies.</h3>
+  <p>Une plateforme gratuite pour apprendre, comprendre et progresser.</p>
+  <a class="btn" href="formation.html" style="background:white;color:#174d3a;">
+    Découvrir les formations
+  </a>
 </header>
 
 <nav>
-<a href="#accueil">Accueil</a>
-<a href="formation.html">Formation</a>
-<a href="#cours">Cours</a>
-<a href="#bibliotheque">Bibliothèque</a>
-<a href="#recherche">Recherche</a>
-<a href="#pays">Pays</a>
+  <a href="index.html">Accueil</a>
+  <a href="formation.html">Formation</a>
+  <a href="#cours">Cours</a>
+  <a href="#bibliotheque">Bibliothèque</a>
+  <a href="#recherche">Recherche</a>
+  <a href="#pays">Pays</a>
 </nav>
 
 <main>
 
 <section>
-<h2>Bienvenue sur WiderWay</h2>
-<p>
-WiderWay est une plateforme éducative et scientifique gratuite
-destinée aux étudiants, enseignants et passionnés de savoir.
-</p>
-<p>
-Notre ambition est de faciliter l'accès aux ressources universitaires
-en Afrique et dans le monde.
-</p>
-<a class="btn" href="formation.html">Découvrir les formations</a>
+  <h2>Bienvenue sur WiderWay</h2>
+  <p>
+    WiderWay est une plateforme éducative et scientifique gratuite
+    destinée aux étudiants, enseignants, chercheurs et passionnés de savoir.
+  </p>
+  <p>
+    Notre ambition est de faciliter l'accès aux ressources universitaires
+    en Afrique et dans le monde.
+  </p>
+  <a class="btn" href="formation.html">Explorer les formations</a>
 </section>
 
 <section id="cours">
-<h2>Nos cours universitaires</h2>
-<p>Explore les ressources selon ta discipline et ton niveau.</p>
-<div class="grid">
-<div class="card">
-<h3>Sciences de la vie et de la Terre</h3>
-<p>Biologie, géologie, écologie et environnement.</p>
-<a class="btn" href="formation.html#filieres">Explorer</a>
-</div>
-<div class="card">
-<h3>Sciences fondamentales</h3>
-<p>Mathématiques, physique et chimie.</p>
-<a class="btn" href="formation.html#filieres">Explorer</a>
-</div>
-<div class="card">
-<h3>Informatique</h3>
-<p>Programmation, réseaux et systèmes.</p>
-<a class="btn" href="formation.html#filieres">Explorer</a>
-</div>
-<div class="card">
-<h3>Autres disciplines</h3>
-<p>Droit, santé, économie, lettres et ingénierie.</p>
-<a class="btn" href="formation.html#filieres">Explorer</a>
-</div>
-</div>
+  <h2>Nos cours universitaires</h2>
+  <p>Explore les ressources selon ta discipline et ton niveau.</p>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>Sciences de la vie et de la Terre</h3>
+      <p>Biologie, géologie, écologie et environnement.</p>
+      <a class="btn" href="formation.html#filieres">Explorer</a>
+    </div>
+
+    <div class="card">
+      <h3>Sciences fondamentales</h3>
+      <p>Mathématiques, physique et chimie.</p>
+      <a class="btn" href="formation.html#filieres">Explorer</a>
+    </div>
+
+    <div class="card">
+      <h3>Informatique</h3>
+      <p>Programmation, réseaux et systèmes.</p>
+      <a class="btn" href="formation.html#filieres">Explorer</a>
+    </div>
+
+    <div class="card">
+      <h3>Autres disciplines</h3>
+      <p>Droit, santé, économie, lettres et ingénierie.</p>
+      <a class="btn" href="formation.html#filieres">Explorer</a>
+    </div>
+
+  </div>
 </section>
 
 <section id="bibliotheque">
-<h2>Bibliothèque universitaire</h2>
-<p>Un espace destiné à accueillir progressivement :</p>
-<div class="grid">
-<div class="card">
-<h3>Résumés</h3>
-<p>Fiches synthétiques pour faciliter les révisions.</p>
-</div>
-<div class="card">
-<h3>Exercices</h3>
-<p>Travaux pratiques, applications et corrections.</p>
-</div>
-<div class="card">
-<h3>Documents</h3>
-<p>Supports de cours et documents pédagogiques.</p>
-</div>
-<div class="card">
-<h3>Livres et références</h3>
-<p>Ressources documentaires et scientifiques.</p>
-</div>
-</div>
+  <h2>Bibliothèque universitaire</h2>
+  <p>Un espace destiné à accueillir progressivement :</p>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>Résumés</h3>
+      <p>Fiches synthétiques pour faciliter les révisions.</p>
+    </div>
+
+    <div class="card">
+      <h3>Exercices</h3>
+      <p>Applications et exercices pour s'entraîner.</p>
+    </div>
+
+    <div class="card">
+      <h3>Corrections</h3>
+      <p>Solutions détaillées pour mieux comprendre.</p>
+    </div>
+
+    <div class="card">
+      <h3>Documents</h3>
+      <p>Supports de cours et références scientifiques.</p>
+    </div>
+
+  </div>
 </section>
 
 <section id="pays">
-<h2>Les ressources par pays</h2>
-<p>Commence par choisir un pays pour retrouver les formations et universités disponibles.</p>
-<div class="grid">
-<div class="card"><h3>Burkina Faso</h3><p>première étape du projet.</p><a class="btn"href="burkina-faso.html">Explorer le Burkina Faso</a><div>
-<div class="card"><h3>Côte d'Ivoire</h3></div>
-<div class="card"><h3>Sénégal</h3></div>
-<div class="card"><h3>Mali</h3></div>
-<div class="card"><h3>Bénin</h3></div>
-<div class="card"><h3>Niger</h3></div>
-<div class="card"><h3>Ghana</h3></div>
-<div class="card"><h3>Togo</h3></div>
-</div>
-<p>Notre objectif : couvrir progressivement les 54 pays africains.</p>
+  <h2>Les ressources par pays</h2>
+  <p>
+    Choisis un pays pour retrouver progressivement les formations,
+    les disciplines et les ressources universitaires disponibles.
+  </p>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>Burkina Faso</h3>
+      <p>Première étape du projet WiderWay.</p>
+      <a class="btn" href="burkina-faso.html">Explorer le Burkina Faso</a>
+    </div>
+
+    <div class="card">
+      <h3>Côte d'Ivoire</h3>
+      <p>Ressources universitaires à venir.</p>
+    </div>
+
+    <div class="card">
+      <h3>Sénégal</h3>
+      <p>Ressources universitaires à venir.</p>
+    </div>
+
+    <div class="card">
+      <h3>Mali</h3>
+      <p>Ressources universitaires à venir.</p>
+    </div>
+
+    <div class="card">
+      <h3>Bénin</h3>
+      <p>Ressources universitaires à venir.</p>
+    </div>
+
+    <div class="card">
+      <h3>Niger</h3>
+      <p>Ressources universitaires à venir.</p>
+    </div>
+
+    <div class="card">
+      <h3>Ghana</h3>
+      <p>Ressources universitaires à venir.</p>
+    </div>
+
+    <div class="card">
+      <h3>Togo</h3>
+      <p>Ressources universitaires à venir.</p>
+    </div>
+
+  </div>
+
+  <p>Notre objectif : couvrir progressivement les 54 pays africains.</p>
 </section>
 
 <section id="recherche">
-<h2>Rechercher une ressource</h2>
-<p>Recherche un cours, une filière ou une discipline dans les rubriques disponibles.</p>
-<input type="text" id="search" placeholder="Exemple : biologie, mathématiques, géologie...">
-<p id="resultat"></p>
+  <h2>Rechercher une ressource</h2>
+  <p>
+    Recherche une discipline, un pays ou une formation
+    parmi les rubriques de la page d'accueil.
+  </p>
+
+  <input
+    type="search"
+    id="search"
+    placeholder="Exemple : biologie, Burkina Faso, mathématiques..."
+  >
+
+  <p id="resultat" aria-live="polite"></p>
 </section>
 
 <section>
-<h2>Notre ambition</h2>
-<p>
-Construire une grande plateforme africaine et internationale
-d'éducation et de recherche scientifique, accessible gratuitement à tous.
-</p>
+  <h2>Notre ambition</h2>
+  <p>
+    Construire une grande plateforme africaine et internationale
+    d'éducation et de recherche scientifique, accessible gratuitement à tous.
+  </p>
+  <p>
+    WiderWay veut faciliter le partage des connaissances et encourager
+    la réussite universitaire ainsi que la recherche scientifique.
+  </p>
 </section>
 
 </main>
 
 <footer>
-<h3>WiderWay</h3>
-<p>Éducation • Science • Recherche</p>
-<p>Une plateforme gratuite pour apprendre et découvrir.</p>
-<p>© 2026 WiderWay</p>
+  <h3>WiderWay</h3>
+  <p>Éducation • Science • Recherche</p>
+  <p>Une plateforme gratuite pour apprendre et découvrir.</p>
+  <p>Afrique et monde entier</p>
+  <p>© 2026 WiderWay</p>
 </footer>
 
 <script>
@@ -214,14 +337,17 @@ const search = document.getElementById("search");
 const resultat = document.getElementById("resultat");
 
 search.addEventListener("input", function() {
-  const mot = search.value.toLowerCase();
+  const mot = search.value.toLowerCase().trim();
   const cartes = document.querySelectorAll(".card");
   let nombre = 0;
 
   cartes.forEach(function(carte) {
     const visible = carte.textContent.toLowerCase().includes(mot);
-    carte.style.display = visible ? "block" : "none";
-    if (visible && mot !== "") nombre++;
+    carte.style.display = visible ? "" : "none";
+
+    if (visible && mot !== "") {
+      nombre++;
+    }
   });
 
   if (mot === "") {
@@ -229,7 +355,7 @@ search.addEventListener("input", function() {
   } else if (nombre > 0) {
     resultat.textContent = nombre + " résultat(s) trouvé(s).";
   } else {
-    resultat.textContent = "Aucune ressource trouvée pour le moment.";
+    resultat.textContent = "Aucun résultat trouvé sur cette page.";
   }
 });
 </script>
