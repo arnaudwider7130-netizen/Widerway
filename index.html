@@ -1,84 +1,83 @@
-index.html<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WiderWay - Éducation et Recherche</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f7fb;
-            color: #183153;
-        }
-        header {
-            background: #123b63;
-            color: white;
-            padding: 25px;
-            text-align: center;
-        }
-        nav {
-            background: #087e8b;
-            padding: 15px;
-            text-align: center;
-        }
-        nav a {
-            color: white;
-            margin: 12px;
-            text-decoration: none;
-        }
-        .hero {
-            text-align: center;
-            padding: 65px 20px;
-        }
-        .hero h2 {
-            font-size: 32px;
-        }
-        .hero p {
-            font-size: 18px;
-        }
-        .button {
-            display: inline-block;
-            background: #087e8b;
-            color: white;
-            padding: 14px 25px;
-            text-decoration: none;
-            border-radius: 6px;
-        }
-        footer {
-            background: #123b63;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WiderWay | Éducation et Recherche</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f5f8f6;color:#183153;line-height:1.6}
+header{background:#123b63;color:white;padding:20px 7%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.logo{font-size:27px;font-weight:bold}
+.logo span{color:#39b66a}
+nav a{color:white;text-decoration:none;margin:8px;font-size:14px}
+.hero{background:linear-gradient(120deg,#123b63,#087e65);color:white;text-align:center;padding:85px 20px}
+.hero h1{font-size:38px;margin-bottom:15px}
+.hero p{max-width:650px;margin:0 auto 25px}
+.btn{display:inline-block;background:#35a85b;color:white;padding:13px 25px;border-radius:6px;text-decoration:none;font-weight:bold}
+section{padding:55px 7%}
+h2{text-align:center;margin-bottom:25px;color:#123b63;font-size:28px}
+.intro{text-align:center;max-width:750px;margin:auto}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:30px}
+.card{background:white;padding:25px;border-radius:10px;box-shadow:0 3px 12px #00000012;border-bottom:4px solid #16834a}
+.card h3{color:#16834a;margin-bottom:10px}
+.mission{background:#e7f3eb;text-align:center}
+footer{background:#123b63;color:white;text-align:center;padding:25px}
+footer span{color:#45c779}
+@media(max-width:600px){header{justify-content:center;text-align:center;gap:12px}.hero h1{font-size:29px}nav{line-height:2}}
+</style>
 </head>
 <body>
 
 <header>
-    <h1>WiderWay</h1>
-    <p>Le savoir ouvre toutes les voies</p>
+<div class="logo">Wider<span>Way</span></div>
+<nav>
+<a href="#accueil">Accueil</a>
+<a href="#cours">Cours</a>
+<a href="#bibliotheque">Bibliothèque</a>
+<a href="#recherche">Recherche</a>
+</nav>
 </header>
 
-<nav>
-    <a href="#">Accueil</a>
-    <a href="#">Cours</a>
-    <a href="#">Recherche</a>
-    <a href="#">À propos</a>
-</nav>
+<section class="hero" id="accueil">
+<h1>Le savoir ouvre toutes les voies</h1>
+<p>Bienvenue sur WiderWay, une plateforme gratuite dédiée à l'éducation, au partage des connaissances et à la recherche scientifique en Afrique et dans le monde.</p>
+<a class="btn" href="#cours">Explorer les cours</a>
+</section>
 
-<section class="hero">
-    <h2>Bienvenue sur WiderWay</h2>
-    <p>Une plateforme gratuite dédiée à l'éducation
-    et à la recherche scientifique.</p>
-    <p>Apprenons, découvrons et construisons
-    ensemble l'avenir de l'Afrique.</p>
-    <a href="#" class="button">Découvrir les cours</a>
+<section>
+<h2>Bienvenue sur WiderWay</h2>
+<p class="intro">Notre ambition est de rendre le savoir accessible à tous, de valoriser les connaissances africaines et de soutenir les étudiants, les enseignants et les chercheurs.</p>
+</section>
+
+<section id="cours">
+<h2>Formation universitaire</h2>
+<div class="cards">
+<div class="card"><h3>Sciences de la Vie et de la Terre</h3><p>Cours, résumés et exercices pour accompagner les étudiants en SVT.</p></div>
+<div class="card"><h3>Sciences fondamentales</h3><p>Mathématiques, physique, chimie et autres disciplines scientifiques.</p></div>
+<div class="card"><h3>Autres disciplines</h3><p>Des ressources universitaires pour différents domaines d'études.</p></div>
+</div>
+</section>
+
+<section id="bibliotheque">
+<h2>Bibliothèque numérique</h2>
+<p class="intro">Un espace destiné à accueillir des cours, des documents pédagogiques, des livres libres de droits et des ressources scientifiques.</p>
+</section>
+
+<section id="recherche" class="mission">
+<h2>Recherche scientifique</h2>
+<p class="intro">WiderWay souhaite encourager la curiosité scientifique, le partage des découvertes et la collaboration entre chercheurs.</p>
+</section>
+
+<section class="mission">
+<h2>Notre mission</h2>
+<p class="intro">Construire un espace numérique ouvert où chacun peut apprendre, enseigner, découvrir et contribuer au progrès scientifique.</p>
 </section>
 
 <footer>
-    <p>© 2026 WiderWay - Tous droits réservés</p>
-    <p>Éducation • Science • Innovation</p>
+<p><span>WiderWay</span> — Le savoir ouvre toutes les voies.</p>
+<p>Éducation • Science • Innovation</p>
+<p>© 2026 WiderWay. Tous droits réservés.</p>
 </footer>
 
 </body>
