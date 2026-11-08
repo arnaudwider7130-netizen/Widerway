@@ -1,62 +1,72 @@
-formation.html<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Formation universitaire - WiderWay</title>
 <style>
+* { box-sizing: border-box; }
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #f4f7f6;
-  color: #172b3a;
+  color: #173047;
 }
 header {
   background: #102b46;
   color: white;
-  padding: 25px 15px;
   text-align: center;
+  padding: 30px 15px;
 }
-header h1 { margin: 0; }
 nav {
   background: #174d3a;
-  padding: 14px;
+  padding: 15px;
   text-align: center;
 }
 nav a {
   color: white;
   text-decoration: none;
-  margin: 10px;
+  margin: 8px;
+  font-weight: bold;
 }
 main {
   max-width: 1000px;
   margin: auto;
   padding: 20px;
 }
-.intro, .section {
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Formation universitaire | WiderWay</title>
-<style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f4f7f6;color:#173047}
-header{background:#102b46;color:white;text-align:center;padding:30px 15px}
-header h1{margin:0;font-size:32px}
-nav{background:#174d3a;padding:15px;text-align:center}
-nav a{color:white;text-decoration:none;margin:8px;font-weight:bold}
-main{max-width:1000px;margin:auto;padding:20px}
-.intro,.section{background:white;padding:22px;margin:18px 0;border-radius:12px}
-h2{color:#174d3a}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px}
-.item{background:#eef5f1;padding:18px;border-radius:10px;text-align:center}
-.item h3{margin-top:5px}
-.btn{display:inline-block;background:#174d3a;color:white;padding:11px 18px;border-radius:7px;text-decoration:none;margin-top:8px}
-.btn:hover{background:#102b46}
-.note{background:#fff6dc;padding:15px;border-radius:8px}
-footer{background:#102b46;color:white;text-align:center;padding:22px;margin-top:30px}
+.section {
+  background: white;
+  padding: 22px;
+  margin: 18px 0;
+  border-radius: 12px;
+}
+h2 { color: #174d3a; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(210px,1fr));
+  gap: 15px;
+}
+.item {
+  background: #eef5f1;
+  padding: 18px;
+  border-radius: 10px;
+  text-align: center;
+}
+.btn {
+  display: inline-block;
+  background: #174d3a;
+  color: white;
+  padding: 11px 18px;
+  border-radius: 7px;
+  text-decoration: none;
+  margin-top: 8px;
+}
+footer {
+  background: #102b46;
+  color: white;
+  text-align: center;
+  padding: 22px;
+}
 </style>
 </head>
 <body>
@@ -75,11 +85,10 @@ footer{background:#102b46;color:white;text-align:center;padding:22px;margin-top:
 
 <main>
 
-<section class="intro">
+<section class="section">
 <h2>Formation universitaire en Afrique</h2>
-<p>Bienvenue sur l'espace de formation universitaire de WiderWay.
-Retrouvez progressivement des ressources pédagogiques issues des universités africaines.</p>
-<p>Choisissez votre niveau, votre filière et votre pays pour explorer les formations.</p>
+<p>Bienvenue sur WiderWay, une plateforme gratuite pour apprendre et découvrir.</p>
+<p>Choisissez votre niveau, votre filière et votre pays.</p>
 </section>
 
 <section class="section">
@@ -107,11 +116,11 @@ Retrouvez progressivement des ressources pédagogiques issues des universités a
 <h2>2. Choisir sa filière</h2>
 <div class="grid">
 <div class="item"><h3>Sciences de la vie et de la Terre</h3><p>Biologie, géologie, écologie</p></div>
-<div class="item"><h3>Sciences et technologies</h3><p>Mathématiques, physique, chimie</p></div>
+<div class="item"><h3>Sciences fondamentales</h3><p>Mathématiques, physique, chimie</p></div>
 <div class="item"><h3>Informatique</h3><p>Programmation, réseaux, systèmes</p></div>
-<div class="item"><h3>Santé</h3><p>Médecine et sciences de la santé</p></div>
+<div class="item"><h3>Santé</h3><p>Sciences de la santé</p></div>
 <div class="item"><h3>Droit</h3><p>Droit public et privé</p></div>
-<div class="item"><h3>Économie et gestion</h3><p>Économie, gestion, comptabilité</p></div>
+<div class="item"><h3>Économie et gestion</h3><p>Économie et comptabilité</p></div>
 <div class="item"><h3>Lettres et langues</h3><p>Littérature et linguistique</p></div>
 <div class="item"><h3>Sciences humaines</h3><p>Sociologie, histoire, géographie</p></div>
 <div class="item"><h3>Agronomie</h3><p>Agriculture et environnement</p></div>
@@ -131,13 +140,12 @@ Retrouvez progressivement des ressources pédagogiques issues des universités a
 <div class="item"><h3>Ghana</h3></div>
 <div class="item"><h3>Togo</h3></div>
 </div>
-<p class="note">Notre ambition est de couvrir les 54 pays africains. Les autres pays et leurs ressources seront ajoutés progressivement.</p>
+<p>Notre ambition est de couvrir les 54 pays africains.</p>
 </section>
 
 <section class="section">
 <h2>4. Accéder aux ressources</h2>
 <p>Les cours seront organisés par pays, université, filière, niveau et semestre.</p>
-<p>Chaque ressource précisera son établissement d'origine et sa date de publication.</p>
 </section>
 
 </main>
