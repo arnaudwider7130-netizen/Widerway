@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Accédez aux cours universitaires du Burkina Faso sur WiderWay.">
+  <title>Niveaux universitaires | WiderWay</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #172b4d;
+    }
+    header {
+      background: #123b63;
+      color: white;
+      padding: 25px 15px;
+      text-align: center;
+    }
+    nav {
+      background: #0b2945;
+      padding: 13px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 25px 15px;
+    }
+    .intro, .card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 18px;
+      box-shadow: 0 2px 8px #00000010;
+    }
+    .levels {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+    }
+    .card h3 { color: #123b63; }
+    .btn {
+      display: inline-block;
+      background: #087b55;
+      color: white;
+      padding: 11px 17px;
+      border-radius: 7px;
+      text-decoration: none;
+      margin-top: 8px;
+    }
+    .btn:hover { background: #065c40; }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #123b63;
+      color: white;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>WiderWay</h1>
+  <p>Apprendre, comprendre et faire avancer la science</p>
+</header>
+
+<nav>
+  <a href="index.html">Accueil</a>
+  <a href="burkina-faso.html">Burkina Faso</a>
+  <a href="filieres-burkina.html">Filières</a>
+</nav>
+
+<main>
+  <section class="intro">
+    <h2 id="titre">Choisissez votre niveau universitaire</h2>
+    <p>
+      Retrouvez progressivement les cours, résumés, exercices,
+      corrigés et documents de chaque niveau.
+    </p>
+  </section>
+
+  <section class="levels">
+    <article class="card">
+      <h3>Licence 1 (L1)</h3>
+      <p>Ressources pour la première année universitaire.</p>
+      <a class="btn" href="#semestres" onclick="choisirNiveau('L1')">Choisir L1</a>
+    </article>
+
+    <article class="card">
+      <h3>Licence 2 (L2)</h3>
+      <p>Ressources pour la deuxième année universitaire.</p>
+      <a class="btn" href="#semestres" onclick="choisirNiveau('L2')">Choisir L2</a>
+    </article>
+
+    <article class="card">
+      <h3>Licence 3 (L3)</h3>
+      <p>Ressources pour la troisième année universitaire.</p>
+      <a class="btn" href="#semestres" onclick="choisirNiveau('L3')">Choisir L3</a>
+    </article>
+  </section>
+
+  <section class="intro" id="semestres" hidden>
+    <h2 id="niveauChoisi">Choisissez votre semestre</h2>
+    <p>Sélectionnez le semestre pour accéder aux ressources.</p>
+    <a class="btn" href="javascript:void(0)" onclick="choisirSemestre('S1')">Semestre 1 (S1)</a>
+    <a class="btn" href="javascript:void(0)" onclick="choisirSemestre('S2')">Semestre 2 (S2)</a>
+    <p id="message"></p>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 WiderWay — Éducation et recherche pour tous.</p>
+</footer>
+
+<script>
+  let niveauActuel = "";
+
+  function choisirNiveau(niveau) {
+    niveauActuel = niveau;
+    document.getElementById("semestres").hidden = false;
+    document.getElementById("niveauChoisi").textContent =
+      "Niveau " + niveau + " : choisissez votre semestre";
+  }
+
+  function choisirSemestre(semestre) {
+    document.getElementById("message").textContent =
+      "Vous avez choisi " + niveauActuel + " - " + semestre +
+      ". Les ressources de cette sélection seront organisées ici.";
+  }
+</script>
+
+</body>
+</html>
