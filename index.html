@@ -2,195 +2,178 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="WiderWay : plateforme gratuite d'éducation et de recherche scientifique pour l'Afrique et le monde.">
-  <title>WiderWay | Éducation et Recherche</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial, sans-serif; background: #f4f7fb; color: #17243a; line-height: 1.6; }
-    header { background: #10264a; color: white; padding: 20px 6%; }
-    .brand { font-size: 27px; font-weight: bold; color: #f4c542; }
-    .brand span { color: white; }
-    nav { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
-    nav a { color: white; text-decoration: none; padding: 8px 12px; border-radius: 5px; }
-    nav a:hover { background: #244a78; }
-    .hero { background: linear-gradient(120deg,#10264a,#176b70); color: white; padding: 65px 7%; text-align: center; }
-    .hero h1 { font-size: 34px; margin-bottom: 15px; }
-    .hero p { max-width: 700px; margin: auto; }
-    .btn { display: inline-block; margin-top: 22px; padding: 12px 22px; background: #f4c542; color: #10264a; border-radius: 6px; text-decoration: none; font-weight: bold; }
-    main { padding: 35px 6%; }
-    section { margin-bottom: 45px; scroll-margin-top: 20px; }
-    h2 { color: #10264a; margin-bottom: 18px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 18px; }
-    .card { background: white; padding: 22px; border-radius: 10px; box-shadow: 0 3px 12px #152b4812; }
-    .card h3 { color: #176b70; margin-bottom: 10px; }
-    .card a { color: #176b70; font-weight: bold; text-decoration: none; }
-    .card a:hover { text-decoration: underline; }
-    .subsection { margin-top: 20px; }
-    .subjects { display: grid; grid-template-columns: repeat(auto-fit,minmax(190px,1fr)); gap: 12px; }
-    .subject { background: white; padding: 14px; border-left: 4px solid #176b70; border-radius: 5px; }
-    .subject a { text-decoration: none; color: #17243a; }
-    .search { width: 100%; max-width: 500px; padding: 12px; border: 1px solid #ccd4df; border-radius: 6px; margin: 10px 0 20px; font-size: 16px; }
-    footer { background: #10264a; color: white; text-align: center; padding: 25px; }
-    footer span { color: #f4c542; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WiderWay - Savoir et Recherche</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f6fa;color:#17243a}
+header{background:#10264a;color:white;padding:20px 6%}
+.logo{font-size:28px;font-weight:bold;color:#f4c542}
+.logo span{color:white}
+nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+nav a{color:white;text-decoration:none;padding:9px;border-radius:5px}
+nav a:hover{background:#294c75}
+.hero{background:linear-gradient(120deg,#10264a,#176b70);color:white;text-align:center;padding:55px 15px}
+.hero h1{font-size:32px}
+main{padding:25px 6%;max-width:1100px;margin:auto}
+h2{color:#10264a}
+button,.link{border:0;background:#176b70;color:white;padding:12px 16px;border-radius:6px;cursor:pointer;font-size:15px;text-decoration:none;display:inline-block;margin:5px}
+button:hover,.link:hover{background:#10264a}
+.card{background:white;padding:18px;border-radius:10px;box-shadow:0 3px 12px #152b4815;margin:10px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.small{color:#65738a;font-size:14px}
+#zone{min-height:250px}
+#filAriane{color:#176b70;margin:15px 0}
+footer{background:#10264a;color:white;text-align:center;padding:25px;margin-top:40px}
+.hidden{display:none}
+input{padding:12px;width:100%;max-width:450px;border:1px solid #ccd4df;border-radius:6px}
+</style>
 </head>
 <body>
 
 <header>
-  <div class="brand">Wider<span>Way</span></div>
-  <p>Le savoir ouvre toutes les voies.</p>
-  <nav>
-    <a href="#accueil">Accueil</a>
-    <a href="#formations">Formations</a>
-    <a href="#cours">Cours</a>
-    <a href="#bibliotheque">Bibliothèque</a>
-    <a href="#recherche">Recherche</a>
-    <a href="#apropos">À propos</a>
-  </nav>
+<div class="logo">Wider<span>Way</span></div>
+<p>Le savoir ouvre toutes les voies.</p>
+<nav>
+<a href="#accueil" onclick="accueil()">Accueil</a>
+<a href="#formations" onclick="ouvrirPays()">Formations</a>
+<a href="#bibliotheque" onclick="bibliotheque()">Bibliothèque</a>
+<a href="#recherche" onclick="recherche()">Recherche</a>
+</nav>
 </header>
 
 <div class="hero" id="accueil">
-  <h1>Bienvenue sur WiderWay</h1>
-  <p>Une plateforme gratuite pour apprendre, partager les connaissances et encourager la recherche scientifique en Afrique et dans le monde.</p>
-  <a class="btn" href="#formations">Découvrir les formations</a>
+<h1>Bienvenue sur WiderWay</h1>
+<p>La plateforme gratuite d'éducation et de recherche scientifique en Afrique et dans le monde.</p>
+<button onclick="ouvrirPays()">Explorer les formations</button>
 </div>
 
 <main>
-  <section id="formations">
-    <h2>Nos formations universitaires</h2>
-    <p>Explore les ressources pédagogiques organisées par domaine et par niveau.</p>
-    <div class="grid">
-      <div class="card">
-        <h3>Sciences de la Vie et de la Terre</h3>
-        <p>Biologie, géologie, écologie et sciences naturelles.</p>
-        <a href="#svt">Explorer les cours →</a>
-      </div>
-      <div class="card">
-        <h3>Sciences fondamentales</h3>
-        <p>Mathématiques, physique, chimie et informatique.</p>
-        <a href="#fondamentales">Explorer les cours →</a>
-      </div>
-      <div class="card">
-        <h3>Autres disciplines</h3>
-        <p>De nouvelles filières seront progressivement intégrées.</p>
-        <a href="#autres">Découvrir →</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="cours">
-    <h2>Les cours universitaires</h2>
-    <p>Commence par choisir une filière et un semestre.</p>
-
-    <div class="subsection" id="svt">
-      <h3>Sciences de la Vie et de la Terre — L1</h3>
-      <div class="grid">
-        <div class="card">
-          <h3>Semestre 1 (S1)</h3>
-          <ul>
-            <li>Biologie cellulaire</li>
-            <li>Embryologie</li>
-            <li>Chimie générale</li>
-            <li>Mathématiques</li>
-            <li>Physique</li>
-            <li>Géologie générale</li>
-            <li>Statistiques</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Semestre 2 (S2)</h3>
-          <ul>
-            <li>Hérédité</li>
-            <li>Matériel héréditaire</li>
-            <li>Biologie animale</li>
-            <li>Biologie végétale</li>
-            <li>Géologie</li>
-            <li>Anglais scientifique</li>
-            <li>Mathématiques et statistiques</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="subsection" id="fondamentales">
-      <h3>Sciences fondamentales</h3>
-      <div class="subjects">
-        <div class="subject">Mathématiques</div>
-        <div class="subject">Physique</div>
-        <div class="subject">Chimie</div>
-        <div class="subject">Informatique</div>
-      </div>
-    </div>
-
-    <div class="subsection" id="autres">
-      <h3>Autres disciplines</h3>
-      <p>Cette partie accueillera progressivement de nouvelles filières universitaires.</p>
-    </div>
-  </section>
-
-  <section id="bibliotheque">
-    <h2>Bibliothèque numérique</h2>
-    <input class="search" id="rechercheCours" type="search" placeholder="Rechercher une matière..." oninput="filtrerCours()">
-    <div class="subjects" id="listeRessources">
-      <div class="subject">Cours universitaires</div>
-      <div class="subject">Résumés de cours</div>
-      <div class="subject">Exercices corrigés</div>
-      <div class="subject">Fiches de révision</div>
-      <div class="subject">Travaux pratiques</div>
-      <div class="subject">Documents scientifiques</div>
-    </div>
-    <p id="aucunResultat" hidden>Aucune ressource trouvée.</p>
-  </section>
-
-  <section id="recherche">
-    <h2>Recherche scientifique</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Publications</h3>
-        <p>Un espace destiné aux articles et travaux scientifiques.</p>
-      </div>
-      <div class="card">
-        <h3>Projets de recherche</h3>
-        <p>Découverte et partage de projets scientifiques.</p>
-      </div>
-      <div class="card">
-        <h3>Communauté scientifique</h3>
-        <p>Un espace pour favoriser les échanges entre chercheurs et étudiants.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="apropos">
-    <h2>Notre mission</h2>
-    <div class="card">
-      <p>WiderWay ambitionne de rendre le savoir accessible à tous, de soutenir les étudiants et de contribuer au développement de la recherche scientifique en Afrique et à l'international.</p>
-      <p><strong>Notre principe :</strong> un savoir accessible, partagé et gratuit.</p>
-    </div>
-  </section>
+<div id="filAriane"></div>
+<div id="zone">
+<h2>Notre ambition</h2>
+<p>WiderWay facilite l'accès au savoir pour les étudiants, enseignants et chercheurs.</p>
+<div class="grid">
+<div class="card"><h3>Formations universitaires</h3><p>Explore les filières et les cours.</p><button onclick="ouvrirPays()">Explorer</button></div>
+<div class="card"><h3>Bibliothèque numérique</h3><p>Retrouve des ressources pédagogiques.</p><button onclick="bibliotheque()">Accéder</button></div>
+<div class="card"><h3>Recherche scientifique</h3><p>Découvre les projets et publications.</p><button onclick="recherche()">Découvrir</button></div>
+</div>
+</div>
 </main>
 
 <footer>
-  <p>© 2026 <span>WiderWay</span> — Éducation, savoir et recherche pour tous.</p>
-  <p>Une plateforme gratuite ouverte sur le monde.</p>
+<p>© 2026 <strong>WiderWay</strong></p>
+<p>Éducation, savoir et recherche pour tous.</p>
 </footer>
 
 <script>
-function filtrerCours() {
-  const recherche = document.getElementById("rechercheCours").value.toLowerCase();
-  const elements = document.querySelectorAll("#listeRessources .subject");
-  let visibles = 0;
+const donnees={
+"Burkina Faso":{
+"Université Joseph Ki-Zerbo":{
+"Sciences de la Vie et de la Terre":{
+"L1":{
+"S1":["Biologie cellulaire","Embryologie","Chimie générale","Mathématiques","Physique","Géologie générale","Statistiques"],
+"S2":["Hérédité","Matériel héréditaire","Biologie animale","Biologie végétale","Géologie","Anglais scientifique","Mathématiques et statistiques"]
+},
+"L2":{"S3":[],"S4":[]},
+"L3":{"S5":[],"S6":[]}
+},
+"Sciences fondamentales":{
+"L1":{"S1":["Mathématiques","Physique","Chimie"],"S2":["Mathématiques","Physique","Chimie"]},
+"L2":{"S3":[],"S4":[]},
+"L3":{"S5":[],"S6":[]}
+}
+}
+}
+};
 
-  elements.forEach(element => {
-    const correspond = element.textContent.toLowerCase().includes(recherche);
-    element.style.display = correspond ? "block" : "none";
-    if (correspond) visibles++;
-  });
+let paysChoisi="",universiteChoisie="",filiereChoisie="",niveauChoisi="",semestreChoisi="",matiereChoisie="";
 
-  document.getElementById("aucunResultat").hidden = visibles !== 0;
+function afficher(titre,contenu,chemin=""){
+document.getElementById("zone").innerHTML="<h2>"+titre+"</h2>"+contenu;
+document.getElementById("filAriane").innerHTML=chemin;
+window.scrollTo({top:document.querySelector("main").offsetTop,behavior:"smooth"});
+}
+function bouton(nom,fonction){
+return '<button onclick="'+fonction+'">'+nom+'</button>';
+}
+function accueil(){
+document.getElementById("accueil").scrollIntoView({behavior:"smooth"});
+}
+function ouvrirPays(){
+let html='<p>Choisis un pays pour découvrir les formations disponibles.</p><div class="grid">';
+html+='<div class="card"><h3>🇧🇫 Burkina Faso</h3><p>Formations universitaires</p>'+bouton("Explorer","ouvrirUniversites('Burkina Faso')")+'</div>';
+html+='<div class="card"><h3>🌍 Autres pays africains</h3><p>Prochainement disponibles.</p></div>';
+html+='<div class="card"><h3>🌐 International</h3><p>Formations internationales à intégrer.</p></div></div>';
+afficher("Choisir un pays",html,"Accueil → Formations");
+}
+function ouvrirUniversites(pays){
+paysChoisi=pays;
+let html='<div class="card"><h3>Université Joseph Ki-Zerbo</h3><p>Ouagadougou, Burkina Faso</p>'+bouton("Voir les filières","ouvrirFilieres()")+'</div>';
+afficher(pays,html,"Accueil → "+pays);
+}
+function ouvrirFilieres(){
+let liste=donnees[paysChoisi][ "Université Joseph Ki-Zerbo"];
+let html='<p>Choisis une filière universitaire.</p><div class="grid">';
+Object.keys(liste).forEach(f=>{
+html+='<div class="card"><h3>'+f+'</h3>'+bouton("Explorer cette filière","ouvrirNiveaux("+JSON.stringify(f)+")")+'</div>';
+});
+html+='</div>';
+afficher("Filières universitaires",html,paysChoisi+" → Universités");
+}
+function ouvrirNiveaux(f){
+filiereChoisie=f;
+let html='<p>Choisis ton niveau d’études.</p><div class="grid">';
+Object.keys(donnees[paysChoisi]["Université Joseph Ki-Zerbo"][f]).forEach(n=>{
+html+='<div class="card"><h3>'+n+'</h3>'+bouton("Voir les semestres","ouvrirSemestres("+JSON.stringify(n)+")")+'</div>';
+});
+html+='</div>';
+afficher(f,html,paysChoisi+" → "+f);
+}
+function ouvrirSemestres(n){
+niveauChoisi=n;
+let semestres=donnees[paysChoisi]["Université Joseph Ki-Zerbo"][filiereChoisie][n];
+let html='<div class="grid">';
+Object.keys(semestres).forEach(s=>{
+html+='<div class="card"><h3>'+s+'</h3>'+bouton("Voir les matières","ouvrirMatieres("+JSON.stringify(s)+")")+'</div>';
+});
+html+='</div>';
+afficher(niveauChoisi,html,filiereChoisie+" → "+n);
+}
+function ouvrirMatieres(s){
+semestreChoisi=s;
+let matieres=donnees[paysChoisi]["Université Joseph Ki-Zerbo"][filiereChoisie][niveauChoisi][s];
+let html='<div class="grid">';
+if(!matieres.length)html='<p>Les matières de ce semestre seront ajoutées prochainement.</p>';
+matieres.forEach(m=>{
+html+='<div class="card"><h3>'+m+'</h3>'+bouton("Accéder à la matière","ouvrirMatiere("+JSON.stringify(m)+")")+'</div>';
+});
+html+='</div>';
+afficher(s,html,niveauChoisi+" → "+s);
+}
+function ouvrirMatiere(m){
+matiereChoisie=m;
+let html='<div class="grid">';
+["Cours","Résumé","Exercices","Documents PDF"].forEach(r=>{
+html+='<div class="card"><h3>'+r+'</h3><p>Les ressources de cette matière seront ajoutées ici.</p></div>';
+});
+html+='</div>';
+afficher(m,html,filiereChoisie+" → "+niveauChoisi+" → "+semestreChoisi+" → "+m);
+}
+function bibliotheque(){
+afficher("Bibliothèque numérique",'<p>Retrouve ici les ressources pédagogiques de WiderWay.</p><input id="recherche" placeholder="Rechercher une matière ou une ressource..." oninput="filtrer()"><div id="resultats" class="grid"></div><p class="small">Les documents seront progressivement ajoutés.</p>',"Accueil → Bibliothèque");
+}
+function filtrer(){
+let q=document.getElementById("recherche").value.toLowerCase();
+let toutes=[];
+Object.values(donnees).forEach(p=>Object.values(p).forEach(u=>Object.values(u).forEach(f=>Object.values(f).forEach(n=>Object.values(n).forEach(s=>s.forEach(m=>toutes.push(m)))))));
+let r=toutes.filter(m=>m.toLowerCase().includes(q));
+document.getElementById("resultats").innerHTML=r.map(m=>'<div class="card">'+m+'</div>').join("")||"Aucune matière trouvée.";
+}
+function recherche(){
+afficher("Recherche scientifique",'<div class="card"><h3>Publications scientifiques</h3><p>Un espace pour partager des articles et travaux scientifiques.</p></div><div class="card"><h3>Projets de recherche</h3><p>Un espace pour présenter des projets et découvertes.</p></div><div class="card"><h3>Communauté scientifique</h3><p>Favoriser les échanges entre étudiants, enseignants et chercheurs.</p></div>',"Accueil → Recherche");
 }
 </script>
-
 </body>
 </html>
