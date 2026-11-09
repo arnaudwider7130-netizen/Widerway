@@ -3,69 +3,112 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Accédez aux cours universitaires du Burkina Faso sur WiderWay.">
-  <title>Niveaux universitaires | WiderWay</title>
+  <meta name="description" content="Cours universitaires gratuits du Burkina Faso sur WiderWay.">
+  <title>Parcours universitaire | WiderWay</title>
+
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: #f4f7fb;
-      color: #172b4d;
+      color: #243447;
+      line-height: 1.6;
     }
+
     header {
       background: #123b63;
       color: white;
       padding: 25px 15px;
       text-align: center;
     }
+
+    header h1 {
+      margin: 0;
+    }
+
     nav {
       background: #0b2945;
       padding: 13px;
       text-align: center;
     }
+
     nav a {
       color: white;
       text-decoration: none;
-      margin: 0 10px;
+      margin: 5px 10px;
+      display: inline-block;
     }
+
     main {
       max-width: 1000px;
       margin: auto;
-      padding: 25px 15px;
+      padding: 22px 15px;
     }
-    .intro, .card {
+
+    .intro, .card, .resources {
       background: white;
       padding: 20px;
       border-radius: 12px;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
       box-shadow: 0 2px 8px #00000010;
     }
-    .levels {
+
+    h2, h3 {
+      color: #123b63;
+    }
+
+    .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 15px;
     }
-    .card h3 { color: #123b63; }
+
     .btn {
       display: inline-block;
       background: #087b55;
       color: white;
-      padding: 11px 17px;
-      border-radius: 7px;
       text-decoration: none;
-      margin-top: 8px;
+      border: none;
+      padding: 11px 16px;
+      border-radius: 7px;
+      cursor: pointer;
+      margin: 5px;
+      font-size: 15px;
     }
-    .btn:hover { background: #065c40; }
+
+    .btn:hover {
+      background: #065c40;
+    }
+
+    .selected {
+      background: #123b63;
+    }
+
+    .notice {
+      background: #eaf3ff;
+      padding: 15px;
+      border-left: 4px solid #123b63;
+      border-radius: 6px;
+    }
+
     footer {
-      text-align: center;
-      padding: 20px;
       background: #123b63;
       color: white;
+      text-align: center;
+      padding: 20px;
       margin-top: 30px;
+    }
+
+    [hidden] {
+      display: none !important;
     }
   </style>
 </head>
+
 <body>
 
 <header>
@@ -80,41 +123,93 @@
 </nav>
 
 <main>
+
   <section class="intro">
-    <h2 id="titre">Choisissez votre niveau universitaire</h2>
+    <h2 id="titreFiliere">Votre parcours universitaire</h2>
     <p>
-      Retrouvez progressivement les cours, résumés, exercices,
-      corrigés et documents de chaque niveau.
+      Choisissez votre niveau et votre semestre pour préparer
+      l'accès aux ressources pédagogiques.
+    </p>
+    <p class="notice">
+      Les ressources seront progressivement ajoutées et vérifiées
+      pour chaque filière.
     </p>
   </section>
 
-  <section class="levels">
-    <article class="card">
-      <h3>Licence 1 (L1)</h3>
-      <p>Ressources pour la première année universitaire.</p>
-      <a class="btn" href="#semestres" onclick="choisirNiveau('L1')">Choisir L1</a>
-    </article>
+  <section class="card">
+    <h2>1. Choisissez votre niveau</h2>
 
-    <article class="card">
-      <h3>Licence 2 (L2)</h3>
-      <p>Ressources pour la deuxième année universitaire.</p>
-      <a class="btn" href="#semestres" onclick="choisirNiveau('L2')">Choisir L2</a>
-    </article>
+    <div class="grid">
+      <article class="card">
+        <h3>Licence 1</h3>
+        <p>Première année universitaire.</p>
+        <button class="btn" onclick="choisirNiveau('L1')">Choisir L1</button>
+      </article>
 
-    <article class="card">
-      <h3>Licence 3 (L3)</h3>
-      <p>Ressources pour la troisième année universitaire.</p>
-      <a class="btn" href="#semestres" onclick="choisirNiveau('L3')">Choisir L3</a>
-    </article>
+      <article class="card">
+        <h3>Licence 2</h3>
+        <p>Deuxième année universitaire.</p>
+        <button class="btn" onclick="choisirNiveau('L2')">Choisir L2</button>
+      </article>
+
+      <article class="card">
+        <h3>Licence 3</h3>
+        <p>Troisième année universitaire.</p>
+        <button class="btn" onclick="choisirNiveau('L3')">Choisir L3</button>
+      </article>
+    </div>
   </section>
 
-  <section class="intro" id="semestres" hidden>
-    <h2 id="niveauChoisi">Choisissez votre semestre</h2>
-    <p>Sélectionnez le semestre pour accéder aux ressources.</p>
-    <a class="btn" href="javascript:void(0)" onclick="choisirSemestre('S1')">Semestre 1 (S1)</a>
-    <a class="btn" href="javascript:void(0)" onclick="choisirSemestre('S2')">Semestre 2 (S2)</a>
-    <p id="message"></p>
+  <section class="card" id="zoneSemestres" hidden>
+    <h2 id="titreNiveau">2. Choisissez votre semestre</h2>
+
+    <button class="btn" onclick="choisirSemestre('S1')">
+      Semestre 1 (S1)
+    </button>
+
+    <button class="btn" onclick="choisirSemestre('S2')">
+      Semestre 2 (S2)
+    </button>
   </section>
+
+  <section class="resources" id="zoneRessources" hidden>
+    <h2>3. Votre espace pédagogique</h2>
+
+    <p id="selection"></p>
+
+    <div class="grid">
+      <article class="card">
+        <h3>Cours</h3>
+        <p>Supports de cours et leçons.</p>
+      </article>
+
+      <article class="card">
+        <h3>Résumés</h3>
+        <p>Fiches synthétiques pour réviser.</p>
+      </article>
+
+      <article class="card">
+        <h3>Exercices</h3>
+        <p>Travaux d'application et entraînements.</p>
+      </article>
+
+      <article class="card">
+        <h3>Corrigés</h3>
+        <p>Corrections et explications des exercices.</p>
+      </article>
+
+      <article class="card">
+        <h3>Documents</h3>
+        <p>Documents pédagogiques complémentaires.</p>
+      </article>
+    </div>
+
+    <p class="notice">
+      Les contenus de cette sélection ne sont pas encore tous disponibles.
+      Ils seront ajoutés progressivement.
+    </p>
+  </section>
+
 </main>
 
 <footer>
@@ -122,19 +217,39 @@
 </footer>
 
 <script>
+  const parametres = new URLSearchParams(window.location.search);
+  const filiere = parametres.get("filiere") || "Filière non précisée";
+
+  document.getElementById("titreFiliere").textContent =
+    "Filière : " + filiere;
+
   let niveauActuel = "";
 
   function choisirNiveau(niveau) {
     niveauActuel = niveau;
-    document.getElementById("semestres").hidden = false;
-    document.getElementById("niveauChoisi").textContent =
+
+    document.getElementById("zoneSemestres").hidden = false;
+    document.getElementById("zoneRessources").hidden = true;
+
+    document.getElementById("titreNiveau").textContent =
       "Niveau " + niveau + " : choisissez votre semestre";
+
+    document.getElementById("zoneSemestres").scrollIntoView({
+      behavior: "smooth"
+    });
   }
 
   function choisirSemestre(semestre) {
-    document.getElementById("message").textContent =
-      "Vous avez choisi " + niveauActuel + " - " + semestre +
-      ". Les ressources de cette sélection seront organisées ici.";
+    document.getElementById("zoneRessources").hidden = false;
+
+    document.getElementById("selection").textContent =
+      "Filière : " + filiere +
+      " | Niveau : " + niveauActuel +
+      " | Semestre : " + semestre;
+
+    document.getElementById("zoneRessources").scrollIntoView({
+      behavior: "smooth"
+    });
   }
 </script>
 
