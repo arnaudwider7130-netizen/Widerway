@@ -89,10 +89,30 @@ window.scrollTo(0,0);
 }
 
 function makeCard(title,description,action,label="Explorer"){
-return '<div class="card"><h3>'+title+'</h3><p>'+description+'</p><button onclick="'+action+'">'+label+'</button></div>';
-}
+  const card=document.createElement("div");
+  card.className="card";
 
-function home(){
+  const h3=document.createElement("h3");
+  h3.textContent=title;
+
+  const p=document.createElement("p");
+  p.textContent=description;
+
+  const button=document.createElement("button");
+  button.textContent=label;
+
+  button.addEventListener("click",function(){
+    try {
+      new Function(action)();
+    } catch(error) {
+      console.error(error);
+      alert("Une erreur est survenue : "+error.message);
+    }
+  });
+
+  card.append(h3,p,button);
+  return card.outerHTML;
+}
 show("Bienvenue sur WiderWay",
 '<p>Une plateforme gratuite pour apprendre, partager les connaissances et encourager la recherche scientifique.</p>'+
 '<div class="grid">'+
