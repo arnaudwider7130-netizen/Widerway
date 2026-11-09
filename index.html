@@ -119,18 +119,33 @@ show("Universités du Burkina Faso",
 makeCard("Université Joseph Ki-Zerbo","Ouagadougou.","fields()")+
 '</div>',"Burkina Faso → Universités");
 }
+  function fields(){
+  selectedCountry = "Burkina Faso";
+  selectedUniversity = "Université Joseph Ki-Zerbo";
 
-function fields(){
-selectedUniversity="Université Joseph Ki-Zerbo";
-const fields=database[selectedCountry][selectedUniversity];
-let html='<p>Choisis une filière universitaire :</p><div class="grid">';
-Object.keys(fields).forEach(field=>{
-html+=makeCard(field,"Découvrir les niveaux et les semestres.","levels("+JSON.stringify(field)+")");
-});
-html+='</div>';
-show("Filières universitaires",html,"Burkina Faso → UJKZ");
+  const html = `
+    <div class="grid">
+      <div class="card">
+        <h3>Sciences de la Vie et de la Terre (SVT)</h3>
+        <button id="btnSVT">Explorer la filière</button>
+      </div>
+      <div class="card">
+        <h3>Sciences fondamentales</h3>
+        <button id="btnSF">Explorer la filière</button>
+      </div>
+    </div>
+  `;
+
+  show("Filières universitaires", html, "Burkina Faso → UJKZ");
+
+  document.getElementById("btnSVT").addEventListener("click", function(){
+    levels("Sciences de la Vie et de la Terre");
+  });
+
+  document.getElementById("btnSF").addEventListener("click", function(){
+    levels("Sciences fondamentales");
+  });
 }
-
 function levels(field){
 selectedField=field;
 const data=database[selectedCountry][selectedUniversity][field];
