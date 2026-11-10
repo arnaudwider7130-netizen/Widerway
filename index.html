@@ -3,254 +3,896 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="WiderWay, plateforme gratuite d'éducation et de recherche scientifique pour l'Afrique et le monde.">
 <title>WiderWay | Éducation et Recherche</title>
+
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f3f6fa;color:#17243a}
-header{background:#10264a;color:white;padding:20px}
-.logo{font-size:28px;font-weight:bold;color:#f4c542}
-.logo span{color:white}
-nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
-nav button{background:#294c75}
-.hero{background:linear-gradient(120deg,#10264a,#176b70);color:white;text-align:center;padding:45px 15px}
-main{max-width:1050px;margin:auto;padding:25px 5%}
-h2{color:#10264a}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px}
-.card{background:white;padding:20px;border-radius:10px;box-shadow:0 3px 12px #00000010}
-button{background:#176b70;color:white;border:0;border-radius:6px;padding:12px 16px;cursor:pointer;font-size:15px;margin-top:10px}
-button:hover{background:#10264a}
-.back{background:#64748b;margin-bottom:18px}
-#breadcrumb{color:#176b70;margin:15px 0}
-#content{min-height:300px}
-input{padding:12px;width:100%;max-width:450px;border:1px solid #ccd4df;border-radius:6px;margin:10px 0}
-footer{background:#10264a;color:white;text-align:center;padding:25px;margin-top:35px}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f3f6fa;
+  color: #17243a;
+}
+
+header {
+  background: #10264a;
+  color: white;
+  padding: 18px 5%;
+}
+
+.logo {
+  font-size: 29px;
+  font-weight: bold;
+  color: #f4c542;
+}
+
+.logo span {
+  color: white;
+}
+
+header p {
+  margin: 7px 0;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+button {
+  background: #176b70;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  padding: 12px 16px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #10264a;
+}
+
+.hero {
+  background: linear-gradient(120deg,#10264a,#176b70);
+  color: white;
+  text-align: center;
+  padding: 55px 15px;
+}
+
+.hero h1 {
+  font-size: 32px;
+}
+
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 25px 5%;
+}
+
+h2 {
+  color: #10264a;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(210px,1fr));
+  gap: 16px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px #00000010;
+}
+
+.card h3 {
+  color: #10264a;
+}
+
+.card button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+#breadcrumb {
+  color: #176b70;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+#content {
+  min-height: 300px;
+}
+
+input {
+  padding: 13px;
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid #ccd4df;
+  border-radius: 7px;
+  margin: 12px 0;
+  font-size: 15px;
+}
+
+.back {
+  background: #64748b;
+  margin-bottom: 18px;
+}
+
+footer {
+  background: #10264a;
+  color: white;
+  text-align: center;
+  padding: 25px;
+  margin-top: 35px;
+}
+
+.empty {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+@media(max-width:600px) {
+  .hero h1 {
+    font-size: 25px;
+  }
+
+  nav button {
+    font-size: 13px;
+    padding: 10px;
+  }
+}
 </style>
 </head>
+
 <body>
 
 <header>
-<div class="logo">Wider<span>Way</span></div>
-<p>Le savoir ouvre toutes les voies.</p>
-<nav>
-<button onclick="home()">Accueil</button>
-<button onclick="countries()">Formations</button>
-<button onclick="library()">Bibliothèque</button>
-<button onclick="research()">Recherche</button>
-</nav>
+  <div class="logo">Wider<span>Way</span></div>
+  <p>Le savoir ouvre toutes les voies.</p>
+
+  <nav>
+    <button data-action="home">Accueil</button>
+    <button data-action="countries">Formations</button>
+    <button data-action="library">Bibliothèque</button>
+    <button data-action="research">Recherche</button>
+  </nav>
 </header>
 
-<div class="hero">
-<h1>Bienvenue sur WiderWay</h1>
-<p>La plateforme gratuite d'éducation et de recherche scientifique.</p>
-<button onclick="countries()">Explorer les formations</button>
-</div>
+<section class="hero">
+  <h1>Bienvenue sur WiderWay</h1>
+  <p>La plateforme gratuite d'éducation et de recherche scientifique.</p>
+  <button data-action="countries">Explorer les formations</button>
+</section>
 
 <main>
-<div id="breadcrumb">Accueil</div>
-<div id="content"></div>
+  <div id="breadcrumb">Accueil</div>
+  <div id="content"></div>
 </main>
 
 <footer>
-<p>© 2026 WiderWay - Éducation et recherche pour tous.</p>
+  <p>© 2026 WiderWay - Éducation et recherche pour tous.</p>
 </footer>
 
 <script>
+
+/* ==================================
+   1. BASE DE DONNÉES UNIVERSITAIRES
+================================== */
+
 const database = {
-"Burkina Faso": {
-"Université Joseph Ki-Zerbo": {
-"Sciences de la Vie et de la Terre": {
-"L1": {
-"S1": ["Biologie cellulaire","Embryologie","Chimie générale","Mathématiques","Physique","Géologie générale","Statistiques"],
-"S2": ["Hérédité","Matériel héréditaire","Biologie animale","Biologie végétale","Géologie","Anglais scientifique","Mathématiques et statistiques"]
-},
-"L2": {"S3":[],"S4":[]},
-"L3": {"S5":[],"S6":[]}
-},
-"Sciences fondamentales": {
-"L1": {"S1":["Mathématiques","Physique","Chimie"],"S2":["Mathématiques","Physique","Chimie"]},
-"L2": {"S3":[],"S4":[]},
-"L3": {"S5":[],"S6":[]}
-}
-}
-}
+  "Burkina Faso": {
+    "Université Joseph Ki-Zerbo": {
+
+      "Sciences de la Vie et de la Terre": {
+
+        "L1": {
+          "S1": [
+            "Biologie cellulaire",
+            "Embryologie",
+            "Chimie générale",
+            "Mathématiques",
+            "Physique",
+            "Géologie générale",
+            "Statistiques"
+          ],
+
+          "S2": [
+            "Hérédité",
+            "Matériel héréditaire",
+            "Biologie animale",
+            "Biologie végétale",
+            "Géologie",
+            "Anglais scientifique",
+            "Mathématiques et statistiques"
+          ]
+        },
+
+        "L2": {
+          "S3": [],
+          "S4": []
+        },
+
+        "L3": {
+          "S5": [],
+          "S6": []
+        }
+      },
+
+      "Sciences fondamentales": {
+
+        "L1": {
+          "S1": ["Mathématiques","Physique","Chimie"],
+          "S2": ["Mathématiques","Physique","Chimie"]
+        },
+
+        "L2": {
+          "S3": [],
+          "S4": []
+        },
+
+        "L3": {
+          "S5": [],
+          "S6": []
+        }
+      }
+    }
+  }
 };
 
-let selectedCountry="";
-let selectedUniversity="";
-let selectedField="";
-let selectedLevel="";
-let selectedSemester="";
 
-function show(title,html,path){
-document.getElementById("content").innerHTML="<h2>"+title+"</h2>"+html;
-document.getElementById("breadcrumb").textContent=path;
-window.scrollTo(0,0);
-}
+/* ==================================
+   2. VARIABLES DE NAVIGATION
+================================== */
 
-function makeCard(title,description,action,label="Explorer"){
-  const card=document.createElement("div");
-  card.className="card";
+let selectedCountry = "";
+let selectedUniversity = "";
+let selectedField = "";
+let selectedLevel = "";
+let selectedSemester = "";
 
-  const h3=document.createElement("h3");
-  h3.textContent=title;
 
-  const p=document.createElement("p");
-  p.textContent=description;
+/* ==================================
+   3. OUTILS D'AFFICHAGE
+================================== */
 
-  const button=document.createElement("button");
-  button.textContent=label;
-
-  button.addEventListener("click",function(){
-    try {
-      new Function(action)();
-    } catch(error) {
-      console.error(error);
-      alert("Une erreur est survenue : "+error.message);
-    }
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, function(char) {
+    return {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    }[char];
   });
-
-  card.append(h3,p,button);
-  return card.outerHTML;
-}
-show("Bienvenue sur WiderWay",
-'<p>Une plateforme gratuite pour apprendre, partager les connaissances et encourager la recherche scientifique.</p>'+
-'<div class="grid">'+
-makeCard("Formations","Découvrir les universités et les filières.","countries()")+
-makeCard("Bibliothèque","Rechercher les cours et documents.","library()")+
-makeCard("Recherche scientifique","Découvrir les publications et projets.","research()")+
-'</div>',"Accueil");
 }
 
-function countries(){
-show("Choisir un pays",
-'<div class="grid">'+
-makeCard("🇧🇫 Burkina Faso","Explorer les formations universitaires.","universities()")+
-makeCard("Autres pays africains","Bientôt disponibles.","alert(\\'Les autres pays seront ajoutés progressivement.\\')")+
-makeCard("International","Formations internationales à venir.","alert(\\'Cette rubrique sera bientôt disponible.\\')")+
-'</div>',"Accueil → Formations");
-selectedCountry="Burkina Faso";
+function show(title, html, path) {
+  document.getElementById("content").innerHTML =
+    "<h2>" + escapeHTML(title) + "</h2>" + html;
+
+  document.getElementById("breadcrumb").textContent = path;
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
 }
 
-function universities(){
-selectedCountry="Burkina Faso";
-show("Universités du Burkina Faso",
-'<div class="grid">'+
-makeCard("Université Joseph Ki-Zerbo","Ouagadougou.","fields()")+
-'</div>',"Burkina Faso → Universités");
+
+/* ==================================
+   4. CRÉATION DES CARTES
+================================== */
+
+function makeCard(title, description, action, label="Explorer", value="") {
+
+  return `
+    <div class="card">
+      <h3>${escapeHTML(title)}</h3>
+      <p>${escapeHTML(description)}</p>
+
+      <button
+        type="button"
+        data-action="${escapeHTML(action)}"
+        data-value="${escapeHTML(value)}">
+        ${escapeHTML(label)}
+      </button>
+    </div>
+  `;
 }
-  function fields(){
+
+
+/* ==================================
+   5. PAGE D'ACCUEIL
+================================== */
+
+function home() {
+
+  show(
+    "Bienvenue sur WiderWay",
+
+    `
+      <p>
+        Une plateforme gratuite pour apprendre,
+        partager les connaissances et encourager
+        la recherche scientifique.
+      </p>
+
+      <div class="grid">
+
+        ${makeCard(
+          "Formations",
+          "Découvrir les universités et les filières.",
+          "countries"
+        )}
+
+        ${makeCard(
+          "Bibliothèque",
+          "Rechercher des cours et des documents.",
+          "library"
+        )}
+
+        ${makeCard(
+          "Recherche scientifique",
+          "Découvrir les publications et projets.",
+          "research"
+        )}
+
+      </div>
+    `,
+
+    "Accueil"
+  );
+}
+
+
+/* ==================================
+   6. PAYS
+================================== */
+
+function countries() {
+
+  show(
+    "Choisir un pays",
+
+    `
+      <div class="grid">
+
+        ${makeCard(
+          "🇧🇫 Burkina Faso",
+          "Explorer les formations universitaires.",
+          "universities"
+        )}
+
+        ${makeCard(
+          "Autres pays africains",
+          "De nouvelles universités seront ajoutées.",
+          "notice",
+          "Bientôt disponible",
+          "Les autres pays seront ajoutés progressivement."
+        )}
+
+        ${makeCard(
+          "International",
+          "Découvrir les formations internationales.",
+          "notice",
+          "Bientôt disponible",
+          "Cette rubrique sera bientôt disponible."
+        )}
+
+      </div>
+    `,
+
+    "Accueil → Formations"
+  );
+
+  selectedCountry = "Burkina Faso";
+}
+
+
+/* ==================================
+   7. UNIVERSITÉS
+================================== */
+
+function universities() {
+
+  selectedCountry = "Burkina Faso";
+
+  show(
+    "Universités du Burkina Faso",
+
+    `
+      <div class="grid">
+
+        ${makeCard(
+          "Université Joseph Ki-Zerbo",
+          "Ouagadougou.",
+          "fields"
+        )}
+
+      </div>
+    `,
+
+    "Burkina Faso → Universités"
+  );
+}
+
+
+/* ==================================
+   8. FILIÈRES
+================================== */
+
+function fields() {
+
   selectedCountry = "Burkina Faso";
   selectedUniversity = "Université Joseph Ki-Zerbo";
 
-  const html = `
-    <div class="grid">
-      <div class="card">
-        <h3>Sciences de la Vie et de la Terre (SVT)</h3>
-        <button id="btnSVT">Explorer la filière</button>
-      </div>
-      <div class="card">
-        <h3>Sciences fondamentales</h3>
-        <button id="btnSF">Explorer la filière</button>
-      </div>
-    </div>
-  `;
+  show(
+    "Filières universitaires",
 
-  show("Filières universitaires", html, "Burkina Faso → UJKZ");
+    `
+      <div class="grid">
 
-  document.getElementById("btnSVT").addEventListener("click", function(){
-    levels("Sciences de la Vie et de la Terre");
+        ${makeCard(
+          "Sciences de la Vie et de la Terre",
+          "SVT : cours, matières et ressources.",
+          "levels",
+          "Explorer la filière",
+          "Sciences de la Vie et de la Terre"
+        )}
+
+        ${makeCard(
+          "Sciences fondamentales",
+          "Mathématiques, physique et chimie.",
+          "levels",
+          "Explorer la filière",
+          "Sciences fondamentales"
+        )}
+
+      </div>
+    `,
+
+    "Burkina Faso → UJKZ"
+  );
+}
+
+
+/* ==================================
+   9. NIVEAUX L1 L2 L3
+================================== */
+
+function levels(field) {
+
+  selectedField = field;
+
+  const data =
+    database[selectedCountry]
+    [selectedUniversity]
+    [selectedField];
+
+  if (!data) {
+    show("Erreur", "<p>Cette filière est introuvable.</p>", "Formations");
+    return;
+  }
+
+  let html = '<p>Choisis ton niveau :</p><div class="grid">';
+
+  Object.keys(data).forEach(level => {
+
+    html += makeCard(
+      level,
+      "Consulter les semestres de ce niveau.",
+      "semesters",
+      "Voir les semestres",
+      level
+    );
+
   });
 
-  document.getElementById("btnSF").addEventListener("click", function(){
-    levels("Sciences fondamentales");
+  html += '</div>';
+
+  show(
+    field,
+    html,
+    "Burkina Faso → UJKZ → " + field
+  );
+}
+
+
+/* ==================================
+   10. SEMESTRES S1 S2 S3...
+================================== */
+
+function semesters(level) {
+
+  selectedLevel = level;
+
+  const data =
+    database[selectedCountry]
+    [selectedUniversity]
+    [selectedField]
+    [selectedLevel];
+
+  if (!data) {
+    show("Erreur", "<p>Ce niveau est introuvable.</p>", "Formations");
+    return;
+  }
+
+  let html = '<p>Choisis ton semestre :</p><div class="grid">';
+
+  Object.keys(data).forEach(semester => {
+
+    html += makeCard(
+      semester,
+      "Voir les matières du semestre.",
+      "subjects",
+      "Consulter les matières",
+      semester
+    );
+
   });
-}
-function levels(field){
-selectedField=field;
-const data=database[selectedCountry][selectedUniversity][field];
-let html='<p>Choisis ton niveau :</p><div class="grid">';
-Object.keys(data).forEach(level=>{
-html+=makeCard(level,"Consulter les semestres de ce niveau.","semesters("+JSON.stringify(level)+")");
-});
-html+='</div>';
-show(field,html,"Burkina Faso → UJKZ → "+field);
+
+  html += '</div>';
+
+  show(
+    level,
+    html,
+    selectedField + " → " + level
+  );
 }
 
-function semesters(level){
-selectedLevel=level;
-const data=database[selectedCountry][selectedUniversity][selectedField][level];
-let html='<p>Choisis ton semestre :</p><div class="grid">';
-Object.keys(data).forEach(semester=>{
-html+=makeCard(semester,"Voir les matières du semestre.","subjects("+JSON.stringify(semester)+")");
-});
-html+='</div>';
-show(level,html,selectedField+" → "+level);
+
+/* ==================================
+   11. MATIÈRES
+================================== */
+
+function subjects(semester) {
+
+  selectedSemester = semester;
+
+  const list =
+    database[selectedCountry]
+    [selectedUniversity]
+    [selectedField]
+    [selectedLevel]
+    [selectedSemester];
+
+  if (!Array.isArray(list)) {
+    show("Erreur", "<p>Semestre introuvable.</p>", "Formations");
+    return;
+  }
+
+  let html = '<div class="grid">';
+
+  if (list.length === 0) {
+
+    html += `
+      <div class="empty">
+        <p>
+          Les matières de ce semestre seront
+          ajoutées prochainement.
+        </p>
+      </div>
+    `;
+
+  } else {
+
+    list.forEach(subject => {
+
+      html += makeCard(
+        subject,
+        "Cours, résumés et exercices.",
+        "resources",
+        "Ouvrir la matière",
+        subject
+      );
+
+    });
+
+  }
+
+  html += '</div>';
+
+  show(
+    semester,
+    html,
+    selectedField + " → " + selectedLevel + " → " + semester
+  );
 }
 
-function subjects(semester){
-selectedSemester=semester;
-const list=database[selectedCountry][selectedUniversity][selectedField][selectedLevel][semester];
-let html='<div class="grid">';
-if(list.length===0){
-html+='<div class="card"><p>Les matières de ce semestre seront ajoutées prochainement.</p></div>';
-}
-list.forEach(subject=>{
-html+=makeCard(subject,"Cours, résumé et exercices disponibles progressivement.","resources("+JSON.stringify(subject)+")","Ouvrir la matière");
-});
-html+='</div>';
-show(semester,html,selectedField+" → "+selectedLevel+" → "+semester);
+
+/* ==================================
+   12. RESSOURCES PÉDAGOGIQUES
+================================== */
+
+function resources(subject) {
+
+  show(
+    subject,
+
+    `
+      <div class="grid">
+
+        ${makeCard(
+          "Cours",
+          "Consulter le cours complet.",
+          "placeholder",
+          "Ouvrir",
+          "Cours"
+        )}
+
+        ${makeCard(
+          "Résumé",
+          "Retrouver les points essentiels.",
+          "placeholder",
+          "Ouvrir",
+          "Résumé"
+        )}
+
+        ${makeCard(
+          "Exercices corrigés",
+          "S'entraîner et vérifier ses réponses.",
+          "placeholder",
+          "Ouvrir",
+          "Exercices corrigés"
+        )}
+
+        ${makeCard(
+          "Documents PDF",
+          "Accéder aux documents pédagogiques.",
+          "placeholder",
+          "Ouvrir",
+          "Documents PDF"
+        )}
+
+      </div>
+    `,
+
+    selectedField + " → " +
+    selectedLevel + " → " +
+    selectedSemester + " → " + subject
+  );
 }
 
-function resources(subject){
-show(subject,
-'<div class="grid">'+
-makeCard("Cours","Consulter le cours de cette matière.","placeholder(\\'Cours\\')")+
-makeCard("Résumé","Retrouver les points essentiels.","placeholder(\\'Résumé\\')")+
-makeCard("Exercices corrigés","S'entraîner et vérifier ses réponses.","placeholder(\\'Exercices corrigés\\')")+
-makeCard("Documents PDF","Accéder aux documents pédagogiques.","placeholder(\\'Documents PDF\\')")+
-'</div>',
-selectedField+" → "+selectedLevel+" → "+selectedSemester+" → "+subject);
+
+/* ==================================
+   13. RESSOURCES EN ATTENTE
+================================== */
+
+function placeholder(type) {
+
+  show(
+    type,
+
+    `
+      <div class="empty">
+        <p>
+          Les ressources seront ajoutées
+          progressivement dans WiderWay.
+        </p>
+      </div>
+    `,
+
+    "Ressources → " + type
+  );
 }
 
-function placeholder(type){
-show(type,"<div class='card'><p>Les ressources seront ajoutées progressivement dans WiderWay.</p></div>","Ressources");
+
+/* ==================================
+   14. BIBLIOTHÈQUE NUMÉRIQUE
+================================== */
+
+function library() {
+
+  show(
+    "Bibliothèque numérique",
+
+    `
+      <p>Recherche une matière dans la bibliothèque :</p>
+
+      <input
+        id="search"
+        type="search"
+        placeholder="Exemple : Biologie cellulaire">
+
+      <div id="results" class="grid"></div>
+    `,
+
+    "Accueil → Bibliothèque"
+  );
 }
 
-function library(){
-show("Bibliothèque numérique",
-'<p>Recherche une matière dans la bibliothèque :</p>'+
-'<input id="search" placeholder="Exemple : Biologie cellulaire" oninput="searchSubjects()">'+
-'<div id="results" class="grid"></div>',
-"Accueil → Bibliothèque");
+
+function searchSubjects() {
+
+  const q = document.getElementById("search").value.toLowerCase();
+
+  let all = [];
+
+  Object.values(database).forEach(country => {
+
+    Object.values(country).forEach(university => {
+
+      Object.values(university).forEach(field => {
+
+        Object.values(field).forEach(level => {
+
+          Object.values(level).forEach(semester => {
+
+            all = all.concat(semester);
+
+          });
+
+        });
+
+      });
+
+    });
+
+  });
+
+  const results = all.filter(item =>
+    item.toLowerCase().includes(q)
+  );
+
+  document.getElementById("results").innerHTML =
+    results.map(item => `
+      <div class="card">
+        <h3>${escapeHTML(item)}</h3>
+        <p>Matière universitaire</p>
+      </div>
+    `).join("") || "<p>Aucune matière trouvée.</p>";
 }
 
-function searchSubjects(){
-const q=document.getElementById("search").value.toLowerCase();
-let all=[];
-Object.values(database).forEach(country=>{
-Object.values(country).forEach(university=>{
-Object.values(university).forEach(field=>{
-Object.values(field).forEach(level=>{
-Object.values(level).forEach(semester=>all=all.concat(semester));
-});
-});
-});
-});
-const results=all.filter(item=>item.toLowerCase().includes(q));
-document.getElementById("results").innerHTML=results.map(item=>'<div class="card">'+item+'</div>').join("") || "<p>Aucune matière trouvée.</p>";
+
+/* ==================================
+   15. RECHERCHE SCIENTIFIQUE
+================================== */
+
+function research() {
+
+  show(
+    "Recherche scientifique",
+
+    `
+      <div class="grid">
+
+        <div class="card">
+          <h3>Publications</h3>
+          <p>Articles et travaux scientifiques.</p>
+        </div>
+
+        <div class="card">
+          <h3>Projets</h3>
+          <p>Découverte de projets de recherche.</p>
+        </div>
+
+        <div class="card">
+          <h3>Communauté</h3>
+          <p>Échanges entre étudiants et chercheurs.</p>
+        </div>
+
+      </div>
+    `,
+
+    "Accueil → Recherche"
+  );
 }
 
-function research(){
-show("Recherche scientifique",
-'<div class="grid">'+
-'<div class="card"><h3>Publications</h3><p>Articles et travaux scientifiques.</p></div>'+
-'<div class="card"><h3>Projets</h3><p>Découverte de projets de recherche.</p></div>'+
-'<div class="card"><h3>Communauté</h3><p>Échanges entre étudiants et chercheurs.</p></div>'+
-'</div>',"Accueil → Recherche");
+
+/* ==================================
+   16. NOTIFICATIONS
+================================== */
+
+function notice(message) {
+
+  show(
+    "Information",
+    `<div class="empty"><p>${escapeHTML(message)}</p></div>`,
+    "WiderWay"
+  );
 }
+
+
+/* ==================================
+   17. NAVIGATION CENTRALISÉE
+================================== */
+
+document.addEventListener("click", function(event) {
+
+  const button = event.target.closest("button[data-action]");
+
+  if (!button) return;
+
+  const action = button.dataset.action;
+  const value = button.dataset.value;
+
+  switch(action) {
+
+    case "home":
+      home();
+      break;
+
+    case "countries":
+      countries();
+      break;
+
+    case "universities":
+      universities();
+      break;
+
+    case "fields":
+      fields();
+      break;
+
+    case "levels":
+      levels(value);
+      break;
+
+    case "semesters":
+      semesters(value);
+      break;
+
+    case "subjects":
+      subjects(value);
+      break;
+
+    case "resources":
+      resources(value);
+      break;
+
+    case "placeholder":
+      placeholder(value);
+      break;
+
+    case "library":
+      library();
+      break;
+
+    case "research":
+      research();
+      break;
+
+    case "notice":
+      notice(value);
+      break;
+
+  }
+
+});
+
+
+/* ==================================
+   18. RECHERCHE EN DIRECT
+================================== */
+
+document.addEventListener("input", function(event) {
+
+  if (event.target.id === "search") {
+    searchSubjects();
+  }
+
+});
+
+
+/* ==================================
+   19. LANCEMENT DU SITE
+================================== */
 
 home();
+
 </script>
+
 </body>
 </html>
