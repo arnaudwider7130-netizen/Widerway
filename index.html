@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -6,881 +5,596 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="WiderWay, plateforme gratuite d'éducation et de recherche scientifique pour l'Afrique et le monde.">
 <title>WiderWay | Le savoir ouvre toutes les voies</title>
-
 <style>
-:root {
-  --primary:#075c46;
-  --secondary:#0b8060;
-  --light:#eaf5f0;
-  --dark:#172b25;
-  --muted:#687b73;
-  --white:#ffffff;
-  --bg:#f5f8f6;
-  --border:#dce8e1;
-}
-* {box-sizing:border-box}
-body {
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:var(--bg);
-  color:var(--dark);
-  line-height:1.6;
-}
-header {
-  background:var(--primary);
-  color:white;
-  padding:18px 5%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:15px;
-}
-.logo {font-size:27px;font-weight:bold}
-.logo span {color:#a9e5c9}
-nav {display:flex;gap:8px;flex-wrap:wrap}
-nav button {
-  background:transparent;
-  color:white;
-  border:1px solid #ffffff55;
-  padding:9px 13px;
-  border-radius:7px;
-  cursor:pointer;
-}
-nav button:hover {background:#ffffff22}
-main {max-width:1150px;margin:auto;padding:25px 5%;min-height:65vh}
-.hero {
-  background:linear-gradient(135deg,#075c46,#0b8060);
-  color:white;
-  padding:55px 25px;
-  border-radius:15px;
-  text-align:center;
-}
-.hero h1 {font-size:36px;margin:0 0 12px}
-.hero p {font-size:17px;max-width:650px;margin:10px auto}
-.btn {
-  background:#ffffff;
-  color:var(--primary);
-  border:0;
-  padding:12px 20px;
-  border-radius:7px;
-  font-weight:bold;
-  cursor:pointer;
-  margin-top:15px;
-}
-.section-title {color:var(--primary);margin-top:35px}
-.grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-  gap:15px;
-  margin-top:20px;
-}
-.card {
-  background:white;
-  border:1px solid var(--border);
-  padding:20px;
-  border-radius:11px;
-  cursor:pointer;
-  transition:.2s;
-}
-.card:hover {
-  border-color:var(--secondary);
-  transform:translateY(-3px);
-  box-shadow:0 5px 15px #0000000d;
-}
-.card h3 {color:var(--primary);margin-top:0}
-.card p {color:var(--muted);font-size:14px}
-.card button {
-  background:var(--primary);
-  color:white;
-  border:0;
-  padding:9px 13px;
-  border-radius:6px;
-  cursor:pointer;
-}
-.breadcrumb {
-  color:var(--muted);
-  font-size:14px;
-  margin-bottom:20px;
-}
-.panel {
-  background:white;
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:22px;
-  margin-top:20px;
-}
-input, textarea {
-  width:100%;
-  padding:13px;
-  border:1px solid var(--border);
-  border-radius:7px;
-  font-size:15px;
-  margin:8px 0 15px;
-}
-.action {
-  background:var(--primary);
-  color:white;
-  padding:10px 15px;
-  border:0;
-  border-radius:7px;
-  cursor:pointer;
-}
-.secondary {
-  background:var(--light);
-  color:var(--primary);
-}
-.resource {
-  background:white;
-  padding:16px;
-  border:1px solid var(--border);
-  border-radius:8px;
-  margin:10px 0;
-}
-footer {
-  background:#123b30;
-  color:white;
-  padding:30px 5%;
-  text-align:center;
-  margin-top:40px;
-}
-footer p {margin:5px}
-.small {font-size:13px;color:var(--muted)}
-footer .small {color:#c4d8cf}
-@media(max-width:600px) {
-  .hero h1 {font-size:27px}
-  header {justify-content:center;text-align:center}
-  nav {justify-content:center}
+:root{--primary:#075c46;--secondary:#0b8060;--light:#eaf5f0;--dark:#172b25;--muted:#687b73;--white:#fff;--bg:#f5f8f6;--border:#dce8e1}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--dark);line-height:1.6}
+header{background:var(--primary);color:white;padding:18px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:15px}
+.logo{font-size:27px;font-weight:bold}
+.logo span{color:#a9e5c9}
+nav{display:flex;gap:8px;flex-wrap:wrap}
+nav button{background:transparent;color:white;border:1px solid #ffffff55;padding:9px 13px;border-radius:7px;cursor:pointer}
+nav button:hover{background:#ffffff22}
+main{max-width:1150px;margin:auto;padding:25px 5%;min-height:65vh}
+.hero{background:linear-gradient(135deg,#075c46,#0b8060);color:white;padding:55px 25px;border-radius:15px;text-align:center}
+.hero h1{font-size:36px;margin:0 0 12px}
+.hero p{font-size:17px;max-width:650px;margin:10px auto}
+.btn{background:#fff;color:var(--primary);border:0;padding:12px 20px;border-radius:7px;font-weight:bold;cursor:pointer;margin-top:15px}
+.section-title{color:var(--primary);margin-top:35px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px;margin-top:20px}
+.card{background:white;border:1px solid var(--border);padding:20px;border-radius:11px;cursor:pointer;transition:.2s}
+.card:hover{border-color:var(--secondary);transform:translateY(-3px);box-shadow:0 5px 15px #0000000d}
+.card h3{color:var(--primary);margin-top:0}
+.card p{color:var(--muted);font-size:14px}
+.card button{background:var(--primary);color:white;border:0;padding:9px 13px;border-radius:6px;cursor:pointer}
+.breadcrumb{color:var(--muted);font-size:14px;margin-bottom:12px}
+.page-tools{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 18px}
+.page-tools button{border:1px solid var(--border);background:white;color:var(--primary);padding:9px 14px;border-radius:7px;font-weight:bold;cursor:pointer}
+.page-tools button:hover{background:var(--light)}
+.panel{background:white;border:1px solid var(--border);border-radius:12px;padding:22px;margin-top:20px}
+input,textarea{width:100%;padding:13px;border:1px solid var(--border);border-radius:7px;font-size:15px;margin:8px 0 15px}
+.action{background:var(--primary);color:white;padding:10px 15px;border:0;border-radius:7px;cursor:pointer}
+.secondary{background:var(--light);color:var(--primary)}
+.resource{background:white;padding:16px;border:1px solid var(--border);border-radius:8px;margin:10px 0}
+footer{background:#123b30;color:white;padding:30px 5%;text-align:center;margin-top:40px}
+footer p{margin:5px}
+.small{font-size:13px;color:var(--muted)}
+footer .small{color:#c4d8cf}
+@media(max-width:600px){
+.hero h1{font-size:27px}
+header{justify-content:center;text-align:center}
+nav{justify-content:center}
+.page-tools{justify-content:center}
 }
 </style>
 </head>
-
 <body>
-
 <header>
-  <div class="logo">Wider<span>Way</span></div>
-  <nav>
-    <button data-action="home">Accueil</button>
-    <button data-action="formations">Formations</button>
-    <button data-action="library">Bibliothèque</button>
-    <button data-action="research">Recherche</button>
-    <button data-action="about">À propos</button>
-    <button data-action="contact">Contact</button>
-  </nav>
+<div class="logo">Wider<span>Way</span></div>
+<nav>
+<button data-action="home">Accueil</button>
+<button data-action="formations">Formations</button>
+<button data-action="library">Bibliothèque</button>
+<button data-action="research">Recherche</button>
+<button data-action="about">À propos</button>
+<button data-action="contact">Contact</button>
+</nav>
 </header>
 
 <main id="app"></main>
 
 <footer>
-  <div class="logo">Wider<span>Way</span></div>
-  <p>Le savoir ouvre toutes les voies.</p>
-  <p>Une plateforme gratuite d'éducation et de recherche scientifique.</p>
-  <p class="small">© 2026 WiderWay — Tous droits réservés.</p>
+<div class="logo">Wider<span>Way</span></div>
+<p>Le savoir ouvre toutes les voies.</p>
+<p>Une plateforme gratuite d'éducation et de recherche scientifique.</p>
+<p class="small">© 2026 WiderWay — Tous droits réservés.</p>
 </footer>
 
 <script>
 
-/* =====================================
-   1. BASE DE DONNÉES DES FORMATIONS
-===================================== */
+/* 1. BASE DE DONNÉES DES FORMATIONS */
 
-const database = {
-"Burkina Faso": {
-"Université Joseph Ki-Zerbo": {
-
-"Sciences de la Vie et de la Terre": {
-
-"L1": {
-"S1": [
-"Mathématiques générales",
-"Algèbre",
-"Analyse",
-"Physique",
-"Mécanique",
-"Optique",
-"Chimie générale",
-"Atomistique",
-"Chimie organique",
-"Biologie cellulaire",
-"Embryologie",
-"Géodynamique"
+const database={
+"Burkina Faso":{
+"Université Joseph Ki-Zerbo":{
+"Sciences de la Vie et de la Terre":{
+"L1":{
+"S1":[
+"Mathématiques générales","Algèbre","Analyse","Physique","Mécanique","Optique","Chimie générale","Atomistique","Chimie organique","Biologie cellulaire","Embryologie","Géodynamique"
 ],
-"S2": [
-"Mathématiques",
-"Probabilités et statistiques",
-"Thermodynamique",
-"Électricité",
-"Thermodynamique chimique",
-"Solutions aqueuses",
-"Génétique formelle",
-"Matériel héréditaire",
-"Hérédité",
-"Géodynamique externe",
-"Cartographie",
-"Anglais scientifique",
-"Histoire des sciences",
-"Épistémologie"
+"S2":[
+"Mathématiques","Probabilités et statistiques","Thermodynamique","Électricité","Thermodynamique chimique","Solutions aqueuses","Génétique formelle","Matériel héréditaire","Hérédité","Géodynamique externe","Cartographie","Anglais scientifique","Histoire des sciences","Épistémologie"
 ]
 },
-
-"L2": {
-"S3": [
-"Biochimie structurale",
-"Biochimie métabolique",
-"Biologie animale",
-"Biologie végétale",
-"Microbiologie",
-"Génétique",
-"Physiologie animale",
-"Physiologie végétale",
-"Géologie",
-"Écologie"
+"L2":{
+"S3":[
+"Biochimie structurale","Biochimie métabolique","Biologie animale","Biologie végétale","Microbiologie","Génétique","Physiologie animale","Physiologie végétale","Géologie","Écologie"
 ],
-"S4": [
-"Biologie moléculaire",
-"Enzymologie",
-"Immunologie",
-"Botanique systématique",
-"Zoologie",
-"Biotechnologie",
-"Pétrologie",
-"Géologie structurale",
-"Stratigraphie",
-"Paléontologie"
+"S4":[
+"Biologie moléculaire","Enzymologie","Immunologie","Botanique systématique","Zoologie","Biotechnologie","Pétrologie","Géologie structurale","Stratigraphie","Paléontologie"
 ]
 },
-
-"L3": {
-"BMB - Biochimie-Microbiologie": {
-"S5": [
-"Enzymologie",
-"Biochimie approfondie",
-"Microbiologie",
-"Biologie moléculaire",
-"Génétique moléculaire"
-],
-"S6": [
-"Biochimie métabolique",
-"Microbiologie appliquée",
-"Immunologie",
-"Biotechnologies",
-"Techniques d'analyse biochimique"
-]
+"L3":{
+"BMB - Biochimie-Microbiologie":{
+"S5":["Enzymologie","Biochimie approfondie","Microbiologie","Biologie moléculaire","Génétique moléculaire"],
+"S6":["Biochimie métabolique","Microbiologie appliquée","Immunologie","Biotechnologies","Techniques d'analyse biochimique"]
 },
-"BSN - Biochimie des Substances Naturelles": {
-"S5": [
-"Biochimie des substances naturelles",
-"Phytochimie",
-"Enzymologie",
-"Biochimie structurale",
-"Botanique",
-"Chimie organique"
-],
-"S6": [
-"Pharmacognosie",
-"Substances naturelles bioactives",
-"Techniques d'extraction",
-"Techniques de séparation et d'analyse",
-"Biotechnologie végétale"
-]
+"BSN - Biochimie des Substances Naturelles":{
+"S5":["Biochimie des substances naturelles","Phytochimie","Enzymologie","Biochimie structurale","Botanique","Chimie organique"],
+"S6":["Pharmacognosie","Substances naturelles bioactives","Techniques d'extraction","Techniques de séparation et d'analyse","Biotechnologie végétale"]
 },
-"BG - Biologie Générale": {
-"S5": [
-"Génétique des populations",
-"Écologie générale",
-"Physiologie animale",
-"Physiologie végétale",
-"Biologie évolutive",
-"Zoologie",
-"Botanique"
-],
-"S6": [
-"Immunologie générale",
-"Écologie appliquée",
-"Biologie de la conservation",
-"Biologie du développement",
-"Biodiversité",
-"Biotechnologies"
-]
+"BG - Biologie Générale":{
+"S5":["Génétique des populations","Écologie générale","Physiologie animale","Physiologie végétale","Biologie évolutive","Zoologie","Botanique"],
+"S6":["Immunologie générale","Écologie appliquée","Biologie de la conservation","Biologie du développement","Biodiversité","Biotechnologies"]
 },
-"NTA - Nutrition et Technologie Alimentaire": {
-"S5": [
-"Nutrition humaine",
-"Biochimie alimentaire",
-"Microbiologie alimentaire",
-"Technologie alimentaire",
-"Chimie alimentaire",
-"Physiologie de la nutrition"
-],
-"S6": [
-"Sécurité sanitaire des aliments",
-"Hygiène alimentaire",
-"Conservation des aliments",
-"Transformation des produits alimentaires",
-"Contrôle qualité des aliments",
-"Analyse nutritionnelle"
-]
+"NTA - Nutrition et Technologie Alimentaire":{
+"S5":["Nutrition humaine","Biochimie alimentaire","Microbiologie alimentaire","Technologie alimentaire","Chimie alimentaire","Physiologie de la nutrition"],
+"S6":["Sécurité sanitaire des aliments","Hygiène alimentaire","Conservation des aliments","Transformation des produits alimentaires","Contrôle qualité des aliments","Analyse nutritionnelle"]
 },
-"ST - Sciences de la Terre": {
-"S5": [
-"Minéralogie",
-"Pétrologie",
-"Géologie structurale",
-"Stratigraphie",
-"Géodynamique",
-"Géochimie",
-"Cartographie géologique"
-],
-"S6": [
-"Géophysique appliquée",
-"Hydrogéologie",
-"Géologie minière",
-"Géologie de terrain",
-"Sédimentologie",
-"Télédétection",
-"Géomorphologie"
-]
+"ST - Sciences de la Terre":{
+"S5":["Minéralogie","Pétrologie","Géologie structurale","Stratigraphie","Géodynamique","Géochimie","Cartographie géologique"],
+"S6":["Géophysique appliquée","Hydrogéologie","Géologie minière","Géologie de terrain","Sédimentologie","Télédétection","Géomorphologie"]
 }
 }
 },
 
-"MPCI": {
-
-"L1": {
-"S1": [
-"Électricité 1",
-"Mécanique du point",
-"Analyse 1",
-"Algèbre 1",
-"Atomistique 1",
-"Liaisons chimiques",
-"Thermochimie et équilibres chimiques",
-"Algorithmique",
-"Programmation",
-"Statistique descriptive",
-"Anglais scientifique 1",
-"Généralités sur les TIC"
+"MPCI":{
+"L1":{
+"S1":[
+"Électricité 1","Mécanique du point","Analyse 1","Algèbre 1","Atomistique 1","Liaisons chimiques","Thermochimie et équilibres chimiques","Algorithmique","Programmation","Statistique descriptive","Anglais scientifique 1","Généralités sur les TIC"
 ],
-"S2": [
-"Physique expérimentale",
-"Optique géométrique",
-"Magnétostatique et régime variable",
-"Analyse 2",
-"Algèbre linéaire 1",
-"Chimie expérimentale",
-"Équilibres chimiques en solution",
-"Chimie organique générale",
-"Algorithmique et programmation C",
-"Architecture des ordinateurs",
-"Anglais scientifique 2",
-"Initiation au droit",
-"Épistémologie",
-"Statique graphique",
-"Dessin assisté par ordinateur (DAO)",
-"Initiation au graphisme"
+"S2":[
+"Physique expérimentale","Optique géométrique","Magnétostatique et régime variable","Analyse 2","Algèbre linéaire 1","Chimie expérimentale","Équilibres chimiques en solution","Chimie organique générale","Algorithmique et programmation C","Architecture des ordinateurs","Anglais scientifique 2","Initiation au droit","Épistémologie","Statique graphique","Dessin assisté par ordinateur (DAO)","Initiation au graphisme"
 ]
 },
-
-"L2": {
-"S3": [
-"Thermodynamique physique",
-"Électromagnétisme et relativité restreinte",
-"Optique physique",
-"Algèbre 2",
-"Algèbre linéaire 2",
-"Analyse 3",
-"Chimie minérale",
-"Cinétique chimique",
-"Structures de données et programmation",
-"Systèmes d'exploitation"
+"L2":{
+"S3":[
+"Thermodynamique physique","Électromagnétisme et relativité restreinte","Optique physique","Algèbre 2","Algèbre linéaire 2","Analyse 3","Chimie minérale","Cinétique chimique","Structures de données et programmation","Systèmes d'exploitation"
 ],
-"S4": [
-"Algèbre 4",
-"Analyse 4",
-"Calcul numérique",
-"Optimisation",
-"Statistiques mathématiques",
-"Mécanique des fluides",
-"Électronique analogique",
-"Mécanique du solide",
-"Mécanique quantique",
-"Chimie des matériaux inorganiques",
-"Chimie organique descriptive",
-"Chimie analytique",
-"Électrochimie",
-"Programmation orientée objet",
-"Structures de données avancées",
-"Bases de données",
-"Réseaux informatiques"
+"S4":[
+"Algèbre 4","Analyse 4","Calcul numérique","Optimisation","Statistiques mathématiques","Mécanique des fluides","Électronique analogique","Mécanique du solide","Mécanique quantique","Chimie des matériaux inorganiques","Chimie organique descriptive","Chimie analytique","Électrochimie","Programmation orientée objet","Structures de données avancées","Bases de données","Réseaux informatiques"
 ]
 },
-
-"L3": {
-"Mathématiques-Informatique": {
-"S5": [
-"Algèbre générale approfondie",
-"Analyse numérique",
-"Probabilités",
-"Statistiques",
-"Structures de données",
-"Systèmes d'exploitation"
-],
-"S6": [
-"Génie logiciel",
-"Réseaux informatiques",
-"Bases de données",
-"Mathématiques avancées"
-]
+"L3":{
+"Mathématiques-Informatique":{
+"S5":["Algèbre générale approfondie","Analyse numérique","Probabilités","Statistiques","Structures de données","Systèmes d'exploitation"],
+"S6":["Génie logiciel","Réseaux informatiques","Bases de données","Mathématiques avancées"]
 },
-"Mathématiques-Physique": {
-"S5": [
-"Équations différentielles",
-"Analyse complexe",
-"Analyse de Fourier",
-"Mécanique analytique"
-],
-"S6": [
-"Thermodynamique statistique",
-"Physique quantique",
-"Électromagnétisme avancé"
-]
+"Mathématiques-Physique":{
+"S5":["Équations différentielles","Analyse complexe","Analyse de Fourier","Mécanique analytique"],
+"S6":["Thermodynamique statistique","Physique quantique","Électromagnétisme avancé"]
 },
-"Physique-Chimie": {
-"S5": [
-"Électronique analogique et numérique",
-"Vibrations et ondes",
-"Physique des matériaux",
-"Chimie organique approfondie"
-],
-"S6": [
-"Chimie inorganique et analytique",
-"Cinétique chimique",
-"Spectroscopie"
-]
+"Physique-Chimie":{
+"S5":["Électronique analogique et numérique","Vibrations et ondes","Physique des matériaux","Chimie organique approfondie"],
+"S6":["Chimie inorganique et analytique","Cinétique chimique","Spectroscopie"]
 }
 }
-
 }
-
 }
 }
 };
 
-/* =====================================
-   2. VARIABLES DE NAVIGATION
-===================================== */
+/* 2. VARIABLES ET HISTORIQUE DE NAVIGATION */
 
-let selectedCountry = "Burkina Faso";
-let selectedUniversity = "Université Joseph Ki-Zerbo";
-let selectedField = "";
-let selectedLevel = "";
-let selectedPath = "";
-let selectedSemester = "";
-let selectedSubject = "";
+let selectedCountry="Burkina Faso";
+let selectedUniversity="Université Joseph Ki-Zerbo";
+let selectedField="";
+let selectedLevel="";
+let selectedPath="";
+let selectedSemester="";
+let selectedSubject="";
 
-const app = document.getElementById("app");
+const app=document.getElementById("app");
+let pageHistory=[];
 
-/* =====================================
-   3. OUTILS D'AFFICHAGE
-===================================== */
-
-function escapeHTML(value) {
-  return String(value).replace(/[&<>"']/g, char => ({
-    "&":"&amp;",
-    "<":"&lt;",
-    ">":"&gt;",
-    '"':"&quot;",
-    "'":"&#39;"
-  })[char]);
+function savePage(){
+pageHistory.push({
+html:app.innerHTML,
+country:selectedCountry,
+university:selectedUniversity,
+field:selectedField,
+level:selectedLevel,
+path:selectedPath,
+semester:selectedSemester,
+subject:selectedSubject
+});
+if(pageHistory.length>40)pageHistory.shift();
 }
 
-function show(title, html, breadcrumb="WiderWay") {
-  app.innerHTML = `
-    <div class="breadcrumb">${escapeHTML(breadcrumb)}</div>
-    <h2 class="section-title">${escapeHTML(title)}</h2>
-    ${html}
-  `;
-  window.scrollTo({top:0,behavior:"smooth"});
+function restorePage(){
+const previous=pageHistory.pop();
+if(!previous){home();return;}
+app.innerHTML=previous.html;
+selectedCountry=previous.country;
+selectedUniversity=previous.university;
+selectedField=previous.field;
+selectedLevel=previous.level;
+selectedPath=previous.path;
+selectedSemester=previous.semester;
+selectedSubject=previous.subject;
+window.scrollTo({top:0,behavior:"smooth"});
 }
 
-function makeCard(title, description, action, value) {
-  return `
-    <div class="card"
-      data-action="${action}"
-      data-value="${escapeHTML(value)}">
-      <h3>${escapeHTML(title)}</h3>
-      <p>${escapeHTML(description)}</p>
-      <button type="button">Consulter</button>
-    </div>
-  `;
+function goBack(){
+if(pageHistory.length){
+history.back();
+}else{
+goHome();
+}
 }
 
-/* =====================================
-   4. PAGE D'ACCUEIL
-===================================== */
-
-function home() {
-  app.innerHTML = `
-    <section class="hero">
-      <h1>Bienvenue sur WiderWay</h1>
-      <p><strong>Le savoir ouvre toutes les voies.</strong></p>
-      <p>Une plateforme gratuite dédiée à l'éducation,
-      à la formation et à la recherche scientifique
-      en Afrique et dans le monde.</p>
-      <button class="btn" data-action="formations">
-        Explorer les formations
-      </button>
-    </section>
-
-    <h2 class="section-title">Nos espaces</h2>
-    <div class="grid">
-      ${makeCard("Formations","Découvrir les filières et les matières.","formations","")}
-      ${makeCard("Bibliothèque","Retrouver les ressources pédagogiques.","library","")}
-      ${makeCard("Recherche scientifique","Découvrir l'espace de recherche.","research","")}
-      ${makeCard("Communauté","Un espace pour les étudiants et chercheurs.","community","")}
-    </div>
-  `;
+function goHome(){
+pageHistory=[];
+home();
+window.scrollTo({top:0,behavior:"smooth"});
 }
 
-/* =====================================
-   5. FORMATIONS
-===================================== */
+/* 3. OUTILS D'AFFICHAGE */
 
-function formations() {
-  const html = `
-    <div class="grid">
-      ${makeCard("Burkina Faso","Explorer les formations disponibles au Burkina Faso.","country","Burkina Faso")}
-      ${makeCard("Autres pays africains","Espace destiné aux futures universités africaines.","coming","Afrique")}
-      ${makeCard("International","Espace destiné aux formations internationales.","coming","International")}
-    </div>
-  `;
-  show("Explorer les formations",html);
+function escapeHTML(value){
+return String(value).replace(/[&<>"']/g,char=>({
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#39;"
+})[char]);
 }
 
-function country(value) {
-  selectedCountry = value;
-  const universities = database[value];
-
-  if (!universities) {
-    show("Bientôt disponible","<p>Les formations de cette région seront ajoutées progressivement.</p>");
-    return;
-  }
-
-  let html = '<div class="grid">';
-  Object.keys(universities).forEach(university => {
-    html += makeCard(university,"Consulter les filières disponibles.","university",university);
-  });
-  html += '</div>';
-
-  show(value,html,"Formations → "+value);
+function pageTools(){
+return `
+<div class="page-tools">
+<button type="button" data-action="back">← Retour</button>
+<button type="button" data-action="home">⌂ Accueil</button>
+</div>`;
 }
 
-function university(value) {
-  selectedUniversity = value;
-  const fields = database[selectedCountry][value];
-
-  let html = '<div class="grid">';
-  Object.keys(fields).forEach(field => {
-    html += makeCard(field,"Explorer les niveaux et les matières.","field",field);
-  });
-  html += '</div>';
-
-  show(value,html,selectedCountry+" → "+value);
+function show(title,html,breadcrumb="WiderWay"){
+app.innerHTML=pageTools()+`
+<div class="breadcrumb">${escapeHTML(breadcrumb)}</div>
+<h2 class="section-title">${escapeHTML(title)}</h2>
+${html}`;
+window.scrollTo({top:0,behavior:"smooth"});
 }
 
-/* =====================================
-   6. FILIÈRES ET NIVEAUX
-===================================== */
-
-function field(value) {
-  selectedField = value;
-  const data = database[selectedCountry][selectedUniversity][value];
-
-  let html = '<div class="grid">';
-  Object.keys(data).forEach(level => {
-    html += makeCard(level,"Consulter les semestres de ce niveau.","level",level);
-  });
-  html += '</div>';
-
-  show(value,html,selectedUniversity+" → "+value);
+function makeCard(title,description,action,value){
+return `
+<div class="card" data-action="${action}" data-value="${escapeHTML(value)}">
+<h3>${escapeHTML(title)}</h3>
+<p>${escapeHTML(description)}</p>
+<button type="button">Consulter</button>
+</div>`;
 }
 
-function level(value) {
-  selectedLevel = value;
-  selectedPath = "";
+/* 4. ACCUEIL */
 
-  const data =
-    database[selectedCountry][selectedUniversity][selectedField][value];
-
-  let html = '<div class="grid">';
-
-  Object.keys(data).forEach(item => {
-    if (value === "L3") {
-      html += makeCard(item,"Consulter les semestres de ce parcours.","path",item);
-    } else {
-      html += makeCard(item,"Voir les matières de ce semestre.","semester",item);
-    }
-  });
-
-  html += '</div>';
-
-  show(value,html,selectedField+" → "+value);
+function home(){
+app.innerHTML=pageTools()+`
+<section class="hero">
+<h1>Bienvenue sur WiderWay</h1>
+<p><strong>Le savoir ouvre toutes les voies.</strong></p>
+<p>Une plateforme gratuite dédiée à l'éducation,
+à la formation et à la recherche scientifique
+en Afrique et dans le monde.</p>
+<button class="btn" data-action="formations">
+Explorer les formations
+</button>
+</section>
+<h2 class="section-title">Nos espaces</h2>
+<div class="grid">
+${makeCard("Formations","Découvrir les filières et les matières.","formations","")}
+${makeCard("Bibliothèque","Retrouver les ressources pédagogiques.","library","")}
+${makeCard("Recherche scientifique","Découvrir l'espace de recherche.","research","")}
+${makeCard("Communauté","Un espace pour les étudiants et chercheurs.","community","")}
+</div>`;
 }
 
-/* =====================================
-   7. PARCOURS DE L3
-===================================== */
+/* 5. FORMATIONS */
 
-function path(value) {
-  selectedPath = value;
-
-  const data =
-    database[selectedCountry][selectedUniversity]
-    [selectedField][selectedLevel][selectedPath];
-
-  let html = '<div class="grid">';
-
-  Object.keys(data).forEach(semester => {
-    html += makeCard(semester,"Voir les matières du semestre.","semester",semester);
-  });
-
-  html += '</div>';
-
-  show(value,html,selectedField+" → L3 → "+value);
+function formations(){
+const html=`
+<div class="grid">
+${makeCard("Burkina Faso","Explorer les formations disponibles au Burkina Faso.","country","Burkina Faso")}
+${makeCard("Autres pays africains","Espace destiné aux futures universités africaines.","coming","Afrique")}
+${makeCard("International","Espace destiné aux formations internationales.","coming","International")}
+</div>`;
+show("Explorer les formations",html);
 }
 
-/* =====================================
-   8. MATIÈRES
-===================================== */
+function country(value){
+selectedCountry=value;
+const universities=database[value];
 
-function semester(value) {
-  selectedSemester = value;
-
-  const levelData =
-    database[selectedCountry][selectedUniversity]
-    [selectedField][selectedLevel];
-
-  const data = selectedLevel === "L3"
-    ? levelData[selectedPath][value]
-    : levelData[value];
-
-  let html = '<div class="grid">';
-
-  data.forEach(subject => {
-    html += makeCard(subject,"Accéder aux ressources de cette matière.","subject",subject);
-  });
-
-  html += '</div>';
-
-  show(value,html,selectedField+" → "+selectedLevel+" → "+value);
+if(!universities){
+show("Bientôt disponible","<p>Les formations de cette région seront ajoutées progressivement.</p>");
+return;
 }
 
-function subject(value) {
-  selectedSubject = value;
+let html='<div class="grid">';
+Object.keys(universities).forEach(university=>{
+html+=makeCard(university,"Consulter les filières disponibles.","university",university);
+});
+html+='</div>';
 
-  const html = `
-    <div class="panel">
-      <h3>${escapeHTML(value)}</h3>
-      <p>Bienvenue dans l'espace consacré à cette matière.</p>
-      <p class="small">Les ressources seront ajoutées progressivement.</p>
-    </div>
-
-    <div class="grid">
-      ${makeCard("Cours","Leçons et supports pédagogiques.","resource","Cours")}
-      ${makeCard("Résumés","Fiches de révision et synthèses.","resource","Résumés")}
-      ${makeCard("Exercices corrigés","Travaux pratiques et exercices.","resource","Exercices corrigés")}
-      ${makeCard("Documents PDF","Documents téléchargeables.","resource","Documents PDF")}
-    </div>
-  `;
-
-  show(value,html,selectedField+" → "+selectedLevel+" → "+selectedSemester);
+show(value,html,"Formations → "+value);
 }
 
-/* =====================================
-   9. RESSOURCES PÉDAGOGIQUES
-===================================== */
+function university(value){
+selectedUniversity=value;
+const fields=database[selectedCountry][value];
 
-function resource(value) {
-  const html = `
-    <div class="panel">
-      <h3>${escapeHTML(value)}</h3>
-      <p>Matière : <strong>${escapeHTML(selectedSubject)}</strong></p>
-      <p>Les ressources de cette rubrique seront publiées
-      au fur et à mesure de leur préparation.</p>
-      <p class="small">Aucun document n'est encore disponible ici.</p>
-    </div>
-  `;
+let html='<div class="grid">';
+Object.keys(fields).forEach(field=>{
+html+=makeCard(field,"Explorer les niveaux et les matières.","field",field);
+});
+html+='</div>';
 
-  show(value,html,selectedSubject+" → "+value);
+show(value,html,selectedCountry+" → "+value);
 }
 
-/* =====================================
-   10. BIBLIOTHÈQUE ET RECHERCHE
-===================================== */
+/* 6. FILIÈRES ET NIVEAUX */
 
-function allSubjects() {
-  let results = [];
+function field(value){
+selectedField=value;
+const data=database[selectedCountry][selectedUniversity][value];
 
-  function collect(obj) {
-    Object.values(obj).forEach(value => {
-      if (Array.isArray(value)) {
-        results = results.concat(value);
-      } else if (value && typeof value === "object") {
-        collect(value);
-      }
-    });
-  }
+let html='<div class="grid">';
+Object.keys(data).forEach(level=>{
+html+=makeCard(level,"Consulter les semestres de ce niveau.","level",level);
+});
+html+='</div>';
 
-  collect(database);
-  return [...new Set(results)];
+show(value,html,selectedUniversity+" → "+value);
 }
 
-function library() {
-  show("Bibliothèque universitaire",`
-    <div class="panel">
-      <p>Rechercher une matière dans le catalogue WiderWay.</p>
-      <input id="searchInput" placeholder="Exemple : Biologie cellulaire">
-      <button class="action" data-action="search">Rechercher</button>
-    </div>
-    <div id="searchResults"></div>
-  `);
+function level(value){
+selectedLevel=value;
+selectedPath="";
+
+const data=database[selectedCountry][selectedUniversity][selectedField][value];
+
+let html='<div class="grid">';
+
+Object.keys(data).forEach(item=>{
+if(value==="L3"){
+html+=makeCard(item,"Consulter les semestres de ce parcours.","path",item);
+}else{
+html+=makeCard(item,"Voir les matières de ce semestre.","semester",item);
 }
-
-function search() {
-  const input = document.getElementById("searchInput");
-  const results = document.getElementById("searchResults");
-
-  if (!input || !results) return;
-
-  const query = input.value.toLowerCase().trim();
-
-  if (!query) {
-    results.innerHTML = "<p>Entre le nom d'une matière.</p>";
-    return;
-  }
-
-  const matches = allSubjects().filter(subject =>
-    subject.toLowerCase().includes(query)
-  );
-
-  if (!matches.length) {
-    results.innerHTML = "<p>Aucune matière trouvée.</p>";
-    return;
-  }
-
-  results.innerHTML = matches.map(subject => `
-    <div class="resource">
-      <strong>${escapeHTML(subject)}</strong>
-    </div>
-  `).join("");
-}
-
-function research() {
-  show("Recherche scientifique",`
-    <div class="panel">
-      <h3>Un espace pour la recherche</h3>
-      <p>WiderWay ambitionne de faciliter l'accès aux connaissances
-      scientifiques, aux travaux universitaires et aux publications.</p>
-      <p>Les fonctionnalités de dépôt et de consultation des publications
-      seront développées dans une prochaine étape.</p>
-    </div>
-  `);
-}
-
-/* =====================================
-   11. COMMUNAUTÉ, À PROPOS, CONTACT
-===================================== */
-
-function community() {
-  show("Communauté WiderWay",`
-    <div class="panel">
-      <h3>Apprendre et partager</h3>
-      <p>Un espace destiné aux étudiants, enseignants et chercheurs
-      pour partager leurs connaissances et leurs expériences.</p>
-      <p>Les fonctions de compte utilisateur et de discussion
-      seront développées ultérieurement.</p>
-    </div>
-  `);
-}
-
-function about() {
-  show("À propos de WiderWay",`
-    <div class="panel">
-      <h3>Notre vision</h3>
-      <p>WiderWay est une initiative éducative et scientifique
-      qui vise à rendre le savoir plus accessible.</p>
-      <p>Notre ambition est de contribuer au développement
-      de l'éducation et de la recherche en Afrique et à l'international.</p>
-      <h3>Notre engagement</h3>
-      <p>Gratuité, partage des connaissances, collaboration
-      et ouverture scientifique.</p>
-    </div>
-  `);
-}
-
-function contact() {
-  show("Contact",`
-    <div class="panel">
-      <h3>Nous contacter</h3>
-      <p>Pour toute question ou proposition, utilise le formulaire
-      de contact qui sera relié à une adresse de réception
-      lors d'une prochaine étape.</p>
-      <label>Nom</label>
-      <input placeholder="Ton nom">
-      <label>Adresse e-mail</label>
-      <input type="email" placeholder="Ton adresse e-mail">
-      <label>Message</label>
-      <textarea rows="5" placeholder="Écris ton message"></textarea>
-      <p class="small">L'envoi du formulaire n'est pas encore activé.</p>
-    </div>
-  `);
-}
-
-function coming(value) {
-  show("Bientôt disponible",`
-    <div class="panel">
-      <p>La section ${escapeHTML(value)} sera développée
-      progressivement sur WiderWay.</p>
-    </div>
-  `);
-}
-
-/* =====================================
-   12. NAVIGATION GÉNÉRALE
-===================================== */
-
-const actions = {
-  home,
-  formations,
-  library,
-  research,
-  about,
-  contact,
-  community,
-  country,
-  university,
-  field,
-  level,
-  path,
-  semester,
-  subject,
-  resource,
-  coming,
-  search
-};
-
-document.addEventListener("click", function(event) {
-  const element = event.target.closest("[data-action]");
-  if (!element) return;
-
-  const action = element.dataset.action;
-  const value = element.dataset.value || "";
-
-  if (actions[action]) {
-    actions[action](value);
-  }
 });
 
+html+='</div>';
+
+show(value,html,selectedField+" → "+value);
+}
+
+/* 7. PARCOURS L3 */
+
+function path(value){
+selectedPath=value;
+
+const data=database[selectedCountry][selectedUniversity]
+[selectedField][selectedLevel][selectedPath];
+
+let html='<div class="grid">';
+
+Object.keys(data).forEach(semester=>{
+html+=makeCard(semester,"Voir les matières du semestre.","semester",semester);
+});
+
+html+='</div>';
+
+show(value,html,selectedField+" → L3 → "+value);
+}
+
+/* 8. MATIÈRES */
+
+function semester(value){
+selectedSemester=value;
+
+const levelData=database[selectedCountry][selectedUniversity]
+[selectedField][selectedLevel];
+
+const data=selectedLevel==="L3"
+?levelData[selectedPath][value]
+:levelData[value];
+
+let html='<div class="grid">';
+
+data.forEach(subject=>{
+html+=makeCard(subject,"Accéder aux ressources de cette matière.","subject",subject);
+});
+
+html+='</div>';
+
+show(value,html,selectedField+" → "+selectedLevel+" → "+value);
+}
+
+function subject(value){
+selectedSubject=value;
+
+const html=`
+<div class="panel">
+<h3>${escapeHTML(value)}</h3>
+<p>Bienvenue dans l'espace consacré à cette matière.</p>
+<p class="small">Les ressources seront ajoutées progressivement.</p>
+</div>
+<div class="grid">
+${makeCard("Cours","Leçons et supports pédagogiques.","resource","Cours")}
+${makeCard("Résumés","Fiches de révision et synthèses.","resource","Résumés")}
+${makeCard("Exercices corrigés","Travaux pratiques et exercices.","resource","Exercices corrigés")}
+${makeCard("Documents PDF","Documents téléchargeables.","resource","Documents PDF")}
+</div>`;
+
+show(value,html,selectedField+" → "+selectedLevel+" → "+selectedSemester);
+}
+
+/* 9. RESSOURCES */
+
+function resource(value){
+const html=`
+<div class="panel">
+<h3>${escapeHTML(value)}</h3>
+<p>Matière : <strong>${escapeHTML(selectedSubject)}</strong></p>
+<p>Les ressources de cette rubrique seront publiées
+au fur et à mesure de leur préparation.</p>
+<p class="small">Aucun document n'est encore disponible ici.</p>
+</div>`;
+
+show(value,html,selectedSubject+" → "+value);
+}
+
+/* 10. BIBLIOTHÈQUE ET RECHERCHE */
+
+function allSubjects(){
+let results=[];
+
+function collect(obj){
+Object.values(obj).forEach(value=>{
+if(Array.isArray(value)){
+results=results.concat(value);
+}else if(value&&typeof value==="object"){
+collect(value);
+}
+});
+}
+
+collect(database);
+return [...new Set(results)];
+}
+
+function library(){
+show("Bibliothèque universitaire",`
+<div class="panel">
+<p>Rechercher une matière dans le catalogue WiderWay.</p>
+<input id="searchInput" placeholder="Exemple : Biologie cellulaire">
+<button class="action" data-action="search">Rechercher</button>
+</div>
+<div id="searchResults"></div>`);
+}
+
+function search(){
+const input=document.getElementById("searchInput");
+const results=document.getElementById("searchResults");
+
+if(!input||!results)return;
+
+const query=input.value.toLowerCase().trim();
+
+if(!query){
+results.innerHTML="<p>Entre le nom d'une matière.</p>";
+return;
+}
+
+const matches=allSubjects().filter(subject=>
+subject.toLowerCase().includes(query)
+);
+
+if(!matches.length){
+results.innerHTML="<p>Aucune matière trouvée.</p>";
+return;
+}
+
+results.innerHTML=matches.map(subject=>`
+<div class="resource">
+<strong>${escapeHTML(subject)}</strong>
+</div>`).join("");
+}
+
+function research(){
+show("Recherche scientifique",`
+<div class="panel">
+<h3>Un espace pour la recherche</h3>
+<p>WiderWay ambitionne de faciliter l'accès aux connaissances
+scientifiques, aux travaux universitaires et aux publications.</p>
+<p>Les fonctionnalités de dépôt et de consultation des publications
+seront développées dans une prochaine étape.</p>
+</div>`);
+}
+
+/* 11. COMMUNAUTÉ, À PROPOS, CONTACT */
+
+function community(){
+show("Communauté WiderWay",`
+<div class="panel">
+<h3>Apprendre et partager</h3>
+<p>Un espace destiné aux étudiants, enseignants et chercheurs
+pour partager leurs connaissances et leurs expériences.</p>
+<p>Les fonctions de compte utilisateur et de discussion
+seront développées ultérieurement.</p>
+</div>`);
+}
+
+function about(){
+show("À propos de WiderWay",`
+<div class="panel">
+<h3>Notre vision</h3>
+<p>WiderWay est une initiative éducative et scientifique
+qui vise à rendre le savoir plus accessible.</p>
+<p>Notre ambition est de contribuer au développement
+de l'éducation et de la recherche en Afrique et à l'international.</p>
+<h3>Notre engagement</h3>
+<p>Gratuité, partage des connaissances, collaboration
+et ouverture scientifique.</p>
+</div>`);
+}
+
+function contact(){
+show("Contact",`
+<div class="panel">
+<h3>Nous contacter</h3>
+<p>Pour toute question ou proposition, utilise le formulaire
+de contact qui sera relié à une adresse de réception
+lors d'une prochaine étape.</p>
+<label>Nom</label>
+<input placeholder="Ton nom">
+<label>Adresse e-mail</label>
+<input type="email" placeholder="Ton adresse e-mail">
+<label>Message</label>
+<textarea rows="5" placeholder="Écris ton message"></textarea>
+<p class="small">L'envoi du formulaire n'est pas encore activé.</p>
+</div>`);
+}
+
+function coming(value){
+show("Bientôt disponible",`
+<div class="panel">
+<p>La section ${escapeHTML(value)} sera développée
+progressivement sur WiderWay.</p>
+</div>`);
+}
+
+/* 12. NAVIGATION GÉNÉRALE */
+
+const actions={
+home:goHome,
+back:goBack,
+formations,
+library,
+research,
+about,
+contact,
+community,
+country,
+university,
+field,
+level,
+path,
+semester,
+subject,
+resource,
+coming,
+search
+};
+
+document.addEventListener("click",function(event){
+const element=event.target.closest("[data-action]");
+if(!element)return;
+
+const action=element.dataset.action;
+const value=element.dataset.value||"";
+
+if(!actions[action])return;
+
+if(action!=="home"&&action!=="back"&&action!=="search"){
+savePage();
+history.pushState({widerway:true},"");
+}
+
+actions[action](value);
+});
+
+/* 13. BOUTON RETOUR DU TÉLÉPHONE / NAVIGATEUR */
+
+window.addEventListener("popstate",function(){
+if(pageHistory.length){
+restorePage();
+}else{
+goHome();
+}
+});
+
+history.replaceState({widerway:true},"");
 home();
 
 </script>
