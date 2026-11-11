@@ -584,11 +584,118 @@ function community() {
 }
 function about() {
   show("À propos de WiderWay",`<div class="panel"><h3>Notre vision</h3><p>WiderWay est une initiative éducative et scientifique qui vise à rendre le savoir plus accessible.</p><h3>Notre engagement</h3><p>Gratuité, partage des connaissances, collaboration et ouverture scientifique.</p></div>`);
+}function contact() {
+  show("Contact", `
+    <div class="panel" style="text-align:center;">
+      <div style="
+        width:100px;height:100px;border-radius:50%;
+        background:#234b73;color:white;
+        display:flex;align-items:center;justify-content:center;
+        margin:15px auto;font-size:34px;font-weight:bold;">
+        AW
+      </div>
+
+      <h2>Contactez WiderWay</h2>
+      <p>Le savoir ouvre toutes les voies.</p>
+      <p>
+        Une question, une suggestion ou une proposition
+        de collaboration ? Nous sommes à votre écoute.
+      </p>
+    </div>
+
+    <div class="panel">
+      <h3>Nos coordonnées officielles</h3>
+
+      <p><strong>E-mail :</strong></p>
+      <p>
+        <a href="mailto:Arnaudwider7130@gmail.com">
+          Arnaudwider7130@gmail.com
+        </a>
+      </p>
+
+      <p><strong>WhatsApp :</strong></p>
+      <p>
+        <a href="https://wa.me/22674752537"
+           target="_blank" rel="noopener">
+          <strong>Écrire à WiderWay sur WhatsApp</strong>
+        </a>
+      </p>
+    </div>
+
+    <div class="panel">
+      <h3>Envoyer un message</h3>
+
+      <form action="https://formsubmit.co/Arnaudwider7130@gmail.com"
+            method="POST">
+
+        <input type="hidden" name="_subject"
+          value="Nouveau message - WiderWay">
+
+        <input type="hidden" name="_template"
+          value="table">
+
+        <input type="text" name="_honey"
+          style="display:none">
+
+        <label>Nom complet</label>
+        <input type="text" name="name"
+          placeholder="Votre nom complet" required>
+
+        <label>Adresse e-mail</label>
+        <input type="email" name="email"
+          placeholder="Votre adresse e-mail" required>
+
+        <label>Motif du contact</label>
+        <select name="motif" required>
+          <option value="">Choisir un motif</option>
+          <option>Question pédagogique</option>
+          <option>Recherche scientifique</option>
+          <option>Partenariat</option>
+          <option>Contribution à WiderWay</option>
+          <option>Signalement d'un problème</option>
+          <option>Suggestion</option>
+          <option>Autre</option>
+        </select>
+
+        <label>Objet du message</label>
+        <input type="text" name="objet"
+          placeholder="Objet du message" required>
+
+        <label>Votre message</label>
+        <textarea name="message" rows="6"
+          placeholder="Écrivez votre message ici..."
+          required></textarea>
+
+        <button type="submit">Envoyer le message</button>
+      </form>
+    </div>
+
+    <div class="panel">
+      <h3>Contribuer à WiderWay</h3>
+      <p>
+        Étudiants, enseignants, chercheurs et passionnés
+        de savoir peuvent contribuer au développement
+        de notre plateforme.
+      </p>
+      <ul>
+        <li>Proposer des cours et des exercices.</li>
+        <li>Partager des ressources scientifiques.</li>
+        <li>Proposer des projets de recherche.</li>
+        <li>Participer à des partenariats éducatifs.</li>
+      </ul>
+    </div>
+
+    <div class="panel" style="text-align:center;">
+      <h3>Notre engagement</h3>
+      <p>
+        Rendre l'éducation et la recherche scientifique
+        accessibles à tous, en Afrique et dans le monde.
+      </p>
+      <strong>WiderWay — Le savoir ouvre toutes les voies.</strong>
+    </div>
+  `);
 }
-function contact() {
-  show("Contact",`<div class="panel"><h3>Nous contacter</h3><label>Nom</label><input placeholder="Ton nom"><label>Adresse e-mail</label><input type="email" placeholder="Ton adresse e-mail"><label>Message</label><textarea rows="5" placeholder="Écris ton message"></textarea><p class="small">L'envoi du formulaire sera activé lors d'une prochaine étape.</p></div>`);
-}
-function coming(value) {
+}function coming(value) {
   show("Bientôt disponible",`<div class="panel"><p>La section ${escapeHTML(value)} sera développée progressivement sur WiderWay.</p></div>`);
 }
 
@@ -615,7 +722,553 @@ window.addEventListener("popstate",()=>{
   else goHome();
 });
 history.replaceState({widerway:true},"",location.href);
-home();
+home();/* =========================================================
+   WIDERWAY — CHAPITRE 2 : LEÇONS 2 À 6
+   Extension pédagogique
+   ========================================================= */
+
+const widerwayChapitre2Detail = [
+{
+ objectifs: "Résoudre des équations avec parenthèses et fractions, respecter les valeurs interdites et discuter les cas dépendant d'un paramètre.",
+ cours: `
+ <h4>1. Équations avec parenthèses</h4>
+ <p>On applique la distributivité, puis on réduit les termes semblables.</p>
+ <div class="formula">a(b+c)=ab+ac ; a(b-c)=ab-ac</div>
+ <div class="example"><strong>Exemple :</strong> 3(2x-5)=9<br>6x-15=9 ; 6x=24 ; donc <strong>x=4</strong>.</div>
+
+ <h4>2. Équations avec fractions</h4>
+ <p>On repère les dénominateurs et les valeurs interdites. On multiplie ensuite les deux membres par un dénominateur commun non nul.</p>
+ <div class="example"><strong>Exemple :</strong> x/2+x/3=5<br>En multipliant par 6 : 3x+2x=30, donc <strong>x=6</strong>.</div>
+
+ <h4>3. Fractions rationnelles</h4>
+ <p>Une expression au dénominateur ne peut jamais être nulle. Pour (x+1)/(x-2), on impose x≠2.</p>
+
+ <h4>4. Équations avec paramètre</h4>
+ <p>Un paramètre est une lettre considérée comme une constante. Il faut distinguer les cas où le coefficient de l'inconnue est nul ou non nul.</p>
+ <div class="example"><strong>Exemple :</strong> (m-2)x=6. Si m≠2, x=6/(m-2). Si m=2, on obtient 0=6 : aucune solution.</div>
+
+ <h4>5. Méthode à retenir</h4>
+ <ol>
+ <li>Développer et réduire.</li>
+ <li>Écrire les valeurs interdites.</li>
+ <li>Éliminer les dénominateurs.</li>
+ <li>Isoler l'inconnue.</li>
+ <li>Étudier les valeurs particulières du paramètre.</li>
+ <li>Vérifier dans l'équation initiale.</li>
+ </ol>`,
+ series: [
+ [
+ ["Résoudre 3(2x-5)=9.", "6x-15=9 ; 6x=24 ; <strong>x=4</strong>."],
+ ["Résoudre 4(x+2)=20.", "4x+8=20 ; 4x=12 ; <strong>x=3</strong>."],
+ ["Résoudre 5-2(x-1)=9.", "5-2x+2=9 ; -2x=2 ; <strong>x=-1</strong>."],
+ ["Résoudre 7(x-2)+3=24.", "7x-14+3=24 ; 7x=35 ; <strong>x=5</strong>."],
+ ["Résoudre 2(3x+1)-4=10.", "6x+2-4=10 ; 6x=12 ; <strong>x=2</strong>."]
+ ],
+ [
+ ["Résoudre x/2+x/3=10.", "Multiplier par 6 : 3x+2x=60 ; 5x=60 ; <strong>x=12</strong>."],
+ ["Résoudre (x-1)/3=(x+2)/5.", "5(x-1)=3(x+2) ; 5x-5=3x+6 ; 2x=11 ; <strong>x=11/2</strong>."],
+ ["Résoudre (2x+1)/4=3.", "2x+1=12 ; 2x=11 ; <strong>x=11/2</strong>."],
+ ["Résoudre x/4-1/2=2.", "x-2=8 ; <strong>x=10</strong>."],
+ ["Résoudre (x+3)/2=(x-1)/4+4.", "2x+6=x-1+16 ; <strong>x=9</strong>."]
+ ],
+ [
+ ["Résoudre (x+1)/(x-2)=3.", "x≠2. x+1=3x-6 ; <strong>x=7/2</strong>."],
+ ["Résoudre 2/(x-1)=1.", "x≠1. 2=x-1 ; <strong>x=3</strong>."],
+ ["Résoudre (x-2)/3=(2x+1)/6.", "2x-4=2x+1 : impossible. <strong>S=∅</strong>."],
+ ["Résoudre (m-2)x=6 suivant m.", "Si m≠2 : x=6/(m-2). Si m=2 : aucune solution."],
+ ["Discuter (m+1)x=m+1.", "Si m≠-1 : x=1. Si m=-1 : tous les réels sont solutions."]
+ ],
+ [
+ ["3 fois un nombre augmenté de 7 donne 36.", "3(x+7)=36 ; x+7=12 ; <strong>x=5</strong>."],
+ ["Le tiers d'un nombre augmenté de 4 vaut 9.", "x/3+4=9 ; <strong>x=15</strong>."],
+ ["Un rectangle a un périmètre de 34 cm. Sa longueur dépasse sa largeur de 3 cm.", "L=l+3 et 2(L+l)=34. Donc 3l=14 ; l=14/3 cm et L=23/3 cm."],
+ ["Discuter (a-3)x=2a-6.", "Si a≠3 : x=2. Si a=3 : tous les réels sont solutions."],
+ ["Résoudre 1/(x-1)+1=2.", "x≠1. 1/(x-1)=1 ; <strong>x=2</strong>."]
+ ]
+ ]
+},
+{
+ objectifs: "Factoriser une expression, reconnaître un produit nul et résoudre des équations produits ou polynomiales.",
+ cours: `
+ <h4>1. Propriété du produit nul</h4>
+ <div class="formula">A×B=0 ⇔ A=0 ou B=0</div>
+ <p>Un produit est nul si au moins l'un de ses facteurs est nul.</p>
+
+ <h4>2. Mise en évidence</h4>
+ <div class="formula">ab+ac=a(b+c)</div>
+ <p>On recherche le facteur commun présent dans tous les termes.</p>
+
+ <h4>3. Identités remarquables</h4>
+ <div class="formula">
+ a²-b²=(a-b)(a+b)<br>
+ (a+b)²=a²+2ab+b²<br>
+ (a-b)²=a²-2ab+b²
+ </div>
+
+ <h4>4. Trinôme factorisable</h4>
+ <p>Pour x²+sx+p, on cherche deux nombres dont la somme vaut s et le produit vaut p.</p>
+ <div class="example"><strong>Exemple :</strong> x²+5x+6=(x+2)(x+3). Les solutions sont -2 et -3.</div>
+
+ <h4>5. Méthode</h4>
+ <ol>
+ <li>Ramener tous les termes dans un même membre.</li>
+ <li>Factoriser complètement.</li>
+ <li>Écrire chaque facteur égal à zéro.</li>
+ <li>Résoudre les équations obtenues.</li>
+ </ol>`,
+ series: [
+ [
+ ["Résoudre x(x-5)=0.", "x=0 ou x=5."],
+ ["Résoudre (2x+1)(x-4)=0.", "x=-1/2 ou x=4."],
+ ["Résoudre (x+3)(x-2)=0.", "x=-3 ou x=2."],
+ ["Résoudre x²-9=0.", "(x-3)(x+3)=0 ; x=-3 ou x=3."],
+ ["Résoudre (3x-6)(x+1)=0.", "x=2 ou x=-1."]
+ ],
+ [
+ ["Factoriser x²+5x+6 puis résoudre.", "(x+2)(x+3)=0 ; x=-2 ou x=-3."],
+ ["Factoriser 4x²-25 puis résoudre.", "(2x-5)(2x+5)=0 ; x=±5/2."],
+ ["Résoudre x²-6x+9=0.", "(x-3)²=0 ; x=3."],
+ ["Résoudre 2x²+8x=0.", "2x(x+4)=0 ; x=0 ou x=-4."],
+ ["Résoudre x²-x-12=0.", "(x-4)(x+3)=0 ; x=4 ou x=-3."]
+ ],
+ [
+ ["Résoudre (x-1)²(x+2)=0.", "x=1 ou x=-2."],
+ ["Résoudre x³-4x=0.", "x(x-2)(x+2)=0 ; x=-2, 0 ou 2."],
+ ["Factoriser x²+7x+10.", "(x+5)(x+2)."],
+ ["Résoudre (x²-16)(x-1)=0.", "x=-4, 1 ou 4."],
+ ["Résoudre x²+2x+1=0.", "(x+1)²=0 ; x=-1."]
+ ],
+ [
+ ["Un rectangle a une aire de 48 cm² et une largeur x, une longueur x+2. Déterminer ses dimensions.", "x(x+2)=48 ; (x+8)(x-6)=0. La dimension positive est x=6 : rectangle de 6 cm sur 8 cm."],
+ ["Résoudre (x-3)(x+1)(2x-5)=0.", "x=3, x=-1 ou x=5/2."],
+ ["Factoriser 3x²-12x.", "3x(x-4)."],
+ ["Résoudre x⁴-5x²+4=0.", "Poser X=x² : (X-1)(X-4)=0. Donc x=-2, -1, 1 ou 2."],
+ ["Résoudre (x²-1)/(x+1)=0.", "x≠-1. Le seul zéro admissible est x=1."]
+ ]
+ ]
+}
+];,
+{
+  objectifs: "Calculer le discriminant d'un trinôme du second degré, déterminer ses racines et étudier son signe.",
+  cours: `
+  <h3>LEÇON 4 : ÉQUATIONS DU SECOND DEGRÉ</h3>
+  <h4>1. Définition</h4>
+  <p>Une équation du second degré est une équation de la forme :</p>
+  <p><strong>ax² + bx + c = 0</strong>, avec a ≠ 0.</p>
+
+  <h4>2. Le discriminant</h4>
+  <p>On calcule le discriminant avec la formule :</p>
+  <p><strong>Δ = b² − 4ac</strong></p>
+
+  <h4>3. Les trois cas possibles</h4>
+  <ul>
+    <li>Si Δ &gt; 0 : deux solutions réelles distinctes.</li>
+    <li>Si Δ = 0 : une solution réelle double.</li>
+    <li>Si Δ &lt; 0 : aucune solution réelle.</li>
+  </ul>
+
+  <h4>4. Formules des solutions</h4>
+  <p>Lorsque Δ &gt; 0 :</p>
+  <p>x₁ = (-b − √Δ)/(2a) et x₂ = (-b + √Δ)/(2a).</p>
+  <p>Lorsque Δ = 0 :</p>
+  <p>x₀ = -b/(2a).</p>
+
+  <h4>5. Exemple corrigé</h4>
+  <p>Résoudre : x² − 5x + 6 = 0.</p>
+  <p>a = 1, b = -5 et c = 6.</p>
+  <p>Δ = (-5)² − 4 × 1 × 6 = 25 − 24 = 1.</p>
+  <p>x₁ = (5 − 1)/2 = 2.</p>
+  <p>x₂ = (5 + 1)/2 = 3.</p>
+  <p><strong>Ensemble solution : S = {2 ; 3}.</strong></p>
+
+  <h4>6. Somme et produit des racines</h4>
+  <p>Lorsque les racines existent :</p>
+  <p>x₁ + x₂ = -b/a ; x₁ × x₂ = c/a.</p>
+
+  <h4>7. Signe d'un trinôme</h4>
+  <p>Si Δ &gt; 0, le trinôme est du signe de a à l'extérieur des racines et du signe opposé entre les racines.</p>
+  <p>Si Δ &lt; 0, le trinôme garde toujours le signe de a.</p>
+  <p>Si Δ = 0, il garde le signe de a et s'annule à la racine double.</p>
+  `,
+  series: [
+    [
+      ["Résoudre x² − 7x + 12 = 0.", "Δ = 49 − 48 = 1. Les racines sont x₁ = 3 et x₂ = 4. Donc S = {3 ; 4}."],
+      ["Résoudre x² − 9 = 0.", "x² = 9, donc x = -3 ou x = 3. S = {-3 ; 3}."],
+      ["Résoudre x² + 2x − 8 = 0.", "Δ = 4 + 32 = 36. Les racines sont -4 et 2. S = {-4 ; 2}."],
+      ["Résoudre x² − 4x + 4 = 0.", "Δ = 16 − 16 = 0. La racine double est x = 2. S = {2}."],
+      ["Résoudre 2x² − 8 = 0.", "2x² = 8, donc x² = 4. S = {-2 ; 2}."]
+    ],
+    [
+      ["Résoudre 2x² + x − 3 = 0.", "Δ = 1 + 24 = 25. Les racines sont x₁ = -3/2 et x₂ = 1."],
+      ["Résoudre 3x² − 5x + 2 = 0.", "Δ = 25 − 24 = 1. Les racines sont 2/3 et 1."],
+      ["Résoudre 5x² + 2x + 1 = 0 dans R.", "Δ = 4 − 20 = -16. Il n'existe aucune solution réelle."],
+      ["Résoudre 4x² − 12x + 9 = 0.", "Δ = 144 − 144 = 0. La racine double est x = 3/2."],
+      ["Résoudre x² + 6x + 5 = 0.", "Δ = 36 − 20 = 16. Les racines sont -5 et -1."]
+    ],
+    [
+      ["Étudier le signe de x² − 5x + 6.", "Les racines sont 2 et 3. Comme a = 1 > 0, le trinôme est positif sur ]-∞;2[ et ]3;+∞[, négatif sur ]2;3[."],
+      ["Étudier le signe de -x² + 4.", "Les racines sont -2 et 2. Comme a = -1 < 0, le trinôme est négatif à l'extérieur des racines et positif entre elles."],
+      ["Étudier le signe de x² + 4x + 4.", "x² + 4x + 4 = (x + 2)². L'expression est positive ou nulle sur R."],
+      ["Déterminer la somme et le produit des racines de 2x² − 7x + 3 = 0.", "Somme = -b/a = 7/2. Produit = c/a = 3/2."],
+      ["Déterminer le nombre de solutions de 3x² + 2x + 5 = 0.", "Δ = 4 − 60 = -56. Il n'y a aucune solution réelle."]
+    ],
+    [
+      ["Un rectangle a une longueur supérieure de 2 à sa largeur. Son aire vaut 48. Déterminer ses dimensions.", "Soit x la largeur. x(x + 2) = 48, donc x² + 2x − 48 = 0. Les racines sont -8 et 6. Une longueur étant positive, la largeur vaut 6 et la longueur 8."],
+      ["Le produit de deux nombres consécutifs vaut 72. Déterminer ces nombres entiers positifs.", "x(x + 1) = 72, donc x² + x − 72 = 0. Les racines sont -9 et 8. Les nombres sont 8 et 9."],
+      ["Un nombre augmenté de 3 a pour carré 25. Déterminer les possibilités.", "(x + 3)² = 25. Donc x + 3 = 5 ou x + 3 = -5. Ainsi x = 2 ou x = -8."],
+      ["Le carré d'un nombre diminué de 4 fois ce nombre vaut 5. Établir l'équation.", "x² − 4x = 5, donc x² − 4x − 5 = 0. Δ = 36. Les solutions sont -1 et 5."],
+      ["Le discriminant d'un trinôme est égal à 0. Que peut-on conclure ?", "Le trinôme possède une racine réelle double : x₀ = -b/(2a)."]
+    ]
+  ]
+},
+{
+  objectifs: "Résoudre des inéquations du premier et du second degré, construire un tableau de signes et déterminer les ensembles de solutions.",
+  cours: `
+  <h3>LEÇON 5 : INÉQUATIONS ET TABLEAUX DE SIGNES</h3>
+
+  <h4>1. Définition</h4>
+  <p>Une inéquation est une relation qui utilise les signes &lt;, &gt;, ≤ ou ≥.</p>
+  <p>Exemple : 2x + 3 &gt; 7.</p>
+
+  <h4>2. Règles fondamentales</h4>
+  <ul>
+    <li>Ajouter ou soustraire un même nombre aux deux membres ne change pas le sens de l'inégalité.</li>
+    <li>Multiplier ou diviser par un nombre positif conserve le sens.</li>
+    <li>Multiplier ou diviser par un nombre négatif inverse le sens.</li>
+  </ul>
+
+  <h4>3. Exemple d'inéquation du premier degré</h4>
+  <p>Résoudre 3x − 4 &gt; 8.</p>
+  <p>3x &gt; 12, donc <strong>x &gt; 4</strong>.</p>
+  <p>S = ]4 ; +∞[.</p>
+
+  <h4>4. Tableau de signes d'un produit</h4>
+  <p>Considérons (x − 2)(x + 3).</p>
+  <p>Les valeurs qui annulent les facteurs sont 2 et -3.</p>
+  <p>On étudie le signe de chaque facteur puis celui du produit.</p>
+  <p>Le produit est positif sur ]-∞ ; -3[ et ]2 ; +∞[ et négatif sur ]-3 ; 2[.</p>
+
+  <h4>5. Inéquation du second degré</h4>
+  <p>Pour résoudre une inéquation comme x² − 5x + 6 ≤ 0, on commence par résoudre l'équation associée :</p>
+  <p>x² − 5x + 6 = 0.</p>
+  <p>Les racines sont 2 et 3. Comme le coefficient de x² est positif, le trinôme est négatif entre les racines.</p>
+  <p><strong>Solution : S = [2 ; 3].</strong></p>
+
+  <h4>6. Quotient et valeurs interdites</h4>
+  <p>Pour étudier le signe d'une fraction, il faut identifier les valeurs qui annulent le dénominateur. Elles sont interdites.</p>
+  <p>Exemple : (x − 1)/(x + 2). La valeur x = -2 est interdite.</p>
+
+  <h4>7. Méthode générale</h4>
+  <ol>
+    <li>Tout ramener dans un même membre.</li>
+    <li>Factoriser si possible.</li>
+    <li>Déterminer les valeurs critiques.</li>
+    <li>Construire le tableau de signes.</li>
+    <li>Lire l'ensemble solution en respectant les bornes.</li>
+  </ol>
+  `,
+  series: [
+    [
+      ["Résoudre 2x + 5 > 11.", "2x > 6, donc x > 3. S = ]3 ; +∞[."],
+      ["Résoudre 4x − 7 ≤ 9.", "4x ≤ 16, donc x ≤ 4. S = ]-∞ ; 4]."],
+      ["Résoudre -3x + 6 > 0.", "-3x > -6. En divisant par -3, on inverse le sens : x < 2."],
+      ["Résoudre 5 − 2x ≥ 1.", "-2x ≥ -4. Donc x ≤ 2."],
+      ["Résoudre 7x + 2 < 3x + 14.", "4x < 12, donc x < 3."]
+    ],
+    [
+      ["Résoudre (x − 2)(x + 3) > 0.", "Les racines sont -3 et 2. Le produit est positif à l'extérieur : S = ]-∞ ; -3[ ∪ ]2 ; +∞[."],
+      ["Résoudre (x − 1)(x − 4) ≤ 0.", "Le produit est négatif entre les racines et nul aux racines : S = [1 ; 4]."],
+      ["Résoudre x² − 9 ≥ 0.", "(x − 3)(x + 3) ≥ 0. S = ]-∞ ; -3] ∪ [3 ; +∞[."],
+      ["Résoudre x² + 2x − 8 < 0.", "Les racines sont -4 et 2. Le trinôme est négatif entre les racines : S = ]-4 ; 2[."],
+      ["Résoudre -x² + 5x − 6 ≥ 0.", "Les racines sont 2 et 3. Le coefficient dominant est négatif : S = [2 ; 3]."]
+    ],
+    [
+      ["Résoudre (x − 1)/(x + 2) < 0.", "Les valeurs critiques sont -2, interdit, et 1. Le quotient est négatif entre elles : S = ]-2 ; 1[."],
+      ["Résoudre (x + 3)/(x − 4) ≥ 0.", "Les valeurs critiques sont -3 et 4, avec 4 interdit. S = ]-∞ ; -3] ∪ ]4 ; +∞[."],
+      ["Résoudre (x − 2)/(x + 1) ≤ 0.", "-1 est interdit et 2 annule le numérateur. S = ]-1 ; 2]."],
+      ["Résoudre (x² − 5x + 6)/(x² − 1) ≤ 0.", "Factorisation : (x − 2)(x − 3)/[(x − 1)(x + 1)]. Les valeurs interdites sont -1 et 1. S = ]-1 ; 1[ ∪ [2 ; 3]."],
+      ["Résoudre (x² − 4)/(x − 1) > 0.", "On factorise : (x − 2)(x + 2)/(x − 1). Les valeurs critiques sont -2, 1 interdit et 2. S = ]-2 ; 1[ ∪ ]2 ; +∞[."]
+    ],
+    [
+      ["Un commerçant vend un article à x francs. Son bénéfice est B(x) = 3x − 1500. À partir de quel prix le bénéfice est-il positif ?", "3x − 1500 > 0, donc 3x > 1500 et x > 500. Le prix doit dépasser 500 F CFA."],
+      ["Un étudiant doit obtenir une note supérieure ou égale à 10. Il a déjà 8 de moyenne et reçoit une note x qui compte autant que la précédente. Quelle condition doit vérifier x pour que la moyenne soit au moins 10 ?", "(8 + x)/2 ≥ 10. Donc 8 + x ≥ 20 et x ≥ 12."],
+      ["Un terrain rectangulaire a une largeur x et une longueur x + 5. Sa largeur doit être au moins égale à 10 m. Traduire cette condition.", "La condition est x ≥ 10, avec x > 0."],
+      ["Un taxi demande 500 F CFA de prise en charge et 200 F par kilomètre. Pour un budget de 2500 F, quelle distance maximale peut-on parcourir ?", "500 + 200x ≤ 2500. Donc 200x ≤ 2000 et x ≤ 10 km."],
+      ["Un nombre x doit vérifier simultanément x > 2 et x ≤ 7. Donner l'ensemble des solutions.", "On prend l'intersection des deux conditions : S = ]2 ; 7]."]
+    ]
+  ]
+},
+{
+  objectifs: "Résoudre des systèmes d'équations linéaires à deux ou trois inconnues, utiliser les méthodes de substitution et d'élimination et appliquer les systèmes à des situations concrètes.",
+  cours: `
+  <h3>LEÇON 6 : SYSTÈMES D'ÉQUATIONS LINÉAIRES</h3>
+
+  <h4>1. Définition</h4>
+  <p>Un système d'équations est un ensemble de plusieurs équations comportant les mêmes inconnues.</p>
+  <p>Exemple :</p>
+  <p><strong>{ x + y = 10 ; x − y = 2 }</strong></p>
+
+  <h4>2. Méthode de substitution</h4>
+  <p>Cette méthode consiste à exprimer une inconnue en fonction de l'autre, puis à remplacer cette expression dans la deuxième équation.</p>
+  <p><strong>Exemple :</strong></p>
+  <p>x + y = 10, donc x = 10 − y.</p>
+  <p>On remplace dans x − y = 2 :</p>
+  <p>10 − y − y = 2.</p>
+  <p>10 − 2y = 2, donc y = 4.</p>
+  <p>Alors x = 10 − 4 = 6.</p>
+  <p><strong>Solution : (x ; y) = (6 ; 4).</strong></p>
+
+  <h4>3. Méthode d'élimination</h4>
+  <p>Elle consiste à multiplier éventuellement les équations pour obtenir des coefficients opposés devant une inconnue, puis à additionner les équations.</p>
+  <p>Exemple :</p>
+  <p>2x + y = 11</p>
+  <p>x − y = 1</p>
+  <p>En additionnant les deux équations : 3x = 12, donc x = 4.</p>
+  <p>On remplace : 4 − y = 1, donc y = 3.</p>
+
+  <h4>4. Interprétation graphique</h4>
+  <p>Chaque équation à deux inconnues représente généralement une droite dans un repère.</p>
+  <ul>
+    <li>Deux droites sécantes : une solution.</li>
+    <li>Deux droites parallèles distinctes : aucune solution.</li>
+    <li>Deux droites confondues : une infinité de solutions.</li>
+  </ul>
+
+  <h4>5. Systèmes à trois inconnues</h4>
+  <p>Un système peut comporter trois inconnues x, y et z. On peut utiliser l'élimination successive pour réduire le nombre d'inconnues.</p>
+
+  <h4>6. Applications</h4>
+  <p>Les systèmes permettent de résoudre des problèmes de prix, de quantités, d'âges, de mélanges et de répartition.</p>
+
+  <h4>7. Méthode de résolution</h4>
+  <ol>
+    <li>Identifier les inconnues.</li>
+    <li>Traduire les informations en équations.</li>
+    <li>Choisir une méthode de résolution.</li>
+    <li>Calculer les inconnues.</li>
+    <li>Vérifier la solution dans les équations initiales.</li>
+  </ol>
+  `,
+  series: [
+    [
+      ["Résoudre le système : x + y = 12 ; x − y = 4.", "En additionnant : 2x = 16, donc x = 8. Alors y = 4. Solution : (8 ; 4)."],
+      ["Résoudre : x + y = 9 ; x = 5.", "On remplace x par 5 : 5 + y = 9, donc y = 4. Solution : (5 ; 4)."],
+      ["Résoudre : 2x + y = 10 ; x + y = 7.", "On soustrait la deuxième équation de la première : x = 3. Donc y = 4."],
+      ["Résoudre : x + 2y = 11 ; x = 3.", "3 + 2y = 11, donc 2y = 8 et y = 4. Solution : (3 ; 4)."],
+      ["Résoudre : 3x + y = 13 ; x + y = 7.", "En soustrayant, 2x = 6, donc x = 3. Ensuite y = 4."]
+    ],
+    [
+      ["Résoudre : 2x + y = 11 ; x − y = 1.", "On additionne : 3x = 12, donc x = 4. Puis y = 3."],
+      ["Résoudre : 3x + 2y = 16 ; x + y = 6.", "De la deuxième équation, x = 6 − y. Donc 18 − 3y + 2y = 16. Ainsi y = 2 et x = 4."],
+      ["Résoudre : 2x + 3y = 13 ; x + y = 5.", "x = 5 − y. Donc 10 − 2y + 3y = 13. Ainsi y = 3 et x = 2."],
+      ["Résoudre : 4x + y = 14 ; 2x − y = 4.", "En additionnant : 6x = 18, donc x = 3. Puis y = 2."],
+      ["Résoudre : 5x + 2y = 19 ; x + 2y = 7.", "En soustrayant : 4x = 12, donc x = 3. Puis 3 + 2y = 7, donc y = 2."]
+    ],
+    [
+      ["Résoudre : x + y + z = 9 ; x + y = 6 ; z = 3.", "La troisième équation donne z = 3. La deuxième donne x + y = 6. La première est alors vérifiée. Il existe une infinité de solutions : (x ; 6 − x ; 3)."],
+      ["Résoudre : x + y = 5 ; y + z = 7 ; x + z = 6.", "En additionnant les trois équations : 2(x + y + z) = 18, donc x + y + z = 9. On obtient z = 4, x = 2 et y = 3."],
+      ["Résoudre : x + y + z = 12 ; x = 3 ; y = 4.", "On remplace : 3 + 4 + z = 12. Donc z = 5. Solution : (3 ; 4 ; 5)."],
+      ["Résoudre : 2x + y + z = 10 ; x + y = 6 ; z = 2.", "La première équation devient 2x + y = 8. En soustrayant x + y = 6, on obtient x = 2, puis y = 4 et z = 2."],
+      ["Résoudre : x + y + z = 15 ; x + y = 9 ; y = 4.", "On trouve x = 5 grâce à x + y = 9. Puis z = 6. Solution : (5 ; 4 ; 6)."]
+    ],
+    [
+      ["Deux articles A et B coûtent ensemble 5 000 F CFA. Deux articles A et un article B coûtent 8 000 F CFA. Déterminer leurs prix.", "Posons A et B leurs prix. A + B = 5000 et 2A + B = 8000. Par soustraction, A = 3000. Donc B = 2000."],
+      ["La somme des âges de deux personnes est 40 ans. La première a 8 ans de plus que la deuxième. Déterminer leurs âges.", "x + y = 40 et x − y = 8. En additionnant : 2x = 48, donc x = 24 et y = 16."],
+      ["Dans un élevage, il y a des poules et des chèvres. On compte 10 têtes et 28 pattes. Déterminer le nombre de chaque animal.", "Soit p le nombre de poules et c celui des chèvres. p + c = 10 et 2p + 4c = 28. En simplifiant la deuxième : p + 2c = 14. On obtient c = 4 et p = 6."],
+      ["Un étudiant achète 2 cahiers et 3 stylos pour 1 300 F CFA. Un cahier et 2 stylos coûtent 700 F CFA. Déterminer les prix.", "Soit c le prix d'un cahier et s celui d'un stylo. 2c + 3s = 1300 et c + 2s = 700. On trouve s = 100 F et c = 500 F."],
+      ["Dans une salle, il y a 30 personnes. Le nombre de femmes dépasse celui des hommes de 6. Déterminer les effectifs.", "f + h = 30 et f − h = 6. En additionnant : 2f = 36, donc f = 18 et h = 12."]
+    ]
+  ]
+}
+];
+
+// Intégration des leçons 2 à 6 dans le chapitre 2.
+for (let i = 0; i < 5; i++) {
+  chapter2Lessons[i + 1].objectives = widerwayChapitre2Detail[i].objectifs;
+  chapter2Lessons[i + 1].content = widerwayChapitre2Detail[i].cours;
+  chapter2Lessons[i + 1].widerwaySeries = widerwayChapitre2Detail[i].series;
+}
+
+// Affichage des leçons et de leurs exercices corrigés.
+actions.lesson2 = function(value) {
+  const index = Number(value);
+  const item = chapter2Lessons[index];
+
+  if (!item || index < 1 || index > 5) return;
+
+  let html = `
+    <div class="lesson">
+      <h2>${item.title}</h2>
+      <h3>Objectifs pédagogiques</h3>
+      <p>${item.objectives}</p>
+      <div>${item.content}</div>
+      <hr>
+      <h2>Travaux dirigés et exercices corrigés</h2>
+  `;
+
+  const seriesNames = ["Série A — Application", "Série B — Approfondissement", "Série C — Analyse", "Série D — Problèmes et examen"];
+
+  item.widerwaySeries.forEach((series, seriesIndex) => {
+    html += `<h3>${seriesNames[seriesIndex]}</h3>`;
+
+    series.forEach((exercise, exerciseIndex) => {
+      html += `
+        <div class="card">
+          <h4>Exercice ${exerciseIndex + 1}</h4>
+          <p>${exercise[0]}</p>
+          <details>
+            <summary>Voir la correction détaillée</summary>
+            <p>${exercise[1]}</p>
+          </details>
+        </div>
+      `;
+    });
+  });
+
+  html += `
+      <button data-action="quiz2">Faire le QCM du chapitre 2</button>
+    </div>
+  `;
+
+  show(item.title, html, "Mathématiques générales → Chapitre 2");
+};
+
+// QCM de révision du chapitre 2.
+const widerwayQuiz2Questions = [
+  {
+    q: "Quelle est la formule du discriminant ?",
+    a: ["b² + 4ac", "b² − 4ac", "4ac − b²"],
+    c: 1,
+    e: "Le discriminant est Δ = b² − 4ac."
+  },
+  {
+    q: "Combien de solutions réelles possède une équation si Δ < 0 ?",
+    a: ["Deux", "Une", "Aucune"],
+    c: 2,
+    e: "Lorsque le discriminant est négatif, il n'existe aucune solution réelle."
+  },
+  {
+    q: "Les racines de x² − 5x + 6 = 0 sont :",
+    a: ["1 et 6", "2 et 3", "-2 et -3"],
+    c: 1,
+    e: "On factorise : (x − 2)(x − 3) = 0."
+  },
+  {
+    q: "Si on divise une inégalité par un nombre négatif, il faut :",
+    a: ["Conserver le sens", "Inverser le sens", "Supprimer l'inégalité"],
+    c: 1,
+    e: "La division par un nombre négatif inverse le sens de l'inégalité."
+  },
+  {
+    q: "La solution de 2x + 4 > 10 est :",
+    a: ["x > 3", "x < 3", "x > 7"],
+    c: 0,
+    e: "2x > 6, donc x > 3."
+  },
+  {
+    q: "Les valeurs qui annulent x² − 9 sont :",
+    a: ["0 et 9", "-3 et 3", "-9 et 9"],
+    c: 1,
+    e: "x² − 9 = (x − 3)(x + 3)."
+  },
+  {
+    q: "Dans la fraction (x + 1)/(x − 4), quelle valeur est interdite ?",
+    a: ["-1", "1", "4"],
+    c: 2,
+    e: "Le dénominateur ne doit jamais être nul. x − 4 = 0 donne x = 4."
+  },
+  {
+    q: "La méthode de substitution consiste à :",
+    a: ["Remplacer une inconnue par une expression équivalente", "Multiplier toutes les inconnues", "Supprimer une équation"],
+    c: 0,
+    e: "On exprime une inconnue en fonction d'une autre puis on remplace dans l'autre équation."
+  },
+  {
+    q: "Le système x + y = 10 et x − y = 2 possède comme solution :",
+    a: ["(4 ; 6)", "(6 ; 4)", "(5 ; 5)"],
+    c: 1,
+    e: "En additionnant, 2x = 12, donc x = 6 et y = 4."
+  },
+  {
+    q: "Deux droites parallèles distinctes représentent un système qui possède :",
+    a: ["Une solution", "Une infinité de solutions", "Aucune solution"],
+    c: 2,
+    e: "Deux droites parallèles distinctes ne se coupent pas : le système n'a aucune solution."
+  }
+];
+
+// Affichage du QCM.
+actions.quiz2 = function() {
+  let html = `
+    <div class="lesson">
+      <h2>QCM — Chapitre 2 : Mathématiques générales</h2>
+      <p>Réponds aux 10 questions puis clique sur le bouton de correction.</p>
+      <form id="widerwayQuiz2">
+  `;
+
+  widerwayQuiz2Questions.forEach((question, i) => {
+    html += `<div class="card"><h3>Question ${i + 1}</h3><p>${question.q}</p>`;
+
+    question.a.forEach((answer, j) => {
+      html += `
+        <label style="display:block;margin:8px 0;">
+          <input type="radio" name="widerwayQ${i}" value="${j}">
+          ${answer}
+        </label>
+      `;
+    });
+
+    html += `</div>`;
+  });
+
+  html += `
+      </form>
+      <button data-action="gradeWiderwayQuiz2">Corriger mes réponses</button>
+      <div id="widerwayQuiz2Result"></div>
+    </div>
+  `;
+
+  show("QCM du chapitre 2", html, "Mathématiques générales → Chapitre 2");
+};
+
+// Correction automatique du QCM.
+actions.gradeWiderwayQuiz2 = function() {
+  const form = document.getElementById("widerwayQuiz2");
+  const result = document.getElementById("widerwayQuiz2Result");
+
+  if (!form || !result) return;
+
+  let score = 0;
+  let corrections = "";
+
+  widerwayQuiz2Questions.forEach((question, i) => {
+    const selected = form.querySelector(`input[name="widerwayQ${i}"]:checked`);
+    const answer = selected ? Number(selected.value) : -1;
+    const correct = answer === question.c;
+
+    if (correct) score++;
+
+    corrections += `
+      <div class="card">
+        <h4>Question ${i + 1} — ${correct ? "Bonne réponse" : "À revoir"}</h4>
+        <p><strong>Réponse attendue :</strong> ${question.a[question.c]}</p>
+        <p>${question.e}</p>
+      </div>
+    `;
+  });
+
+  const percentage = score * 10;
+
+  result.innerHTML = `
+    <div class="card">
+      <h2>Résultat : ${score}/10</h2>
+      <p>Pourcentage de réussite : ${percentage}%</p>
+      <p>${score >= 8 ? "Excellent travail !" : score >= 5 ? "Bon effort. Continue tes révisions !" : "Reprends les leçons et entraîne-toi encore."}</p>
+    </div>
+    <h3>Corrections des 10 questions</h3>
+    ${corrections}
+  `;
+};
 </script>
 </body>
 </html>
