@@ -5,1324 +5,617 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="WiderWay, plateforme gratuite d'éducation et de recherche scientifique pour l'Afrique et le monde.">
 <title>WiderWay | Le savoir ouvre toutes les voies</title>
-
 <style>
-:root{
---primary:#075c46;
---secondary:#0b8060;
---light:#eaf5f0;
---dark:#172b25;
---muted:#687b73;
---white:#fff;
---bg:#f5f8f6;
---border:#dce8e1;
-}
+:root{--primary:#075c46;--secondary:#0b8060;--light:#eaf5f0;--dark:#172b25;--muted:#687b73;--white:#fff;--bg:#f5f8f6;--border:#dce8e1}
 *{box-sizing:border-box}
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:var(--bg);
-color:var(--dark);
-line-height:1.6
-}
-header{
-background:var(--primary);
-color:white;
-padding:18px 5%;
-display:flex;
-align-items:center;
-justify-content:space-between;
-flex-wrap:wrap;
-gap:15px
-}
-.logo{font-size:27px;font-weight:bold}
-.logo span{color:#a9e5c9}
-nav{display:flex;gap:8px;flex-wrap:wrap}
-nav button{
-background:transparent;
-color:white;
-border:1px solid #ffffff55;
-padding:9px 13px;
-border-radius:7px;
-cursor:pointer
-}
+body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--dark);line-height:1.6}
+header{background:var(--primary);color:white;padding:18px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:15px}
+.logo{font-size:27px;font-weight:bold}.logo span{color:#a9e5c9}
+nav{display:flex;gap:8px;flex-wrap:wrap}nav button{background:transparent;color:white;border:1px solid #ffffff55;padding:9px 13px;border-radius:7px;cursor:pointer}
 nav button:hover{background:#ffffff22}
-main{
-max-width:1150px;
-margin:auto;
-padding:25px 5%;
-min-height:65vh
-}
-.hero{
-background:linear-gradient(135deg,#075c46,#0b8060);
-color:white;
-padding:55px 25px;
-border-radius:15px;
-text-align:center
-}
-.hero h1{font-size:36px;margin:0 0 12px}
-.hero p{font-size:17px;max-width:650px;margin:10px auto}
-.btn{
-background:#fff;
-color:var(--primary);
-border:0;
-padding:12px 20px;
-border-radius:7px;
-font-weight:bold;
-cursor:pointer;
-margin-top:15px
-}
+main{max-width:1150px;margin:auto;padding:25px 5%;min-height:65vh}
+.hero{background:linear-gradient(135deg,#075c46,#0b8060);color:white;padding:55px 25px;border-radius:15px;text-align:center}
+.hero h1{font-size:36px;margin:0 0 12px}.hero p{font-size:17px;max-width:650px;margin:10px auto}
+.btn{background:#fff;color:var(--primary);border:0;padding:12px 20px;border-radius:7px;font-weight:bold;cursor:pointer;margin-top:15px}
 .section-title{color:var(--primary);margin-top:35px}
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-gap:15px;
-margin-top:20px
-}
-.card{
-background:white;
-border:1px solid var(--border);
-padding:20px;
-border-radius:11px;
-cursor:pointer;
-transition:.2s
-}
-.card:hover{
-border-color:var(--secondary);
-transform:translateY(-3px);
-box-shadow:0 5px 15px #0000000d
-}
-.card h3{color:var(--primary);margin-top:0}
-.card p{color:var(--muted);font-size:14px}
-.card button{
-background:var(--primary);
-color:white;
-border:0;
-padding:9px 13px;
-border-radius:6px;
-cursor:pointer
-}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px;margin-top:20px}
+.card{background:white;border:1px solid var(--border);padding:20px;border-radius:11px;cursor:pointer;transition:.2s}
+.card:hover{border-color:var(--secondary);transform:translateY(-3px);box-shadow:0 5px 15px #0000000d}
+.card h3{color:var(--primary);margin-top:0}.card p{color:var(--muted);font-size:14px}
+.card button,.action{background:var(--primary);color:white;border:0;padding:9px 13px;border-radius:6px;cursor:pointer}
 .breadcrumb{color:var(--muted);font-size:14px;margin-bottom:12px}
 .page-tools{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 18px}
-.page-tools button{
-border:1px solid var(--border);
-background:white;
-color:var(--primary);
-padding:9px 14px;
-border-radius:7px;
-font-weight:bold;
-cursor:pointer
-}
-.page-tools button:hover{background:var(--light)}
-.panel{
-background:white;
-border:1px solid var(--border);
-border-radius:12px;
-padding:22px;
-margin-top:20px
-}
-.panel h3,.lesson h3{color:var(--primary)}
-.lesson{
-background:white;
-border:1px solid var(--border);
-border-radius:12px;
-padding:22px;
-margin:18px 0
-}
-.lesson h3{margin-top:0}
-.lesson h4{color:var(--secondary);margin-bottom:5px}
-.lesson p{margin-top:6px}
-.lesson li{margin:7px 0}
-.formula{
-background:var(--light);
-border-left:4px solid var(--secondary);
-padding:12px 15px;
-margin:12px 0;
-border-radius:5px;
-font-weight:bold;
-overflow-wrap:anywhere
-}
-.example{
-background:#f8faf9;
-border:1px solid var(--border);
-padding:14px;
-border-radius:8px;
-margin:12px 0
-}
-.answer{
-background:#eef7f1;
-border-radius:7px;
-padding:12px;
-margin-top:10px
-}
-input,textarea{
-width:100%;
-padding:13px;
-border:1px solid var(--border);
-border-radius:7px;
-font-size:15px;
-margin:8px 0 15px
-}
-.action{
-background:var(--primary);
-color:white;
-padding:10px 15px;
-border:0;
-border-radius:7px;
-cursor:pointer
-}
-.secondary{background:var(--light);color:var(--primary)}
-.resource{
-background:white;
-padding:16px;
-border:1px solid var(--border);
-border-radius:8px;
-margin:10px 0
-}
-.quiz-question{
-background:white;
-border:1px solid var(--border);
-border-radius:10px;
-padding:16px;
-margin:15px 0
-}
-.quiz-question label{
-display:block;
-padding:7px;
-cursor:pointer
-}
-.quiz-question input{
-width:auto;
-margin:0 8px 0 0
-}
-#quizResult{
-padding:15px;
-border-radius:8px;
-margin-top:15px;
-font-weight:bold
-}
-footer{
-background:#123b30;
-color:white;
-padding:30px 5%;
-text-align:center;
-margin-top:40px
-}
-footer p{margin:5px}
-.small{font-size:13px;color:var(--muted)}
-footer .small{color:#c4d8cf}
-@media(max-width:600px){
-.hero h1{font-size:27px}
-header{justify-content:center;text-align:center}
-nav{justify-content:center}
-.page-tools{justify-content:center}
-.lesson,.panel{padding:16px}
-}
+.page-tools button{border:1px solid var(--border);background:white;color:var(--primary);padding:9px 14px;border-radius:7px;font-weight:bold;cursor:pointer}
+.panel,.lesson{background:white;border:1px solid var(--border);border-radius:12px;padding:22px;margin:18px 0}
+.panel h3,.lesson h3{color:var(--primary)}.lesson h3{margin-top:0}
+.lesson h4{color:var(--secondary);margin-bottom:5px}.lesson p{margin-top:6px}.lesson li{margin:7px 0}
+.formula{background:var(--light);border-left:4px solid var(--secondary);padding:12px 15px;margin:12px 0;border-radius:5px;font-weight:bold;overflow-wrap:anywhere}
+.example{background:#f8faf9;border:1px solid var(--border);padding:14px;border-radius:8px;margin:12px 0}
+.answer{background:#eef7f1;border-radius:7px;padding:12px;margin-top:10px}
+input,textarea{width:100%;padding:13px;border:1px solid var(--border);border-radius:7px;font-size:15px;margin:8px 0 15px}
+.resource,.quiz-question{background:white;border:1px solid var(--border);border-radius:9px;padding:16px;margin:12px 0}
+.quiz-question label{display:block;padding:7px;cursor:pointer}.quiz-question input{width:auto;margin:0 8px 0 0}
+.small{font-size:13px;color:var(--muted)}.tag{display:inline-block;background:var(--light);color:var(--primary);padding:4px 9px;border-radius:20px;font-size:12px;font-weight:bold}
+footer{background:#123b30;color:white;padding:30px 5%;text-align:center;margin-top:40px}footer p{margin:5px}footer .small{color:#c4d8cf}
+@media(max-width:600px){.hero h1{font-size:27px}header{justify-content:center;text-align:center}nav{justify-content:center}.page-tools{justify-content:center}.lesson,.panel{padding:16px}}
 </style>
 </head>
-
 <body>
-
 <header>
-<div class="logo">Wider<span>Way</span></div>
-<nav>
-<button data-action="home">Accueil</button>
-<button data-action="formations">Formations</button>
-<button data-action="library">Bibliothèque</button>
-<button data-action="research">Recherche</button>
-<button data-action="about">À propos</button>
-<button data-action="contact">Contact</button>
-</nav>
+  <div class="logo">Wider<span>Way</span></div>
+  <nav>
+    <button data-action="home">Accueil</button>
+    <button data-action="formations">Formations</button>
+    <button data-action="library">Bibliothèque</button>
+    <button data-action="research">Recherche</button>
+    <button data-action="about">À propos</button>
+    <button data-action="contact">Contact</button>
+  </nav>
 </header>
-
 <main id="app"></main>
-
 <footer>
-<div class="logo">Wider<span>Way</span></div>
-<p>Le savoir ouvre toutes les voies.</p>
-<p>Une plateforme gratuite d'éducation et de recherche scientifique.</p>
-<p class="small">© 2026 WiderWay — Tous droits réservés.</p>
+  <div class="logo">Wider<span>Way</span></div>
+  <p>Le savoir ouvre toutes les voies.</p>
+  <p>Une plateforme gratuite d'éducation et de recherche scientifique.</p>
+  <p class="small">© 2026 WiderWay — Tous droits réservés.</p>
 </footer>
 
 <script>
-
-/* 1. BASE DE DONNÉES DES FORMATIONS */
-
-const database={
-"Burkina Faso":{
-"Université Joseph Ki-Zerbo":{
-"Sciences de la Vie et de la Terre":{
-"L1":{
-"S1":[
-"Mathématiques générales","Algèbre","Analyse","Physique","Mécanique","Optique","Chimie générale","Atomistique","Chimie organique","Biologie cellulaire","Embryologie","Géodynamique"
-],
-"S2":[
-"Mathématiques","Probabilités et statistiques","Thermodynamique","Électricité","Thermodynamique chimique","Solutions aqueuses","Génétique formelle","Matériel héréditaire","Hérédité","Géodynamique externe","Cartographie","Anglais scientifique","Histoire des sciences","Épistémologie"
-]
-},
-"L2":{
-"S3":[
-"Biochimie structurale","Biochimie métabolique","Biologie animale","Biologie végétale","Microbiologie","Génétique","Physiologie animale","Physiologie végétale","Géologie","Écologie"
-],
-"S4":[
-"Biologie moléculaire","Enzymologie","Immunologie","Botanique systématique","Zoologie","Biotechnologie","Pétrologie","Géologie structurale","Stratigraphie","Paléontologie"
-]
-},
-"L3":{
-"BMB - Biochimie-Microbiologie":{
-"S5":["Enzymologie","Biochimie approfondie","Microbiologie","Biologie moléculaire","Génétique moléculaire"],
-"S6":["Biochimie métabolique","Microbiologie appliquée","Immunologie","Biotechnologies","Techniques d'analyse biochimique"]
-},
-"BSN - Biochimie des Substances Naturelles":{
-"S5":["Biochimie des substances naturelles","Phytochimie","Enzymologie","Biochimie structurale","Botanique","Chimie organique"],
-"S6":["Pharmacognosie","Substances naturelles bioactives","Techniques d'extraction","Techniques de séparation et d'analyse","Biotechnologie végétale"]
-},
-"BG - Biologie Générale":{
-"S5":["Génétique des populations","Écologie générale","Physiologie animale","Physiologie végétale","Biologie évolutive","Zoologie","Botanique"],
-"S6":["Immunologie générale","Écologie appliquée","Biologie de la conservation","Biologie du développement","Biodiversité","Biotechnologies"]
-},
-"NTA - Nutrition et Technologie Alimentaire":{
-"S5":["Nutrition humaine","Biochimie alimentaire","Microbiologie alimentaire","Technologie alimentaire","Chimie alimentaire","Physiologie de la nutrition"],
-"S6":["Sécurité sanitaire des aliments","Hygiène alimentaire","Conservation des aliments","Transformation des produits alimentaires","Contrôle qualité des aliments","Analyse nutritionnelle"]
-},
-"ST - Sciences de la Terre":{
-"S5":["Minéralogie","Pétrologie","Géologie structurale","Stratigraphie","Géodynamique","Géochimie","Cartographie géologique"],
-"S6":["Géophysique appliquée","Hydrogéologie","Géologie minière","Géologie de terrain","Sédimentologie","Télédétection","Géomorphologie"]
-}
-}
-},
-
-"MPCI":{
-"L1":{
-"S1":[
-"Électricité 1","Mécanique du point","Analyse 1","Algèbre 1","Atomistique 1","Liaisons chimiques","Thermochimie et équilibres chimiques","Algorithmique","Programmation","Statistique descriptive","Anglais scientifique 1","Généralités sur les TIC"
-],
-"S2":[
-"Physique expérimentale","Optique géométrique","Magnétostatique et régime variable","Analyse 2","Algèbre linéaire 1","Chimie expérimentale","Équilibres chimiques en solution","Chimie organique générale","Algorithmique et programmation C","Architecture des ordinateurs","Anglais scientifique 2","Initiation au droit","Épistémologie","Statique graphique","Dessin assisté par ordinateur (DAO)","Initiation au graphisme"
-]
-},
-"L2":{
-"S3":[
-"Thermodynamique physique","Électromagnétisme et relativité restreinte","Optique physique","Algèbre 2","Algèbre linéaire 2","Analyse 3","Chimie minérale","Cinétique chimique","Structures de données et programmation","Systèmes d'exploitation"
-],
-"S4":[
-"Algèbre 4","Analyse 4","Calcul numérique","Optimisation","Statistiques mathématiques","Mécanique des fluides","Électronique analogique","Mécanique du solide","Mécanique quantique","Chimie des matériaux inorganiques","Chimie organique descriptive","Chimie analytique","Électrochimie","Programmation orientée objet","Structures de données avancées","Bases de données","Réseaux informatiques"
-]
-},
-"L3":{
-"Mathématiques-Informatique":{
-"S5":["Algèbre générale approfondie","Analyse numérique","Probabilités","Statistiques","Structures de données","Systèmes d'exploitation"],
-"S6":["Génie logiciel","Réseaux informatiques","Bases de données","Mathématiques avancées"]
-},
-"Mathématiques-Physique":{
-"S5":["Équations différentielles","Analyse complexe","Analyse de Fourier","Mécanique analytique"],
-"S6":["Thermodynamique statistique","Physique quantique","Électromagnétisme avancé"]
-},
-"Physique-Chimie":{
-"S5":["Électronique analogique et numérique","Vibrations et ondes","Physique des matériaux","Chimie organique approfondie"],
-"S6":["Chimie inorganique et analytique","Cinétique chimique","Spectroscopie"]
-}
-}
-}
-}
-}
+/* =========================================================
+   1. CATALOGUE DES FORMATIONS
+   MPCI est désormais correctement placé dans l'université.
+   ========================================================= */
+const database = {
+  "Burkina Faso": {
+    "Université Joseph Ki-Zerbo": {
+      "Sciences de la Vie et de la Terre": {
+        "L1": {
+          "S1": [
+            "Algèbre", "Analyse", "Physique", "Mécanique", "Optique",
+            "Chimie générale", "Atomistique", "Chimie organique",
+            "Biologie cellulaire", "Embryologie", "Géodynamique",
+            "TEEO", "Minéraux et roches"
+          ],
+          "S2": [
+            "Mathématiques", "Probabilités et statistiques", "Thermodynamique",
+            "Électricité", "Thermodynamique chimique", "Solutions aqueuses",
+            "Génétique formelle", "Matériel héréditaire", "Hérédité",
+            "Géodynamique externe", "Cartographie", "Anglais scientifique",
+            "Histoire des sciences", "Épistémologie"
+          ]
+        },
+        "L2": {
+          "S3": ["Biochimie structurale","Biochimie métabolique","Biologie animale","Biologie végétale","Microbiologie","Génétique","Physiologie animale","Physiologie végétale","Géologie","Écologie"],
+          "S4": ["Biologie moléculaire","Enzymologie","Immunologie","Botanique systématique","Zoologie","Biotechnologie","Pétrologie","Géologie structurale","Stratigraphie","Paléontologie"]
+        },
+        "L3": {
+          "BMB - Biochimie-Microbiologie": {
+            "S5":["Enzymologie","Biochimie approfondie","Microbiologie","Biologie moléculaire","Génétique moléculaire"],
+            "S6":["Biochimie métabolique","Microbiologie appliquée","Immunologie","Biotechnologies","Techniques d'analyse biochimique"]
+          },
+          "BSN - Biochimie des Substances Naturelles": {
+            "S5":["Biochimie des substances naturelles","Phytochimie","Enzymologie","Biochimie structurale","Botanique","Chimie organique"],
+            "S6":["Pharmacognosie","Substances naturelles bioactives","Techniques d'extraction","Techniques de séparation et d'analyse","Biotechnologie végétale"]
+          },
+          "BG - Biologie Générale": {
+            "S5":["Génétique des populations","Écologie générale","Physiologie animale","Physiologie végétale","Biologie évolutive","Zoologie","Botanique"],
+            "S6":["Immunologie générale","Écologie appliquée","Biologie de la conservation","Biologie du développement","Biodiversité","Biotechnologies"]
+          },
+          "NTA - Nutrition et Technologie Alimentaire": {
+            "S5":["Nutrition humaine","Biochimie alimentaire","Microbiologie alimentaire","Technologie alimentaire","Chimie alimentaire","Physiologie de la nutrition"],
+            "S6":["Sécurité sanitaire des aliments","Hygiène alimentaire","Conservation des aliments","Transformation des produits alimentaires","Contrôle qualité des aliments","Analyse nutritionnelle"]
+          },
+          "ST - Sciences de la Terre": {
+            "S5":["Minéralogie","Pétrologie","Géologie structurale","Stratigraphie","Géodynamique","Géochimie","Cartographie géologique"],
+            "S6":["Géophysique appliquée","Hydrogéologie","Géologie minière","Géologie de terrain","Sédimentologie","Télédétection","Géomorphologie"]
+          }
+        }
+      },
+      "MPCI": {
+        "L1": {
+          "S1": [
+            "Mathématiques générales", "Électricité 1", "Mécanique du point",
+            "Analyse 1", "Algèbre 1", "Atomistique 1", "Liaisons chimiques",
+            "Thermochimie et équilibres chimiques", "Algorithmique",
+            "Programmation", "Statistique descriptive", "Anglais scientifique 1",
+            "Généralités sur les TIC"
+          ],
+          "S2": [
+            "Physique expérimentale","Optique géométrique","Magnétostatique et régime variable",
+            "Analyse 2","Algèbre linéaire 1","Chimie expérimentale",
+            "Équilibres chimiques en solution","Chimie organique générale",
+            "Algorithmique et programmation C","Architecture des ordinateurs",
+            "Anglais scientifique 2","Initiation au droit","Épistémologie",
+            "Statique graphique","Dessin assisté par ordinateur (DAO)","Initiation au graphisme"
+          ]
+        },
+        "L2": {
+          "S3":["Thermodynamique physique","Électromagnétisme et relativité restreinte","Optique physique","Algèbre 2","Algèbre linéaire 2","Analyse 3","Chimie minérale","Cinétique chimique","Structures de données et programmation","Systèmes d'exploitation"],
+          "S4":["Algèbre 4","Analyse 4","Calcul numérique","Optimisation","Statistiques mathématiques","Mécanique des fluides","Électronique analogique","Mécanique du solide","Mécanique quantique","Chimie des matériaux inorganiques","Chimie organique descriptive","Chimie analytique","Électrochimie","Programmation orientée objet","Structures de données avancées","Bases de données","Réseaux informatiques"]
+        },
+        "L3": {
+          "Mathématiques-Informatique": {
+            "S5":["Algèbre générale approfondie","Analyse numérique","Probabilités","Statistiques","Structures de données","Systèmes d'exploitation"],
+            "S6":["Génie logiciel","Réseaux informatiques","Bases de données","Mathématiques avancées"]
+          },
+          "Mathématiques-Physique": {
+            "S5":["Équations différentielles","Analyse complexe","Analyse de Fourier","Mécanique analytique"],
+            "S6":["Thermodynamique statistique","Physique quantique","Électromagnétisme avancé"]
+          },
+          "Physique-Chimie": {
+            "S5":["Électronique analogique et numérique","Vibrations et ondes","Physique des matériaux","Chimie organique approfondie"],
+            "S6":["Chimie inorganique et analytique","Cinétique chimique","Spectroscopie"]
+          }
+        }
+      }
+    }
+  }
 };
 
-/* 2. VARIABLES ET HISTORIQUE */
+/* Ressource complémentaire WiderWay : ce n'est PAS un module officiel UJKZ. */
+const complementaryResources = {
+  "Histoire approfondie de la biologie": {
+    label: "Ressource complémentaire WiderWay",
+    description: "Parcours historique et scientifique proposé en complément de la formation SVT. Ce contenu n'est pas présenté comme un module officiel de l'UJKZ.",
+    chapters: [
+      "Origines de la pensée biologique dans les civilisations anciennes",
+      "La biologie dans la Grèce antique",
+      "Biologie au Moyen Âge et savants arabo-musulmans",
+      "Renaissance et naissance de l'anatomie moderne",
+      "Invention du microscope et découverte du monde cellulaire",
+      "Naissance de la théorie cellulaire",
+      "Lamarck, Darwin et l'évolution biologique",
+      "Mendel et les fondements de la génétique",
+      "Biologie moléculaire et découverte de l'ADN",
+      "Microbiologie et révolution médicale",
+      "Génomique, biotechnologies et bio-informatique",
+      "Histoire des sciences biologiques en Afrique"
+    ]
+  }
+};
 
-let selectedCountry="Burkina Faso";
-let selectedUniversity="Université Joseph Ki-Zerbo";
-let selectedField="";
-let selectedLevel="";
-let selectedPath="";
-let selectedSemester="";
-let selectedSubject="";
+/* =========================================================
+   2. ÉTAT ET OUTILS DE NAVIGATION
+   ========================================================= */
+const app = document.getElementById("app");let selectedCountry = "Burkina Faso";
+let selectedUniversity = "Université Joseph Ki-Zerbo";
+let selectedField = "";
+let selectedLevel = "";
+let selectedPath = "";
+let selectedSemester = "";
+let selectedSubject = "";
+let pageHistory = [];
 
-const app=document.getElementById("app");
-let pageHistory=[];
-
-function savePage(){
-pageHistory.push({
-html:app.innerHTML,
-country:selectedCountry,
-university:selectedUniversity,
-field:selectedField,
-level:selectedLevel,
-path:selectedPath,
-semester:selectedSemester,
-subject:selectedSubject
-});
-if(pageHistory.length>40)pageHistory.shift();
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, char => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+  })[char]);
+}
+function snapshot() {
+  return {
+    html: app.innerHTML, country:selectedCountry, university:selectedUniversity,
+    field:selectedField, level:selectedLevel, path:selectedPath,
+    semester:selectedSemester, subject:selectedSubject
+  };
+}
+function savePage() {
+  pageHistory.push(snapshot());
+  if (pageHistory.length > 50) pageHistory.shift();
+}
+function restorePage() {
+  const previous = pageHistory.pop();
+  if (!previous) { home(); return; }
+  app.innerHTML = previous.html;
+  selectedCountry=previous.country; selectedUniversity=previous.university;
+  selectedField=previous.field; selectedLevel=previous.level;
+  selectedPath=previous.path; selectedSemester=previous.semester;
+  selectedSubject=previous.subject;
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function goHome() {
+  pageHistory = [];
+  selectedField=selectedLevel=selectedPath=selectedSemester=selectedSubject="";
+  home();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function pageTools() {
+  return `<div class="page-tools">
+    <button type="button" data-action="back">← Retour</button>
+    <button type="button" data-action="home">⌂ Accueil</button>
+  </div>`;
+}
+function show(title, html, breadcrumb="WiderWay") {
+  app.innerHTML = pageTools() +
+    `<div class="breadcrumb">${escapeHTML(breadcrumb)}</div>
+     <h2 class="section-title">${escapeHTML(title)}</h2>${html}`;
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function makeCard(title, description, action, value) {
+  return `<div class="card" data-action="${action}" data-value="${escapeHTML(value)}">
+    <h3>${escapeHTML(title)}</h3><p>${escapeHTML(description)}</p>
+    <button type="button">Consulter</button>
+  </div>`;
 }
 
-function restorePage(){
-const previous=pageHistory.pop();
-if(!previous){home();return;}
-app.innerHTML=previous.html;
-selectedCountry=previous.country;
-selectedUniversity=previous.university;
-selectedField=previous.field;
-selectedLevel=previous.level;
-selectedPath=previous.path;
-selectedSemester=previous.semester;
-selectedSubject=previous.subject;
-window.scrollTo({top:0,behavior:"smooth"});
+/* =========================================================
+   3. ACCUEIL ET PARCOURS DES FORMATIONS
+   ========================================================= */
+function home() {
+  app.innerHTML = pageTools() + `
+    <section class="hero">
+      <h1>Bienvenue sur WiderWay</h1>
+      <p><strong>Le savoir ouvre toutes les voies.</strong></p>
+      <p>Une plateforme gratuite dédiée à l'éducation, à la formation et à la recherche scientifique en Afrique et dans le monde.</p>
+      <button class="btn" data-action="formations">Explorer les formations</button>
+    </section>
+    <h2 class="section-title">Nos espaces</h2>
+    <div class="grid">
+      ${makeCard("Formations","Découvrir les filières et les matières.","formations","")}
+      ${makeCard("Bibliothèque","Retrouver les ressources pédagogiques.","library","")}
+      ${makeCard("Recherche scientifique","Découvrir l'espace de recherche.","research","")}
+      ${makeCard("Communauté","Un espace pour les étudiants et chercheurs.","community","")}
+    </div>`;
+}
+function formations() {
+  show("Explorer les formations", `<div class="grid">
+    ${makeCard("Burkina Faso","Explorer les formations disponibles au Burkina Faso.","country","Burkina Faso")}
+    ${makeCard("Autres pays africains","Espace destiné aux futures universités africaines.","coming","Afrique")}
+    ${makeCard("International","Espace destiné aux formations internationales.","coming","International")}
+  </div>`);
+}
+function country(value) {
+  selectedCountry=value;
+  const universities=database[value];
+  if(!universities){show("Bientôt disponible","<p>Les formations de cette région seront ajoutées progressivement.</p>");return;}
+  let html='<div class="grid">';
+  Object.keys(universities).forEach(name=>html+=makeCard(name,"Consulter les filières disponibles.","university",name));
+  html+='</div>';
+  show(value,html,"Formations → "+value);
+}
+function university(value) {
+  selectedUniversity=value;
+  const fields=database[selectedCountry][value];
+  let html='<div class="grid">';
+  Object.keys(fields).forEach(name=>html+=makeCard(name,"Explorer les niveaux et les matières.","field",name));
+  html+='</div>';
+  show(value,html,selectedCountry+" → "+value);
+}
+function field(value) {
+  selectedField=value;
+  const data=database[selectedCountry][selectedUniversity][value];
+  let html='<div class="grid">';
+  Object.keys(data).forEach(levelName=>html+=makeCard(levelName,"Consulter les semestres de ce niveau.","level",levelName));
+  html+='</div>';
+  show(value,html,selectedUniversity+" → "+value);
+}
+function level(value) {
+  selectedLevel=value; selectedPath="";
+  const data=database[selectedCountry][selectedUniversity][selectedField][value];
+  let html='<div class="grid">';
+  Object.keys(data).forEach(item=>{
+    html+= value==="L3"
+      ? makeCard(item,"Consulter les semestres de ce parcours.","path",item)
+      : makeCard(item,"Voir les matières de ce semestre.","semester",item);
+  });
+  html+='</div>';
+  show(value,html,selectedField+" → "+value);
+}
+function path(value) {
+  selectedPath=value;
+  const data=database[selectedCountry][selectedUniversity][selectedField][selectedLevel][value];
+  let html='<div class="grid">';
+  Object.keys(data).forEach(sem=>html+=makeCard(sem,"Voir les matières du semestre.","semester",sem));
+  html+='</div>';
+  show(value,html,selectedField+" → L3 → "+value);
+}
+function semester(value) {
+  selectedSemester=value;
+  const levelData=database[selectedCountry][selectedUniversity][selectedField][selectedLevel];
+  const data=selectedLevel==="L3" ? levelData[selectedPath][value] : levelData[value];
+  let html='<div class="grid">';
+  data.forEach(name=>html+=makeCard(name,"Accéder aux ressources de cette matière.","subject",name));
+  if(selectedField==="Sciences de la Vie et de la Terre" && selectedLevel==="L1" && value==="S1"){
+    html+=makeCard("Histoire approfondie de la biologie","Ressource complémentaire WiderWay — non officielle dans la maquette UJKZ.","supplementary","Histoire approfondie de la biologie");
+  }
+  html+='</div>';
+  show(value,html,selectedField+" → "+selectedLevel+" → "+value);
 }
 
-function goBack(){
-if(pageHistory.length){
-history.back();
-}else{
-goHome();
-}
-}
-
-function goHome(){
-pageHistory=[];
-home();
-window.scrollTo({top:0,behavior:"smooth"});
-}
-
-/* 3. OUTILS D'AFFICHAGE */
-
-function escapeHTML(value){
-return String(value).replace(/[&<>"']/g,char=>({
-"&":"&amp;",
-"<":"&lt;",
-">":"&gt;",
-'"':"&quot;",
-"'":"&#39;"
-})[char]);
-}
-
-function pageTools(){
-return `
-<div class="page-tools">
-<button type="button" data-action="back">← Retour</button>
-<button type="button" data-action="home">⌂ Accueil</button>
-</div>`;
-}
-
-function show(title,html,breadcrumb="WiderWay"){
-app.innerHTML=pageTools()+`
-<div class="breadcrumb">${escapeHTML(breadcrumb)}</div>
-<h2 class="section-title">${escapeHTML(title)}</h2>
-${html}`;
-window.scrollTo({top:0,behavior:"smooth"});
-}
-
-function makeCard(title,description,action,value){
-return `
-<div class="card" data-action="${action}" data-value="${escapeHTML(value)}">
-<h3>${escapeHTML(title)}</h3>
-<p>${escapeHTML(description)}</p>
-<button type="button">Consulter</button>
-</div>`;
-}
-
-/* 4. ACCUEIL */
-
-function home(){
-app.innerHTML=pageTools()+`
-<section class="hero">
-<h1>Bienvenue sur WiderWay</h1>
-<p><strong>Le savoir ouvre toutes les voies.</strong></p>
-<p>Une plateforme gratuite dédiée à l'éducation,
-à la formation et à la recherche scientifique
-en Afrique et dans le monde.</p>
-<button class="btn" data-action="formations">
-Explorer les formations
-</button>
-</section>
-<h2 class="section-title">Nos espaces</h2>
-<div class="grid">
-${makeCard("Formations","Découvrir les filières et les matières.","formations","")}
-${makeCard("Bibliothèque","Retrouver les ressources pédagogiques.","library","")}
-${makeCard("Recherche scientifique","Découvrir l'espace de recherche.","research","")}
-${makeCard("Communauté","Un espace pour les étudiants et chercheurs.","community","")}
-</div>`;
-}
-
-/* 5. FORMATIONS */
-
-function formations(){
-const html=`
-<div class="grid">
-${makeCard("Burkina Faso","Explorer les formations disponibles au Burkina Faso.","country","Burkina Faso")}
-${makeCard("Autres pays africains","Espace destiné aux futures universités africaines.","coming","Afrique")}
-${makeCard("International","Espace destiné aux formations internationales.","coming","International")}
-</div>`;
-show("Explorer les formations",html);
-}
-
-function country(value){
-selectedCountry=value;
-const universities=database[value];
-
-if(!universities){
-show("Bientôt disponible","<p>Les formations de cette région seront ajoutées progressivement.</p>");
-return;
-}
-
-let html='<div class="grid">';
-Object.keys(universities).forEach(university=>{
-html+=makeCard(university,"Consulter les filières disponibles.","university",university);
-});
-html+='</div>';
-
-show(value,html,"Formations → "+value);
-}
-
-function university(value){
-selectedUniversity=value;
-const fields=database[selectedCountry][value];
-
-let html='<div class="grid">';
-Object.keys(fields).forEach(field=>{
-html+=makeCard(field,"Explorer les niveaux et les matières.","field",field);
-});
-html+='</div>';
-
-show(value,html,selectedCountry+" → "+value);
-}
-
-/* 6. FILIÈRES ET NIVEAUX */
-
-function field(value){
-selectedField=value;
-const data=database[selectedCountry][selectedUniversity][value];
-
-let html='<div class="grid">';
-Object.keys(data).forEach(level=>{
-html+=makeCard(level,"Consulter les semestres de ce niveau.","level",level);
-});
-html+='</div>';
-
-show(value,html,selectedUniversity+" → "+value);
-}
-
-function level(value){
-selectedLevel=value;
-selectedPath="";
-
-const data=database[selectedCountry][selectedUniversity][selectedField][value];
-
-let html='<div class="grid">';
-
-Object.keys(data).forEach(item=>{
-if(value==="L3"){
-html+=makeCard(item,"Consulter les semestres de ce parcours.","path",item);
-}else{
-html+=makeCard(item,"Voir les matières de ce semestre.","semester",item);
-}
-});
-
-html+='</div>';
-
-show(value,html,selectedField+" → "+value);
-}
-
-/* 7. PARCOURS L3 */
-
-function path(value){
-selectedPath=value;
-
-const data=database[selectedCountry][selectedUniversity]
-[selectedField][selectedLevel][selectedPath];
-
-let html='<div class="grid">';
-
-Object.keys(data).forEach(semester=>{
-html+=makeCard(semester,"Voir les matières du semestre.","semester",semester);
-});
-
-html+='</div>';
-
-show(value,html,selectedField+" → L3 → "+value);
-}
-
-/* 8. MATIÈRES */
-
-function semester(value){
-selectedSemester=value;
-
-const levelData=database[selectedCountry][selectedUniversity]
-[selectedField][selectedLevel];
-
-const data=selectedLevel==="L3"
-?levelData[selectedPath][value]
-:levelData[value];
-
-let html='<div class="grid">';
-
-data.forEach(subject=>{
-html+=makeCard(subject,"Accéder aux ressources de cette matière.","subject",subject);
-});
-
-html+='</div>';
-
-show(value,html,selectedField+" → "+selectedLevel+" → "+value);
-}
-
-/* 9. CONTENU DU CHAPITRE 1 */
-
-const mathLessons=[
-{
-title:"Leçon 1 — Les ensembles de nombres",
-content:`
+/* =========================================================
+   4. CHAPITRE 1 : CONTENU DÉJÀ PRÉSENT DANS TON SITE
+   ========================================================= */
+const mathLessons = [
+{title:"Leçon 1 — Les ensembles de nombres",content:`
 <h4>1. Définition d'un ensemble</h4>
 <p>Un ensemble est un regroupement d'éléments. En mathématiques, on utilise des lettres pour désigner les ensembles et des symboles pour indiquer l'appartenance.</p>
 <div class="formula">x ∈ A : x appartient à A<br>x ∉ A : x n'appartient pas à A</div>
-
 <h4>2. Les principaux ensembles de nombres</h4>
-<ul>
-<li><strong>ℕ :</strong> les entiers naturels : 0, 1, 2, 3, 4…</li>
-<li><strong>ℤ :</strong> les entiers relatifs : … -3, -2, -1, 0, 1, 2, 3…</li>
-<li><strong>ℚ :</strong> les nombres rationnels, qui peuvent s'écrire sous la forme a/b avec a et b entiers et b différent de 0.</li>
-<li><strong>ℝ :</strong> les nombres réels, qui regroupent les nombres rationnels et irrationnels.</li>
-<li><strong>ℂ :</strong> les nombres complexes, de la forme a + ib.</li>
-</ul>
+<ul><li><strong>ℕ :</strong> les entiers naturels : 0, 1, 2, 3, 4…</li><li><strong>ℤ :</strong> les entiers relatifs : … -3, -2, -1, 0, 1, 2, 3…</li><li><strong>ℚ :</strong> les nombres rationnels, qui peuvent s'écrire sous la forme a/b avec a et b entiers et b différent de 0.</li><li><strong>ℝ :</strong> les nombres réels, qui regroupent les nombres rationnels et irrationnels.</li><li><strong>ℂ :</strong> les nombres complexes, de la forme a + ib.</li></ul>
 <div class="formula">ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ ⊂ ℂ</div>
-
 <h4>3. Nombres rationnels et irrationnels</h4>
-<p>Un nombre rationnel peut être écrit comme une fraction. Par exemple : 1/2, -3/4 et 5.</p>
-<p>Un nombre irrationnel ne peut pas s'écrire comme une fraction de deux entiers. Exemples : √2 et π.</p>
-
-<h4>4. Méthode d'apprentissage</h4>
-<ul>
-<li>Mémoriser les symboles des ensembles.</li>
-<li>Classer plusieurs nombres dans leurs ensembles.</li>
-<li>Retenir que chaque entier naturel est aussi un entier relatif.</li>
-</ul>
-
-<div class="example">
-<strong>Exemple corrigé</strong>
-<p>Classer les nombres suivants : -5 ; 0 ; 3/4 ; √2.</p>
-<div class="answer">
--5 appartient à ℤ, ℚ et ℝ.<br>
-0 appartient à ℕ, ℤ, ℚ et ℝ.<br>
-3/4 appartient à ℚ et ℝ.<br>
-√2 appartient à ℝ mais pas à ℚ.
-</div>
-</div>
-
-<h4>5. Exercices d'application</h4>
-<p><strong>Exercice 1 :</strong> Donner le plus petit ensemble auquel appartient chacun des nombres : 7 ; -4 ; 2/3 ; √5.</p>
-<div class="answer">
-<strong>Correction :</strong><br>
-7 ∈ ℕ ; -4 ∈ ℤ ; 2/3 ∈ ℚ ; √5 ∈ ℝ et est irrationnel.
-</div>
-`
-},
-{
-title:"Leçon 2 — Opérations sur les nombres réels",
-content:`
-<h4>1. Les quatre opérations</h4>
-<p>Sur les nombres réels, on utilise l'addition, la soustraction, la multiplication et la division.</p>
+<p>Un nombre rationnel peut être écrit comme une fraction. Par exemple : 1/2, -3/4 et 5. Un nombre irrationnel ne peut pas s'écrire comme une fraction de deux entiers. Exemples : √2 et π.</p>
+<div class="example"><strong>Exemple corrigé</strong><p>Classer : -5 ; 0 ; 3/4 ; √2.</p><div class="answer">-5 appartient à ℤ, ℚ et ℝ.<br>0 appartient à ℕ, ℤ, ℚ et ℝ.<br>3/4 appartient à ℚ et ℝ.<br>√2 appartient à ℝ mais pas à ℚ.</div></div>
+<h4>4. Exercice</h4><p>Donner le plus petit ensemble auquel appartient chacun des nombres : 7 ; -4 ; 2/3 ; √5.</p><div class="answer">Correction : 7 ∈ ℕ ; -4 ∈ ℤ ; 2/3 ∈ ℚ ; √5 ∈ ℝ et est irrationnel.</div>`},
+{title:"Leçon 2 — Opérations sur les nombres réels",content:`
+<h4>1. Les quatre opérations</h4><p>Sur les nombres réels, on utilise l'addition, la soustraction, la multiplication et la division.</p>
 <div class="formula">Addition : a + b<br>Soustraction : a - b<br>Multiplication : a × b<br>Division : a / b, avec b ≠ 0</div>
-
-<h4>2. Règles des signes</h4>
-<ul>
-<li>Plus par plus donne plus.</li>
-<li>Moins par moins donne plus.</li>
-<li>Plus par moins donne moins.</li>
-<li>Moins par plus donne moins.</li>
-</ul>
+<h4>2. Règles des signes</h4><ul><li>Plus par plus donne plus.</li><li>Moins par moins donne plus.</li><li>Plus par moins donne moins.</li><li>Moins par plus donne moins.</li></ul>
 <div class="formula">(+ ) × (+ ) = (+ )<br>(- ) × (- ) = (+ )<br>(+ ) × (- ) = (- )<br>(- ) × (+ ) = (- )</div>
+<h4>3. Priorités opératoires</h4><ol><li>Parenthèses.</li><li>Puissances.</li><li>Multiplications et divisions.</li><li>Additions et soustractions.</li></ol>
+<div class="example"><strong>Exemples corrigés</strong><p>A = 5 + 3 × 4 = 5 + 12 = <strong>17</strong>.</p><p>B = (-3) × (-4) + 2 = 12 + 2 = <strong>14</strong>.</p></div>
+<h4>4. Exercices</h4><p>A = 8 - 2 × 3. Correction : <strong>2</strong>.</p><p>B = (-5) × 3 + 20. Correction : <strong>5</strong>.</p>`},
+{title:"Leçon 3 — Les fractions",content:`
+<h4>1. Définition</h4><p>Une fraction est un quotient de deux nombres, avec un dénominateur non nul.</p><div class="formula">a/b avec b ≠ 0</div><p>a est le numérateur et b le dénominateur.</p>
+<h4>2. Simplification</h4><p>Pour simplifier une fraction, on divise le numérateur et le dénominateur par un même nombre non nul.</p><div class="example">12/18 = (12 ÷ 6)/(18 ÷ 6) = <strong>2/3</strong>.</div>
+<h4>3. Addition et soustraction</h4><div class="formula">a/c + b/c = (a+b)/c</div><p>Si les dénominateurs sont différents, on cherche un dénominateur commun.</p>
+<h4>4. Multiplication et division</h4><div class="formula">a/b × c/d = (a×c)/(b×d)<br>(a/b) ÷ (c/d) = (a/b) × (d/c)</div>
+<div class="example"><strong>Exemples corrigés</strong><p>1/3 + 1/6 = 2/6 + 1/6 = <strong>1/2</strong>.</p><p>2/5 × 3/4 = 6/20 = <strong>3/10</strong>.</p></div>
+<h4>5. Exercices</h4><p>2/3 + 1/6 = <strong>5/6</strong>.</p><p>15/25 = <strong>3/5</strong>.</p>`},
+{title:"Leçon 4 — Les puissances",content:`
+<h4>1. Définition</h4><p>Une puissance permet d'écrire plus simplement une multiplication répétée.</p><div class="formula">aⁿ = a × a × ... × a (n facteurs)</div><p>Exemple : 2⁴ = 16.</p>
+<h4>2. Règles essentielles</h4><div class="formula">aᵐ × aⁿ = aᵐ⁺ⁿ<br>aᵐ / aⁿ = aᵐ⁻ⁿ (a ≠ 0)<br>(aᵐ)ⁿ = aᵐˣⁿ<br>(ab)ⁿ = aⁿbⁿ<br>a⁰ = 1 (a ≠ 0)<br>a⁻ⁿ = 1/aⁿ (a ≠ 0)</div>
+<h4>3. Puissances de 10</h4><p>10³ = 1 000 et 10⁻² = 0,01.</p>
+<div class="example"><strong>Exemple corrigé</strong><p>2³ × 2⁴ = 2⁷ = <strong>128</strong>.</p></div>
+<h4>4. Exercices</h4><p>3² × 3³ = <strong>243</strong>.</p><p>1/5² = <strong>5⁻²</strong>.</p>`},{title:"Leçon 5 — Développement et factorisation",content:`
+<h4>1. Développement</h4><p>Développer consiste à transformer un produit en une somme ou une différence.</p><div class="formula">a(b+c) = ab + ac<br>a(b-c) = ab - ac</div>
+<h4>2. Factorisation</h4><p>Factoriser consiste à transformer une somme ou une différence en un produit.</p><div class="formula">ab + ac = a(b+c)</div>
+<h4>3. Méthode</h4><ol><li>Repérer le facteur commun.</li><li>Le mettre devant une parenthèse.</li><li>Écrire les termes restants dans la parenthèse.</li></ol>
+<div class="example"><strong>Exemples corrigés</strong><p>3(x + 4) = <strong>3x + 12</strong>.</p><p>5x + 15 = <strong>5(x + 3)</strong>.</p></div>
+<h4>4. Exercices</h4><p>Développer 4(x + 2) : <strong>4x + 8</strong>.</p><p>Factoriser 7x + 21 : <strong>7(x + 3)</strong>.</p>`},
+{title:"Leçon 6 — Les identités remarquables",content:`
+<h4>1. Les trois identités fondamentales</h4><div class="formula">(a+b)² = a² + 2ab + b²<br><br>(a-b)² = a² - 2ab + b²<br><br>(a+b)(a-b) = a² - b²</div>
+<h4>2. Utilisation</h4><p>Les identités remarquables permettent de développer et de factoriser rapidement certaines expressions.</p>
+<div class="example"><strong>Exemples corrigés</strong><p>(x + 3)² = x² + 6x + 9.</p><p>x² - 25 = (x - 5)(x + 5).</p></div>
+<h4>3. Exercices</h4><p>(x - 2)² = <strong>x² - 4x + 4</strong>.</p><p>x² - 16 = <strong>(x - 4)(x + 4)</strong>.</p>`},
+{title:"Leçon 7 — Les nombres complexes",content:`
+<h4>1. Définition</h4><p>Un nombre complexe s'écrit sous la forme :</p><div class="formula">z = a + ib, avec i² = -1</div><p>a est la partie réelle et b la partie imaginaire de z.</p>
+<h4>2. Puissances de i</h4><div class="formula">i¹ = i<br>i² = -1<br>i³ = -i<br>i⁴ = 1</div>
+<h4>3. Addition et multiplication</h4><div class="example">z₁ = 2 + 3i et z₂ = 4 - i.<p>z₁ + z₂ = <strong>6 + 2i</strong>.</p><p>(1+i)(2+i) = 2+i+2i+i² = <strong>1+3i</strong>.</p></div>
+<h4>4. Conjugué et module</h4><div class="formula">Si z = a + ib, alors z̄ = a - ib et |z| = √(a²+b²).</div><div class="example">Pour z = 3 + 4i : z̄ = 3 - 4i et |z| = <strong>5</strong>.</div>
+<h4>5. Exercices</h4><p>i⁶ = <strong>-1</strong>.</p><p>Le conjugué de 5 - 2i est <strong>5 + 2i</strong>.</p><p>|6 + 8i| = <strong>10</strong>.</p>`}
+];
 
-<h4>3. Priorités opératoires</h4>
-<p>Dans un calcul, on effectue généralement :</p>
-<ol>
-<li>Les opérations entre parenthèses.</li>
-<li>Les puissances.</li>
-<li>Les multiplications et divisions.</li>
-<li>Les additions et soustractions.</li>
-</ol>
-
-<div class="example">
-<strong>Exemple corrigé</strong>
-<p>Calculer A = 5 + 3 × 4.</p>
-<div class="answer">
-On effectue d'abord la multiplication :<br>
-A = 5 + 12 = <strong>17</strong>.
-</div>
-</div>
-
-<div class="example">
-<strong>Deuxième exemple</strong>
-<p>Calculer B = (-3) × (-4) + 2.</p>
-<div class="answer">
-B = 12 + 2 = <strong>14</strong>.
-</div>
-</div>
-
-<h4>4. Exercices</h4>
-<p><strong>Exercice 1 :</strong> Calculer A = 8 - 2 × 3.</p>
-<div class="answer">Correction : A = 8 - 6 = <strong>2</strong>.</div>
-<p><strong>Exercice 2 :</strong> Calculer B = (-5) × 3 + 20.</p>
-<div class="answer">Correction : B = -15 + 20 = <strong>5</strong>.</div>
-`
+/* =========================================================
+   5. CHAPITRE 2 : ÉQUATIONS ET INÉQUATIONS
+   Les six leçons sont intégrées dans l'arborescence.
+   Les banques détaillées déjà élaborées seront enrichies
+   avec leurs textes intégraux lors de la prochaine révision.
+   ========================================================= */
+const chapter2Lessons = [
+{
+ title:"Leçon 1 — Fondements de l'égalité et équations du premier degré",
+ objectives:"Comprendre les propriétés de l'égalité, transformer une équation sans changer ses solutions et résoudre une équation du premier degré.",
+ content:`<h4>1. Égalité et équations</h4>
+ <p>Une égalité affirme que deux expressions ont la même valeur. Une équation est une égalité qui contient une ou plusieurs inconnues.</p>
+ <div class="formula">a = b ⟺ a + c = b + c</div>
+ <p>On peut ajouter ou soustraire un même nombre aux deux membres d'une égalité. On peut aussi multiplier ou diviser les deux membres par un même nombre non nul.</p>
+ <h4>2. Équation du premier degré</h4><div class="formula">ax + b = 0</div>
+ <p>Si a ≠ 0, la solution est x = -b/a. Si a = 0 et b ≠ 0, l'équation n'a aucune solution. Si a = 0 et b = 0, tous les réels sont solutions.</p>
+ <div class="example"><strong>Exemple corrigé</strong><p>Résoudre 3x - 12 = 0.</p><div class="answer">3x = 12, donc x = 12/3 = <strong>4</strong>. Vérification : 3 × 4 - 12 = 0.</div></div>
+ <h4>3. Méthode générale</h4><ol><li>Regrouper les termes contenant x.</li><li>Regrouper les constantes dans l'autre membre.</li><li>Réduire chaque membre.</li><li>Diviser par le coefficient de x s'il est non nul.</li><li>Vérifier la solution dans l'équation initiale.</li></ol>
+ <h4>4. Erreurs à éviter</h4><ul><li>Changer un terme de membre sans changer son signe.</li><li>Diviser par zéro.</li><li>Oublier de vérifier le résultat.</li></ul>`,
+ exercises:"Exercices à traiter : résoudre 5x - 15 = 0 ; 2x + 7 = 19 ; 4(x - 2) = 12 ; 3x + 2 = x + 10 ; discuter les solutions de (m - 2)x = 6."
 },
 {
-title:"Leçon 3 — Les fractions",
-content:`
-<h4>1. Définition</h4>
-<p>Une fraction est un quotient de deux nombres entiers, avec un dénominateur non nul.</p>
-<div class="formula">a/b avec b ≠ 0</div>
-<p>a est le numérateur et b est le dénominateur.</p>
-
-<h4>2. Simplification</h4>
-<p>Pour simplifier une fraction, on divise le numérateur et le dénominateur par un même nombre non nul.</p>
-<div class="example">
-<p>12/18 = (12 ÷ 6)/(18 ÷ 6) = <strong>2/3</strong>.</p>
-</div>
-
-<h4>3. Addition et soustraction</h4>
-<p>Lorsque les dénominateurs sont identiques, on additionne ou soustrait les numérateurs.</p>
-<div class="formula">a/c + b/c = (a+b)/c</div>
-<p>Lorsque les dénominateurs sont différents, on cherche un dénominateur commun.</p>
-
-<h4>4. Multiplication et division</h4>
-<div class="formula">a/b × c/d = (a×c)/(b×d)<br>
-(a/b) ÷ (c/d) = (a/b) × (d/c)</div>
-
-<div class="example">
-<strong>Exemple corrigé 1</strong>
-<p>Calculer 1/3 + 1/6.</p>
-<div class="answer">
-1/3 = 2/6.<br>
-Donc 2/6 + 1/6 = <strong>3/6 = 1/2</strong>.
-</div>
-</div>
-
-<div class="example">
-<strong>Exemple corrigé 2</strong>
-<p>Calculer 2/5 × 3/4.</p>
-<div class="answer">
-(2 × 3)/(5 × 4) = 6/20 = <strong>3/10</strong>.
-</div>
-</div>
-
-<h4>5. Exercices</h4>
-<p><strong>Exercice 1 :</strong> Calculer 2/3 + 1/6.</p>
-<div class="answer">Correction : 4/6 + 1/6 = 5/6.</div>
-<p><strong>Exercice 2 :</strong> Simplifier 15/25.</p>
-<div class="answer">Correction : 15/25 = <strong>3/5</strong>.</div>
-`
+ title:"Leçon 2 — Équations avec parenthèses, fractions et paramètres",
+ objectives:"Maîtriser la distributivité, les dénominateurs communs, les restrictions de domaine et les discussions suivant les paramètres.",
+ content:`<h4>1. Équations avec parenthèses</h4><p>On commence par développer en appliquant la distributivité, puis on réduit les termes semblables.</p><div class="formula">a(b+c) = ab + ac</div>
+ <h4>2. Équations avec fractions</h4><p>On identifie les dénominateurs, on détermine les valeurs interdites, puis on multiplie les deux membres par un dénominateur commun non nul.</p>
+ <div class="example"><strong>Exemple corrigé</strong><p>Résoudre x/2 + x/3 = 5.</p><div class="answer">Le dénominateur commun est 6 : 3x + 2x = 30, donc 5x = 30 et <strong>x = 6</strong>.</div></div>
+ <h4>3. Équations avec paramètre</h4><div class="example"><p>Résoudre (m - 2)x = 6.</p><div class="answer">Si m ≠ 2, x = 6/(m - 2). Si m = 2, on obtient 0x = 6 : il n'y a aucune solution.</div></div>
+ <h4>4. Précautions</h4><ul><li>Indiquer les valeurs interdites avant de multiplier par des expressions contenant x.</li><li>Étudier séparément les cas où un coefficient devient nul.</li><li>Vérifier les solutions dans l'équation de départ.</li></ul>`,
+ exercises:"Exercices à traiter : 3(2x - 5) = 9 ; x/2 + x/3 = 10 ; (x - 1)/3 = (x + 2)/5 ; (m - 2)x = 6 ; discuter une équation comportant deux paramètres."
 },
 {
-title:"Leçon 4 — Les puissances",
-content:`
-<h4>1. Définition</h4>
-<p>Une puissance permet d'écrire plus simplement une multiplication répétée.</p>
-<div class="formula">aⁿ = a × a × ... × a (n facteurs)</div>
-<p>Exemple : 2⁴ = 2 × 2 × 2 × 2 = 16.</p>
-
-<h4>2. Règles essentielles</h4>
-<div class="formula">
-aᵐ × aⁿ = aᵐ⁺ⁿ<br>
-aᵐ / aⁿ = aᵐ⁻ⁿ (a ≠ 0)<br>
-(aᵐ)ⁿ = aᵐˣⁿ<br>
-(ab)ⁿ = aⁿbⁿ<br>
-a⁰ = 1 (a ≠ 0)<br>
-a⁻ⁿ = 1/aⁿ (a ≠ 0)
-</div>
-
-<h4>3. Puissances de 10</h4>
-<p>Les puissances de 10 sont utiles pour écrire de très grands ou de très petits nombres.</p>
-<div class="example">
-<p>10³ = 1 000.</p>
-<p>10⁻² = 0,01.</p>
-</div>
-
-<div class="example">
-<strong>Exemple corrigé</strong>
-<p>Simplifier A = 2³ × 2⁴.</p>
-<div class="answer">
-A = 2³⁺⁴ = 2⁷ = <strong>128</strong>.
-</div>
-</div>
-
-<h4>4. Exercices</h4>
-<p><strong>Exercice 1 :</strong> Calculer 3² × 3³.</p>
-<div class="answer">Correction : 3⁵ = <strong>243</strong>.</div>
-<p><strong>Exercice 2 :</strong> Écrire 1/5² sous forme de puissance.</p>
-<div class="answer">Correction : 5⁻².</div>
-`
+ title:"Leçon 3 — Équations produit nul et factorisation",
+ objectives:"Utiliser la propriété du produit nul et différentes techniques de factorisation pour résoudre des équations.",
+ content:`<h4>1. Propriété du produit nul</h4><div class="formula">A(x) × B(x) = 0 ⟺ A(x) = 0 ou B(x) = 0</div>
+ <p>Un produit de facteurs réels est nul si et seulement si au moins l'un de ses facteurs est nul.</p>
+ <h4>2. Techniques de factorisation</h4><ul><li>Mise en évidence d'un facteur commun.</li><li>Identités remarquables.</li><li>Regroupement de termes.</li><li>Factorisation d'un trinôme lorsque cela est possible.</li></ul>
+ <div class="example"><strong>Exemple corrigé</strong><p>Résoudre (x - 3)(2x + 4) = 0.</p><div class="answer">x - 3 = 0 ou 2x + 4 = 0. Ainsi <strong>x = 3 ou x = -2</strong>.</div></div>
+ <h4>3. Méthode</h4><ol><li>Tout ramener dans un même membre.</li><li>Factoriser complètement.</li><li>Appliquer la propriété du produit nul.</li><li>Résoudre chaque équation obtenue.</li></ol>`,
+ exercises:"Exercices à traiter : x(x - 5) = 0 ; (2x + 1)(x - 4) = 0 ; x² - 9 = 0 ; x² + 5x + 6 = 0 ; factoriser puis résoudre une équation polynomiale de degré supérieur."
 },
 {
-title:"Leçon 5 — Développement et factorisation",
-content:`
-<h4>1. Développement</h4>
-<p>Développer consiste à transformer un produit en une somme ou une différence.</p>
-<div class="formula">a(b+c) = ab + ac</div>
-<div class="formula">a(b-c) = ab - ac</div>
-
-<h4>2. Factorisation</h4>
-<p>Factoriser consiste à transformer une somme ou une différence en un produit.</p>
-<div class="formula">ab + ac = a(b+c)</div>
-
-<h4>3. Méthode</h4>
-<ul>
-<li>Repérer le facteur commun.</li>
-<li>Le mettre devant une parenthèse.</li>
-<li>Écrire les termes restants dans la parenthèse.</li>
-</ul>
-
-<div class="example">
-<strong>Exemple corrigé : développement</strong>
-<p>Développer A = 3(x + 4).</p>
-<div class="answer">
-A = 3 × x + 3 × 4<br>
-<strong>A = 3x + 12</strong>.
-</div>
-</div>
-
-<div class="example">
-<strong>Exemple corrigé : factorisation</strong>
-<p>Factoriser B = 5x + 15.</p>
-<div class="answer">
-Le facteur commun est 5.<br>
-B = <strong>5(x + 3)</strong>.
-</div>
-</div>
-
-<h4>4. Exercices</h4>
-<p><strong>Exercice 1 :</strong> Développer 4(x + 2).</p>
-<div class="answer">Correction : 4x + 8.</div>
-<p><strong>Exercice 2 :</strong> Factoriser 7x + 21.</p>
-<div class="answer">Correction : 7(x + 3).</div>
-`
+ title:"Leçon 4 — Équations du second degré",
+ objectives:"Calculer le discriminant, déterminer les racines réelles, factoriser un trinôme et utiliser les relations entre racines et coefficients.",
+ content:`<h4>1. Forme générale</h4><div class="formula">ax² + bx + c = 0, avec a ≠ 0</div>
+ <h4>2. Discriminant</h4><div class="formula">Δ = b² - 4ac</div>
+ <ul><li>Si Δ &gt; 0 : deux racines réelles distinctes.</li><li>Si Δ = 0 : une racine réelle double.</li><li>Si Δ &lt; 0 : aucune racine réelle.</li></ul>
+ <div class="formula">Si Δ ≥ 0 : x₁ = (-b - √Δ)/(2a) et x₂ = (-b + √Δ)/(2a)</div>
+ <div class="example"><strong>Exemple corrigé</strong><p>Résoudre x² - 5x + 6 = 0.</p><div class="answer">Δ = 25 - 24 = 1. Les racines sont (5 - 1)/2 = 2 et (5 + 1)/2 = 3. Donc <strong>S = {2 ; 3}</strong>.</div></div>
+ <h4>3. Relations de Viète</h4><div class="formula">x₁ + x₂ = -b/a ; x₁x₂ = c/a</div>
+ <h4>4. Forme canonique</h4><p>La forme canonique permet d'étudier le sommet et les variations de la parabole associée au trinôme.</p>`,
+ exercises:"Exercices à traiter : x² - 7x + 12 = 0 ; 2x² - 8x + 8 = 0 ; x² + 2x + 5 = 0 dans ℝ ; factoriser 2x² - 10x + 12 ; résoudre un problème géométrique ramené à un trinôme."
 },
 {
-title:"Leçon 6 — Les identités remarquables",
-content:`
-<h4>1. Les trois identités fondamentales</h4>
-<div class="formula">
-(a+b)² = a² + 2ab + b²<br><br>
-(a-b)² = a² - 2ab + b²<br><br>
-(a+b)(a-b) = a² - b²
-</div>
-
-<h4>2. Utilisation</h4>
-<p>Les identités remarquables permettent de développer et de factoriser rapidement certaines expressions.</p>
-
-<div class="example">
-<strong>Exemple corrigé 1</strong>
-<p>Développer (x + 3)².</p>
-<div class="answer">
-Avec a = x et b = 3 :<br>
-x² + 2 × x × 3 + 3²<br>
-<strong>= x² + 6x + 9</strong>.
-</div>
-</div>
-
-<div class="example">
-<strong>Exemple corrigé 2</strong>
-<p>Factoriser x² - 25.</p>
-<div class="answer">
-On reconnaît a² - b² avec a = x et b = 5.<br>
-<strong>x² - 25 = (x - 5)(x + 5)</strong>.
-</div>
-</div>
-
-<h4>3. Exercices</h4>
-<p><strong>Exercice 1 :</strong> Développer (x - 2)².</p>
-<div class="answer">Correction : x² - 4x + 4.</div>
-<p><strong>Exercice 2 :</strong> Factoriser x² - 16.</p>
-<div class="answer">Correction : (x - 4)(x + 4).</div>
-`
+ title:"Leçon 5 — Inéquations du premier et du second degré",
+ objectives:"Résoudre des inéquations, construire des tableaux de signes et déterminer des intersections d'ensembles de solutions.",
+ content:`<h4>1. Règles fondamentales</h4><p>Ajouter ou soustraire un même nombre conserve le sens de l'inégalité. Multiplier ou diviser par un nombre négatif inverse le sens de l'inégalité.</p>
+ <div class="formula">Si a &lt; b et k &lt; 0, alors ka &gt; kb.</div>
+ <h4>2. Inéquation du premier degré</h4><div class="example"><strong>Exemple corrigé</strong><p>Résoudre -2x + 6 ≤ 12.</p><div class="answer">-2x ≤ 6. En divisant par -2, on inverse le sens : <strong>x ≥ -3</strong>.</div></div>
+ <h4>3. Signe d'un trinôme</h4><p>Pour un trinôme ayant deux racines réelles distinctes, son signe est celui de a à l'extérieur des racines et le signe opposé entre les racines.</p>
+ <h4>4. Inéquations produit et quotient</h4><p>On factorise le numérateur et le dénominateur, on repère les zéros et les valeurs interdites, puis on construit un tableau de signes.</p>
+ <h4>5. Systèmes d'inéquations</h4><p>La solution d'un système est l'intersection des ensembles de solutions de chaque inéquation.</p>`,
+ exercises:"Exercices à traiter : 3x - 4 &gt; 8 ; -2x + 6 ≤ 12 ; 2x² - 8x + 6 ≥ 0 ; (x² - 4)/(x - 1) ≥ 0 ; résoudre un système d'inéquations."
 },
 {
-title:"Leçon 7 — Les nombres complexes",
-content:`
-<h4>1. Définition</h4>
-<p>Un nombre complexe est un nombre qui s'écrit sous la forme :</p>
-<div class="formula">z = a + ib</div>
-<p>a et b sont des nombres réels et i est le nombre imaginaire tel que :</p>
-<div class="formula">i² = -1</div>
-<p>a est la partie réelle et b est la partie imaginaire de z.</p>
-
-<h4>2. Puissances de i</h4>
-<div class="formula">
-i¹ = i<br>
-i² = -1<br>
-i³ = -i<br>
-i⁴ = 1
-</div>
-<p>Ce cycle de quatre puissances se répète.</p>
-
-<h4>3. Addition</h4>
-<p>On additionne séparément les parties réelles et les parties imaginaires.</p>
-<div class="example">
-<p>z₁ = 2 + 3i et z₂ = 4 - i.</p>
-<div class="answer">
-z₁ + z₂ = (2 + 4) + (3i - i)<br>
-<strong>= 6 + 2i</strong>.
-</div>
-</div>
-
-<h4>4. Multiplication</h4>
-<p>On développe comme avec les expressions algébriques, puis on remplace i² par -1.</p>
-<div class="example">
-<p>Calculer (1 + i)(2 + i).</p>
-<div class="answer">
-= 2 + i + 2i + i²<br>
-= 2 + 3i - 1<br>
-<strong>= 1 + 3i</strong>.
-</div>
-</div>
-
-<h4>5. Conjugué et module</h4>
-<p>Si z = a + ib, son conjugué est :</p>
-<div class="formula">z̄ = a - ib</div>
-<p>Son module est :</p>
-<div class="formula">|z| = √(a² + b²)</div>
-<div class="example">
-<p>Pour z = 3 + 4i :</p>
-<div class="answer">
-z̄ = 3 - 4i.<br>
-|z| = √(3² + 4²) = √25 = <strong>5</strong>.
-</div>
-</div>
-
-<h4>6. Représentation géométrique</h4>
-<p>Un nombre complexe z = a + ib peut être représenté par le point de coordonnées (a ; b) dans le plan complexe, appelé plan d'Argand.</p>
-
-<h4>7. Méthodes pour apprendre</h4>
-<ul>
-<li>Bien retenir que i² = -1.</li>
-<li>S'entraîner aux calculs avec les parties réelles et imaginaires.</li>
-<li>Apprendre les puissances successives de i.</li>
-<li>Faire plusieurs exercices de conjugaison et de module.</li>
-</ul>
-
-<h4>8. Exercices</h4>
-<p><strong>Exercice 1 :</strong> Calculer i⁶.</p>
-<div class="answer">
-Correction : i⁶ = i⁴ × i² = 1 × (-1) = <strong>-1</strong>.
-</div>
-<p><strong>Exercice 2 :</strong> Déterminer le conjugué de z = 5 - 2i.</p>
-<div class="answer">Correction : z̄ = <strong>5 + 2i</strong>.</div>
-<p><strong>Exercice 3 :</strong> Calculer le module de z = 6 + 8i.</p>
-<div class="answer">
-Correction : |z| = √(36 + 64) = √100 = <strong>10</strong>.
-</div>
-`
+ title:"Leçon 6 — Systèmes d'équations et d'inéquations",
+ objectives:"Résoudre des systèmes par substitution, élimination et déterminants, interpréter graphiquement les solutions et étudier des contraintes.",
+ content:`<h4>1. Définition</h4><p>Un système regroupe plusieurs équations dont les inconnues doivent satisfaire simultanément toutes les relations.</p>
+ <h4>2. Méthodes de résolution</h4><ul><li>Substitution : exprimer une inconnue en fonction de l'autre.</li><li>Élimination : combiner les équations pour supprimer une inconnue.</li><li>Comparaison : isoler une même inconnue dans deux équations.</li><li>Déterminants : appliquer la règle de Cramer lorsque le déterminant est non nul.</li></ul>
+ <div class="formula">Pour ax + by = e et cx + dy = f : D = ad - bc.</div>
+ <div class="example"><strong>Exemple corrigé par élimination</strong><p>Résoudre x + y = 9 et x - y = 3.</p><div class="answer">En additionnant : 2x = 12, donc x = 6. Puis y = 3. Solution : <strong>(6 ; 3)</strong>.</div></div>
+ <h4>3. Interprétation graphique</h4><p>Deux droites sécantes donnent une solution unique ; deux droites parallèles distinctes n'en donnent aucune ; deux droites confondues donnent une infinité de solutions.</p>
+ <h4>4. Systèmes d'inéquations</h4><p>Dans le plan, chaque inéquation définit un demi-plan. La solution du système est leur intersection. La frontière est pleine pour ≤ ou ≥, et discontinue pour &lt; ou &gt;.</p>
+ <h4>5. Applications</h4><p>Les systèmes servent notamment à résoudre des problèmes de mélanges, de production, de budgets et de bilans scientifiques.</p>`,
+ exercises:"Exercices à traiter : x + y = 9 et x - y = 3 ; 2x + y = 8 et x + y = 5 ; 2x + 3y = 17 et 4x - y = 5 ; étudier un système dépendant d'un paramètre ; représenter un système d'inéquations dans le plan."
 }
 ];
 
-/* 10. NAVIGATION DANS LE COURS DE MATHÉMATIQUES */
-
-function subject(value){
-selectedSubject=value;
-
-if(
-selectedField==="Sciences de la Vie et de la Terre" &&
-selectedLevel==="L1" &&
-selectedSemester==="S1" &&
-value==="Mathématiques générales"
-){
-let html=`
-<div class="panel">
-<h3>Mathématiques générales — SVT L1 S1</h3>
-<p>Bienvenue dans ton espace de cours.</p>
-<p>Ce module propose des leçons progressives, des méthodes de résolution, des exemples corrigés, des exercices et des évaluations.</p>
-<p class="small">Chapitre actuellement disponible : chapitre 1.</p>
-</div>
-<div class="grid">
-${makeCard("Chapitre 1 — Ensembles de nombres et calculs algébriques","Découvrir les sept leçons du chapitre.","chapter","1")}
-</div>`;
-show(value,html,selectedField+" → L1 → S1");
-return;
+function subject(value) {
+  selectedSubject=value;
+  const isSVT = selectedField==="Sciences de la Vie et de la Terre" && selectedLevel==="L1" && selectedSemester==="S1";
+  const isMath = selectedField==="MPCI" && selectedLevel==="L1" && selectedSemester==="S1" && value==="Mathématiques générales";
+  if(isMath) {
+    show(value,`
+      <div class="panel"><span class="tag">MPCI — L1S1</span>
+      <h3>Mathématiques générales</h3>
+      <p>Le cours de mathématiques générales est rattaché à MPCI L1S1. Le chapitre 1 déjà présent est conservé et le chapitre 2 est ajouté ci-dessous.</p>
+      <p class="small">Le transfert concerne l'organisation du catalogue WiderWay ; les contenus pédagogiques existants sont conservés.</p></div>
+      <div class="grid">
+        ${makeCard("Chapitre 1 — Ensembles de nombres et calculs algébriques","Sept leçons déjà intégrées.","chapter","1")}
+        ${makeCard("Chapitre 2 — Équations et inéquations","Six leçons : égalités, fractions, factorisation, second degré, inéquations et systèmes.","chapter","2")}
+      </div>
+      <div class="panel"><h3>Méthodes de travail</h3><p>Une démarche progressive pour apprendre, pratiquer, corriger et réviser.</p><button class="action" data-action="learningMethods">Consulter les méthodes</button></div>
+    `,"MPCI → L1 → S1");
+    return;
+  }
+  if(isSVT && value==="Histoire approfondie de la biologie") {
+    supplementary(value); return;
+  }
+  const html=`<div class="panel"><h3>${escapeHTML(value)}</h3><p>Bienvenue dans l'espace consacré à cette matière.</p><p class="small">Les ressources pédagogiques seront ajoutées progressivement.</p></div>
+  <div class="grid">
+    ${makeCard("Cours","Leçons et supports pédagogiques.","resource","Cours")}
+    ${makeCard("Résumés","Fiches de révision et synthèses.","resource","Résumés")}
+    ${makeCard("Exercices corrigés","Travaux pratiques et exercices.","resource","Exercices corrigés")}
+    ${makeCard("Documents PDF","Documents téléchargeables.","resource","Documents PDF")}
+  </div>`;
+  show(value,html,selectedField+" → "+selectedLevel+" → "+selectedSemester);
+}
+function supplementary(value) {
+  const item=complementaryResources[value];
+  let html=`<div class="panel"><span class="tag">${escapeHTML(item.label)}</span><h3>${escapeHTML(value)}</h3><p>${escapeHTML(item.description)}</p></div><div class="grid">`;
+  item.chapters.forEach((name,i)=>html+=makeCard("Chapitre "+(i+1)+" — "+name,"Ressource complémentaire d'histoire de la biologie.","supplementaryChapter",String(i)));
+  html+="</div>";
+  show(value,html,"SVT L1S1 → Ressources complémentaires");
+}
+function supplementaryChapter(value) {
+  const index=Number(value);
+  const item=complementaryResources["Histoire approfondie de la biologie"];
+  const title=item.chapters[index];
+  show(title,`<div class="panel"><span class="tag">Ressource complémentaire WiderWay</span><h3>${escapeHTML(title)}</h3><p>Cette partie sera développée sous forme de cours documenté, avec repères chronologiques, scientifiques, auteurs, découvertes, sources et exercices.</p><p class="small">Elle ne constitue pas un module officiel de la maquette SVT L1S1 de l'UJKZ.</p></div>`,"Histoire approfondie de la biologie");
 }
 
-const html=`
-<div class="panel">
-<h3>${escapeHTML(value)}</h3>
-<p>Bienvenue dans l'espace consacré à cette matière.</p>
-<p class="small">Les ressources seront ajoutées progressivement.</p>
-</div>
-<div class="grid">
-${makeCard("Cours","Leçons et supports pédagogiques.","resource","Cours")}
-${makeCard("Résumés","Fiches de révision et synthèses.","resource","Résumés")}
-${makeCard("Exercices corrigés","Travaux pratiques et exercices.","resource","Exercices corrigés")}
-${makeCard("Documents PDF","Documents téléchargeables.","resource","Documents PDF")}
-</div>`;
-
-show(value,html,selectedField+" → "+selectedLevel+" → "+selectedSemester);
+function chapter(value) {
+  if(value==="1") {
+    let html=`<div class="panel"><h3>Chapitre 1 — Ensembles de nombres et calculs algébriques</h3><p><strong>Objectif général :</strong> maîtriser les différents ensembles de nombres et les opérations algébriques de base.</p><ul><li>Identifier et classer les ensembles de nombres.</li><li>Effectuer correctement les opérations.</li><li>Manipuler les fractions et les puissances.</li><li>Développer et factoriser des expressions.</li><li>Utiliser les identités remarquables.</li><li>Effectuer les premières opérations sur les nombres complexes.</li></ul></div><div class="grid">`;
+    mathLessons.forEach((lesson,index)=>html+=makeCard(lesson.title,"Étudier la leçon, ses exemples et ses exercices.","lesson",String(index)));
+    html+=makeCard("Évaluation — QCM du chapitre 1","Vérifier les connaissances acquises.","quiz","1")+"</div>";
+    show("Chapitre 1",html,"Mathématiques générales → Chapitre 1");
+    return;
+  }
+  if(value==="2") {
+    let html=`<div class="panel"><h3>Chapitre 2 — Équations et inéquations</h3><p><strong>Objectif général :</strong> résoudre des équations et inéquations, justifier les transformations et interpréter les ensembles de solutions.</p><h4>Compétences visées</h4><ul><li>Maîtriser les transformations équivalentes.</li><li>Résoudre des équations avec parenthèses, fractions et paramètres.</li><li>Factoriser et appliquer la propriété du produit nul.</li><li>Résoudre les équations du second degré.</li><li>Étudier les signes et résoudre les inéquations.</li><li>Résoudre des systèmes et interpréter leurs solutions.</li></ul><p class="small">Les leçons sont structurées dans la plateforme. Les banques détaillées d'exercices, corrigés et sujets d'examen devront être reprises dans leur version intégrale déjà élaborée avant publication définitive.</p></div><div class="grid">`;
+    chapter2Lessons.forEach((lesson,index)=>html+=makeCard(lesson.title,lesson.objectives,"lesson2",String(index)));
+    html+=makeCard("Évaluation du chapitre 2","Espace de préparation du QCM et des évaluations.","quiz2","2")+"</div>";
+    show("Chapitre 2",html,"Mathématiques générales → Chapitre 2");
+  }
+}
+function lesson(value) {
+  const item=mathLessons[Number(value)];
+  if(!item)return;
+  show(item.title,`<div class="lesson">${item.content}</div><div class="panel"><p>Refais les exercices sans regarder les corrections, puis vérifie tes réponses.</p><button class="action" data-action="chapter" data-value="1">Retour au chapitre 1</button></div>`, "Mathématiques générales → Chapitre 1");
+}
+function lesson2(value) {
+  const item=chapter2Lessons[Number(value)];
+  if(!item)return;
+  show(item.title,`<div class="lesson"><h3>Objectifs pédagogiques</h3><p>${escapeHTML(item.objectives)}</p>${item.content}<h4>Travaux d'application — première série</h4><p>${escapeHTML(item.exercises)}</p><div class="answer"><strong>Consigne :</strong> rédige les étapes de résolution et vérifie chaque résultat. Les séries A, B, C et D et leurs corrections détaillées seront intégrées à partir des versions complètes déjà élaborées.</div></div><div class="panel"><button class="action" data-action="chapter" data-value="2">Retour au chapitre 2</button></div>`,"Mathématiques générales → Chapitre 2");
 }
 
-function chapter(value){
-if(value!=="1")return;
-
-let html=`
-<div class="panel">
-<h3>Chapitre 1 — Ensembles de nombres et calculs algébriques</h3>
-<p><strong>Objectif général :</strong> maîtriser les différents ensembles de nombres et les opérations algébriques de base.</p>
-<h4>Compétences à acquérir</h4>
-<ul>
-<li>Identifier et classer les ensembles de nombres.</li>
-<li>Effectuer correctement les opérations.</li>
-<li>Manipuler les fractions et les puissances.</li>
-<li>Développer et factoriser des expressions.</li>
-<li>Utiliser les identités remarquables.</li>
-<li>Effectuer les premières opérations sur les nombres complexes.</li>
-</ul>
-<h4>Prérequis</h4>
-<p>Calcul élémentaire, tables de multiplication, opérations sur les entiers et les fractions, calcul littéral de base.</p>
-</div>
-<div class="grid">`;
-
-mathLessons.forEach((lesson,index)=>{
-html+=makeCard(lesson.title,"Étudier la leçon, ses exemples et ses exercices.","lesson",String(index));
-});
-
-html+=makeCard("Évaluation — QCM du chapitre 1","Vérifier les connaissances acquises.","quiz","1");
-html+='</div>';
-
-show("Chapitre 1",html,"Mathématiques générales → Chapitre 1");
+/* =========================================================
+   6. MÉTHODES, QCM ET RESSOURCES
+   ========================================================= */
+function learningMethods() {
+  show("Méthodes de travail",`<div class="panel"><h3>Comment apprendre efficacement ?</h3><ol><li><strong>Comprendre :</strong> lis chaque définition.</li><li><strong>Mémoriser :</strong> apprends les symboles et formules.</li><li><strong>Observer :</strong> étudie les exemples corrigés.</li><li><strong>Pratiquer :</strong> refais les exercices sans consulter les réponses.</li><li><strong>Corriger :</strong> identifie et comprends tes erreurs.</li><li><strong>Réviser :</strong> reviens régulièrement sur les notions.</li></ol></div>`);
 }
-
-function lesson(value){
-const index=Number(value);
-const item=mathLessons[index];
-
-if(!item)return;
-
-const html=`
-<div class="lesson">
-${item.content}
-</div>
-<div class="panel">
-<h3>À retenir</h3>
-<p>Lis attentivement la leçon, retiens les formules essentielles et refais les exemples sans regarder la correction.</p>
-<button class="action" data-action="chapter" data-value="1">Retour au chapitre</button>
-</div>`;
-
-show(item.title,html,"Mathématiques générales → Chapitre 1");
-}
-
-/* 11. MÉTHODES D'APPRENTISSAGE */
-
-function learningMethods(){
-show("Méthodes de travail",`
-<div class="panel">
-<h3>Comment apprendre efficacement ce chapitre ?</h3>
-<ol>
-<li><strong>Comprendre :</strong> lis chaque définition et cherche à comprendre son sens.</li>
-<li><strong>Mémoriser :</strong> apprends les symboles et les formules importantes.</li>
-<li><strong>Observer :</strong> étudie les exemples corrigés étape par étape.</li>
-<li><strong>Pratiquer :</strong> refais les exercices sans consulter les réponses.</li>
-<li><strong>Corriger :</strong> compare ta démarche à la correction et identifie tes erreurs.</li>
-<li><strong>Réviser :</strong> reviens régulièrement sur les notions déjà étudiées.</li>
-</ol>
-</div>
-<div class="panel">
-<h3>Conseil de résolution</h3>
-<p>Pour résoudre un exercice, commence par identifier la notion concernée, écris les données, choisis la règle adaptée, effectue les calculs et vérifie le résultat.</p>
-</div>
-`);
-}
-
-/* 12. QCM INTERACTIF */
-
-const quizQuestions=[
-{
-question:"Quel est le plus petit ensemble contenant le nombre -7 ?",
-answers:["ℕ","ℤ","ℝ"],
-correct:1,
-explanation:"-7 est un entier relatif. Il appartient à ℤ."
-},
-{
-question:"Combien vaut 2³ × 2² ?",
-answers:["2⁵","2⁶","2¹"],
-correct:0,
-explanation:"On additionne les exposants : 2³ × 2² = 2⁵."
-},
-{
-question:"Quelle est la forme développée de 3(x + 2) ?",
-answers:["3x + 2","3x + 6","x + 6"],
-correct:1,
-explanation:"On distribue 3 : 3 × x + 3 × 2 = 3x + 6."
-},
-{
-question:"Quelle identité remarquable correspond à (a+b)² ?",
-answers:["a² + b²","a² - 2ab + b²","a² + 2ab + b²"],
-correct:2,
-explanation:"(a+b)² = a² + 2ab + b²."
-},
-{
-question:"Combien vaut i² ?",
-answers:["1","-1","i"],
-correct:1,
-explanation:"Par définition du nombre imaginaire i, i² = -1."
-}
+const quizQuestions = [
+ {question:"Quel est le plus petit ensemble contenant -7 ?",answers:["ℕ","ℤ","ℝ"],correct:1,explanation:"-7 est un entier relatif : il appartient à ℤ."},
+ {question:"Combien vaut 2³ × 2² ?",answers:["2⁵","2⁶","2¹"],correct:0,explanation:"On additionne les exposants : 2³ × 2² = 2⁵."},
+ {question:"Quelle est la forme développée de 3(x + 2) ?",answers:["3x + 2","3x + 6","x + 6"],correct:1,explanation:"On distribue 3 : 3x + 6."},
+ {question:"Quelle identité correspond à (a+b)² ?",answers:["a² + b²","a² - 2ab + b²","a² + 2ab + b²"],correct:2,explanation:"(a+b)² = a² + 2ab + b²."},
+ {question:"Combien vaut i² ?",answers:["1","-1","i"],correct:1,explanation:"Par définition, i² = -1."}
 ];
-
-function quiz(){
-let html=`
-<div class="panel">
-<h3>QCM — Chapitre 1</h3>
-<p>Choisis une seule réponse par question. À la fin, appuie sur le bouton pour afficher ton résultat.</p>
-</div>`;
-
-quizQuestions.forEach((q,index)=>{
-html+=`
-<div class="quiz-question">
-<strong>${index+1}. ${q.question}</strong>
-${q.answers.map((answer,answerIndex)=>`
-<label>
-<input type="radio" name="question${index}" value="${answerIndex}">
-${answer}
-</label>
-`).join("")}
-</div>`;
-});
-
-html+=`
-<button class="action" data-action="gradeQuiz">Corriger mon QCM</button>
-<div id="quizResult"></div>
-<div class="panel">
-<p>Prends le temps de comprendre les explications après la correction.</p>
-<button class="action secondary" data-action="chapter" data-value="1">Retour au chapitre</button>
-</div>`;
-
-show("Évaluation du chapitre 1",html,"Mathématiques générales → Chapitre 1");
+function quiz() {
+  let html=`<div class="panel"><h3>QCM — Chapitre 1</h3><p>Choisis une seule réponse par question.</p></div>`;
+  quizQuestions.forEach((q,i)=>html+=`<div class="quiz-question"><strong>${i+1}. ${q.question}</strong>${q.answers.map((a,j)=>`<label><input type="radio" name="q${i}" value="${j}">${a}</label>`).join("")}</div>`);
+  html+=`<button class="action" data-action="gradeQuiz">Corriger mon QCM</button><div id="quizResult"></div><div class="panel"><button class="action" data-action="chapter" data-value="1">Retour au chapitre</button></div>`;
+  show("Évaluation du chapitre 1",html,"Mathématiques générales → Chapitre 1");
+}
+function gradeQuiz() {
+  let score=0,details="",unanswered=0;
+  quizQuestions.forEach((q,i)=>{
+    const selected=document.querySelector(`input[name="q${i}"]:checked`);
+    if(!selected){unanswered++;details+=`<p>Question ${i+1} : sans réponse. ${q.explanation}</p>`;return;}
+    if(Number(selected.value)===q.correct){score++;details+=`<p>Question ${i+1} : bonne réponse. ${q.explanation}</p>`;}
+    else details+=`<p>Question ${i+1} : réponse incorrecte. ${q.explanation}</p>`;
+  });
+  const result=document.getElementById("quizResult");
+  if(result){result.className="panel";result.innerHTML=`<h3>Résultat : ${score} / ${quizQuestions.length}</h3><p>Questions sans réponse : ${unanswered}</p>${details}`;result.scrollIntoView({behavior:"smooth"});}
+}
+function quiz2() {
+  show("Évaluation du chapitre 2",`<div class="panel"><h3>Évaluation en préparation</h3><p>Le chapitre 2 comporte un espace réservé aux QCM, aux séries d'exercices et aux sujets d'examen. Le QCM interactif sera ajouté après intégration des questions et corrections intégrales déjà préparées.</p><button class="action" data-action="chapter" data-value="2">Retour au chapitre 2</button></div>`,"Mathématiques générales → Chapitre 2");
+}
+function resource(value) {
+  show(value,`<div class="panel"><h3>${escapeHTML(value)}</h3><p>Matière : <strong>${escapeHTML(selectedSubject)}</strong></p><p>Les ressources de cette rubrique seront ajoutées progressivement.</p></div>`,selectedSubject+" → "+value);
+}
+function allSubjects() {
+  const list=[];
+  function walk(obj){Object.values(obj).forEach(v=>Array.isArray(v)?list.push(...v):(v&&typeof v==="object"?walk(v):null));}
+  walk(database);
+  return [...new Set(list)];
+}
+function library() {
+  show("Bibliothèque universitaire",`<div class="panel"><p>Rechercher une matière dans le catalogue WiderWay.</p><input id="searchInput" placeholder="Exemple : Biologie cellulaire"><button class="action" data-action="search">Rechercher</button></div><div id="searchResults"></div>`);
+}
+function search() {
+  const input=document.getElementById("searchInput"),results=document.getElementById("searchResults");
+  if(!input||!results)return;
+  const query=input.value.toLowerCase().trim();
+  if(!query){results.innerHTML="<p>Entre le nom d'une matière.</p>";return;}
+  const matches=allSubjects().filter(s=>s.toLowerCase().includes(query));
+  results.innerHTML=matches.length?matches.map(s=>`<div class="resource"><strong>${escapeHTML(s)}</strong></div>`).join(""):"<p>Aucune matière trouvée.</p>";
+}
+function research() {
+  show("Recherche scientifique",`<div class="panel"><h3>Un espace pour la recherche</h3><p>WiderWay ambitionne de faciliter l'accès aux connaissances scientifiques, aux travaux universitaires et aux publications.</p><p>Les fonctions de dépôt et de consultation des publications seront développées dans une prochaine étape.</p></div>`);
+}
+function community() {
+  show("Communauté WiderWay",`<div class="panel"><h3>Apprendre et partager</h3><p>Un espace destiné aux étudiants, enseignants et chercheurs pour partager leurs connaissances et leurs expériences.</p></div>`);
+}
+function about() {
+  show("À propos de WiderWay",`<div class="panel"><h3>Notre vision</h3><p>WiderWay est une initiative éducative et scientifique qui vise à rendre le savoir plus accessible.</p><h3>Notre engagement</h3><p>Gratuité, partage des connaissances, collaboration et ouverture scientifique.</p></div>`);
+}
+function contact() {
+  show("Contact",`<div class="panel"><h3>Nous contacter</h3><label>Nom</label><input placeholder="Ton nom"><label>Adresse e-mail</label><input type="email" placeholder="Ton adresse e-mail"><label>Message</label><textarea rows="5" placeholder="Écris ton message"></textarea><p class="small">L'envoi du formulaire sera activé lors d'une prochaine étape.</p></div>`);
+}
+function coming(value) {
+  show("Bientôt disponible",`<div class="panel"><p>La section ${escapeHTML(value)} sera développée progressivement sur WiderWay.</p></div>`);
 }
 
-function gradeQuiz(){
-let score=0;
-let unanswered=0;
-let details="";
-
-quizQuestions.forEach((q,index)=>{
-const selected=document.querySelector('input[name="question'+index+'"]:checked');
-
-if(!selected){
-unanswered++;
-details+=`<p>Question ${index+1} : aucune réponse choisie. ${q.explanation}</p>`;
-return;
-}
-
-const answer=Number(selected.value);
-
-if(answer===q.correct){
-score++;
-details+=`<p>Question ${index+1} : bonne réponse. ${q.explanation}</p>`;
-}else{
-details+=`<p>Question ${index+1} : réponse incorrecte. ${q.explanation}</p>`;
-}
-});
-
-const result=document.getElementById("quizResult");
-
-if(!result)return;
-
-result.style.background="#eaf5f0";
-result.innerHTML=`
-<h3>Ton résultat : ${score} / ${quizQuestions.length}</h3>
-<p>${score>=4?"Très bon travail !":score>=3?"Bon effort ! Continue à réviser.":"Reprends les leçons et entraîne-toi encore."}</p>
-<p>Questions sans réponse : ${unanswered}</p>
-<hr>
-${details}
-`;
-result.scrollIntoView({behavior:"smooth",block:"start"});
-}
-
-/* 13. RESSOURCES */
-
-function resource(value){
-const html=`
-<div class="panel">
-<h3>${escapeHTML(value)}</h3>
-<p>Matière : <strong>${escapeHTML(selectedSubject)}</strong></p>
-<p>Les ressources de cette rubrique seront publiées
-au fur et à mesure de leur préparation.</p>
-<p class="small">Aucun document n'est encore disponible ici.</p>
-</div>`;
-
-show(value,html,selectedSubject+" → "+value);
-}
-
-/* 14. BIBLIOTHÈQUE ET RECHERCHE */
-
-function allSubjects(){
-let results=[];
-
-function collect(obj){
-Object.values(obj).forEach(value=>{
-if(Array.isArray(value)){
-results=results.concat(value);
-}else if(value&&typeof value==="object"){
-collect(value);
-}
-});
-}
-
-collect(database);
-return [...new Set(results)];
-}
-
-function library(){
-show("Bibliothèque universitaire",`
-<div class="panel">
-<p>Rechercher une matière dans le catalogue WiderWay.</p>
-<input id="searchInput" placeholder="Exemple : Biologie cellulaire">
-<button class="action" data-action="search">Rechercher</button>
-</div>
-<div id="searchResults"></div>`);
-}
-
-function search(){
-const input=document.getElementById("searchInput");
-const results=document.getElementById("searchResults");
-
-if(!input||!results)return;
-
-const query=input.value.toLowerCase().trim();
-
-if(!query){
-results.innerHTML="<p>Entre le nom d'une matière.</p>";
-return;
-}
-
-const matches=allSubjects().filter(subject=>
-subject.toLowerCase().includes(query)
-);
-
-if(!matches.length){
-results.innerHTML="<p>Aucune matière trouvée.</p>";
-return;
-}
-
-results.innerHTML=matches.map(subject=>`
-<div class="resource">
-<strong>${escapeHTML(subject)}</strong>
-</div>`).join("");
-}
-
-function research(){
-show("Recherche scientifique",`
-<div class="panel">
-<h3>Un espace pour la recherche</h3>
-<p>WiderWay ambitionne de faciliter l'accès aux connaissances
-scientifiques, aux travaux universitaires et aux publications.</p>
-<p>Les fonctionnalités de dépôt et de consultation des publications
-seront développées dans une prochaine étape.</p>
-</div>`);
-}
-
-/* 15. COMMUNAUTÉ, À PROPOS, CONTACT */
-
-function community(){
-show("Communauté WiderWay",`
-<div class="panel">
-<h3>Apprendre et partager</h3>
-<p>Un espace destiné aux étudiants, enseignants et chercheurs
-pour partager leurs connaissances et leurs expériences.</p>
-<p>Les fonctions de compte utilisateur et de discussion
-seront développées ultérieurement.</p>
-</div>`);
-}
-
-function about(){
-show("À propos de WiderWay",`
-<div class="panel">
-<h3>Notre vision</h3>
-<p>WiderWay est une initiative éducative et scientifique
-qui vise à rendre le savoir plus accessible.</p>
-<p>Notre ambition est de contribuer au développement
-de l'éducation et de la recherche en Afrique et à l'international.</p>
-<h3>Notre engagement</h3>
-<p>Gratuité, partage des connaissances, collaboration
-et ouverture scientifique.</p>
-</div>`);
-}
-
-function contact(){
-show("Contact",`
-<div class="panel">
-<h3>Nous contacter</h3>
-<p>Pour toute question ou proposition, utilise le formulaire
-de contact qui sera relié à une adresse de réception
-lors d'une prochaine étape.</p>
-<label>Nom</label>
-<input placeholder="Ton nom">
-<label>Adresse e-mail</label>
-<input type="email" placeholder="Ton adresse e-mail">
-<label>Message</label>
-<textarea rows="5" placeholder="Écris ton message"></textarea>
-<p class="small">L'envoi du formulaire n'est pas encore activé.</p>
-</div>`);
-}
-
-function coming(value){
-show("Bientôt disponible",`
-<div class="panel">
-<p>La section ${escapeHTML(value)} sera développée
-progressivement sur WiderWay.</p>
-</div>`);
-}
-
-/* 16. ACTIONS ET NAVIGATION */
-
-const actions={
-home:goHome,
-back:goBack,
-formations,
-library,
-research,
-about,
-contact,
-community,
-country,
-university,
-field,
-level,
-path,
-semester,
-subject,
-resource,
-coming,
-search,
-chapter,
-lesson,
-quiz,
-gradeQuiz,
-learningMethods
+/* =========================================================
+   7. ROUTEUR CENTRAL
+   ========================================================= */
+const actions = {
+  home:goHome, back:restorePage, formations, country, university, field, level,
+  path, semester, subject, chapter, lesson, lesson2, quiz, quiz2, gradeQuiz,
+  resource, supplementary, supplementaryChapter, learningMethods, library,
+  search, research, community, about, contact, coming
 };
-
-document.addEventListener("click",function(event){
-const element=event.target.closest("[data-action]");
-if(!element)return;
-
-const action=element.dataset.action;
-const value=element.dataset.value||"";
-
-if(!actions[action])return;
-
-if(action!=="home"&&action!=="back"&&action!=="search"){
-savePage();
-history.pushState({widerway:true},"");
-}
-
-actions[action](value);
+document.addEventListener("click",event=>{
+  const element=event.target.closest("[data-action]");
+  if(!element)return;
+  const action=element.dataset.action;
+  const value=element.dataset.value||"";
+  if(!actions[action])return;
+  if(action!=="home" && action!=="back" && action!=="search")savePage();
+  actions[action](value);
 });
-
-/* 17. RETOUR DU TÉLÉPHONE ET DU NAVIGATEUR */
-
-window.addEventListener("popstate",function(){
-if(pageHistory.length){
-restorePage();
-}else{
-goHome();
-}
+window.addEventListener("popstate",()=>{
+  if(pageHistory.length)restorePage();
+  else goHome();
 });
-
-history.replaceState({widerway:true},"");
+history.replaceState({widerway:true},"",location.href);
 home();
-
 </script>
 </body>
 </html>
