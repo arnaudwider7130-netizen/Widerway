@@ -1325,8 +1325,7 @@ function widerAISelect(mode) {
     <div id="widerAIResponse" style="margin-top:15px"></div>
   `;
 }
-
-function widerAISend(mode) {
+async function widerAISend(mode) {
   const question = document.getElementById("widerAIQuestion").value.trim();
   const response = document.getElementById("widerAIResponse");
 
@@ -1335,14 +1334,95 @@ function widerAISend(mode) {
     return;
   }
 
-  response.innerHTML = `
-    <div class="panel">
-      <h3>Question reçue</h3>
-      <p>${escapeHTML(question)}</p>
-      <p>WiderAI prépare son moteur de réponses. La connexion aux services d'intelligence artificielle sera ajoutée dans une prochaine étape.</p>
-    </div>
-  `;
+  if (mode === "education") {
+    response.innerHTML = `
+      <div class="panel">
+        <h3>🎓 WiderAI Éducation</h3>
+        <p>Votre question a bien été reçue.</p>
+        <p>Le moteur pédagogique intelligent sera connecté dans une prochaine étape.</p>
+      </div>
+    `;
+    return;
+  }
+
+  response.innerHTML = "<p>🔎 Recherche scientifique en cours...</p>";
+
+  try {
+    const params = new URLSearchParams({
+      "query.bibliographic": question,
+      rows: "5"
+    });
+
+    const url = "https://api.crossref.org/works?" + params.toString();
+
+    const result = await fetch(url);
+    if (!result.ok) {
+      throw new Error("Service temporairement indisponible.");
+    }
+
+    const data = await result.json();
+    const articles = data.message.items || [];
+
+    if (articles.length === 0) {
+      response.innerHTML = "<p>Aucune publication trouvée. Essayez d'autres mots-clés.</p>";
+      return;
+    }
+
+    let html = `
+      <div class="panel">
+        <h3>🔬 Résultats scientifiques</h3>
+        <p>${articles.length} publications trouvées.</p>
+    `;
+
+    articles.forEach((article, index) => {
+      const title = article.title?.[0] || "Titre non disponible";
+      const authors = (article.author || [])
+        .slice(0, 3)
+        .map(a => [a.given, a.family].filter(Boolean).join(" "))
+        .filter(Boolean)
+        .join(", ") || "Auteurs non indiqués";
+
+      const year = article.published?.["date-parts"]?.[0]?.[0] || "Date non indiquée";
+      const journal = article["container-title"]?.[0] || "Publication non précisée";
+      const doi = article.DOI || "";
+
+      html += `
+        <div class="card">
+          <h4>${index + 1}. ${escapeHTML(title)}</h4>
+          <p><strong>Auteurs :</strong> ${escapeHTML(authors)}</p>
+          <p><strong>Année :</strong> ${escapeHTML(String(year))}</p>
+          <p><strong>Revue :</strong> ${escapeHTML(journal)}</p>
+          ${
+            doi
+              ? `<p><strong>DOI :</strong> ${escapeHTML(doi)}</p>
+                 <a href="https://doi.org/${encodeURIComponent(doi)}"
+                    target="_blank" rel="noopener noreferrer">
+                    Consulter la référence
+                 </a>`
+              : "<p>DOI non disponible.</p>"
+          }
+        </div>
+      `;
+    });
+
+    html += `
+        <p><small>Source bibliographique : Crossref.
+        Les résultats sont des références, pas nécessairement des textes intégraux gratuits.</small></p>
+      </div>
+    `;
+
+    response.innerHTML = html;
+
+  } catch (error) {
+    response.innerHTML = `
+      <div class="panel">
+        <h3>Recherche momentanément indisponible</h3>
+        <p>Vérifiez votre connexion Internet et réessayez.</p>
+      </div>
+    `;
+  }
 }
+
 </script>
 </body>
 </html>
