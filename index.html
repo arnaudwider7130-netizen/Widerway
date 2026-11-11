@@ -1268,7 +1268,81 @@ actions.gradeWiderwayQuiz2 = function() {
     <h3>Corrections des 10 questions</h3>
     ${corrections}
   `;
-};
+};/* =====================================
+   WIDERAI — INTERFACE DE BASE
+===================================== */
+
+function widerAI() {
+  show("WiderAI", `
+    <div class="panel">
+      <h2>WiderAI</h2>
+      <p>Votre assistant d'éducation et de recherche scientifique.</p>
+
+      <div class="grid">
+        <button onclick="widerAISelect('education')">
+          🎓 WiderAI Éducation
+        </button>
+
+        <button onclick="widerAISelect('recherche')">
+          🔬 WiderAI Recherche
+        </button>
+      </div>
+
+      <div id="widerAIWorkspace" style="margin-top:20px">
+        <h3>Bienvenue sur WiderAI</h3>
+        <p>Choisissez un espace pour commencer.</p>
+      </div>
+    </div>
+  `);
+}
+
+function widerAISelect(mode) {
+  const workspace = document.getElementById("widerAIWorkspace");
+
+  if (!workspace) return;
+
+  const education = mode === "education";
+
+  workspace.innerHTML = `
+    <h3>${education ? "🎓 WiderAI Éducation" : "🔬 WiderAI Recherche"}</h3>
+
+    <p>
+      ${education
+        ? "Posez vos questions sur vos cours, demandez des explications ou des exercices."
+        : "Recherchez des publications, des auteurs et des informations scientifiques."}
+    </p>
+
+    <textarea
+      id="widerAIQuestion"
+      placeholder="Écrivez votre question ici..."
+      style="width:100%;min-height:110px;padding:12px"
+    ></textarea>
+
+    <button onclick="widerAISend('${mode}')">
+      Envoyer ma question
+    </button>
+
+    <div id="widerAIResponse" style="margin-top:15px"></div>
+  `;
+}
+
+function widerAISend(mode) {
+  const question = document.getElementById("widerAIQuestion").value.trim();
+  const response = document.getElementById("widerAIResponse");
+
+  if (!question) {
+    response.innerHTML = "<p>Veuillez écrire une question.</p>";
+    return;
+  }
+
+  response.innerHTML = `
+    <div class="panel">
+      <h3>Question reçue</h3>
+      <p>${escapeHTML(question)}</p>
+      <p>WiderAI prépare son moteur de réponses. La connexion aux services d'intelligence artificielle sera ajoutée dans une prochaine étape.</p>
+    </div>
+  `;
+}
 </script>
 </body>
 </html>
