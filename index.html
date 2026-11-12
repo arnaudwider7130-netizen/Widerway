@@ -1324,46 +1324,7 @@ function widerAISelect(mode) {
 
     <div id="widerAIResponse" style="margin-top:15px"></div>
   `;
-}
-async function widerAISend(mode) {
-  const question = document.getElementById("widerAIQuestion").value.trim();
-  const response = document.getElementById("widerAIResponse");
-
-  if (!question) {
-    response.innerHTML = "<p>Veuillez écrire une question.</p>";
-    return;
-  }// Reconnaissance des messages
-const message = question
-  .toLowerCase()
-  .normalize("NFD")
-  .replace(/[\u0300-\u036f]/g, "")
-  .replace(/[!?.,;:]/g, "")
-  .trim();
-
-let answer = "";
-
-if (/^(bonjour|bonsoir|salut|hello|coucou)$/.test(message)) {
-  answer = "Bonjour ! Bienvenue sur WiderAI. Comment puis-je vous aider aujourd'hui ?";
-}
-else if (message === "merci" || message === "merci beaucoup") {
-  answer = "Avec plaisir ! Je suis là pour vous accompagner.";
-}
-else if (
-  message.includes("qui es tu") ||
-  message.includes("comment tu t'appelles")
-) {
-  answer = "Je suis WiderAI, votre assistant dédié à l'éducation et à la recherche scientifique.";
-}
-else if (
-  message.includes("qui t'a cree") ||
-  message.includes("qui ta cree") ||
-  message.includes("qui est ton createur") ||
-  message.includes("qui t'a developpe")
-) {
-  answer = "Je suis WiderAI, une intelligence artificielle conçue dans le cadre du projet WiderWay, initié par Arnaud Ouedraogo. Ma mission est de rendre l'éducation et la recherche scientifique plus accessibles à tous.";
-}
-else if (
-  
+  }
 async function widerAISend(mode) {
   const question = document.getElementById("widerAIQuestion").value.trim();
   const response = document.getElementById("widerAIResponse");
