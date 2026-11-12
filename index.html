@@ -1369,7 +1369,7 @@ async function widerAISend(mode) {
     message.includes("comment ca va") ||
     message.includes("comment vas tu")
   ) {
-    answer = "Je fonctionne correctement, merci ! Que souhaitez-vous apprendre aujourd'hui ?";
+    answer = "Je vais bien comme toi, merci ! Que souhaitez-vous apprendre aujourd'hui ?";
   }
 
   if (answer) {
@@ -1385,46 +1385,153 @@ async function widerAISend(mode) {
   // 3. Orientation vers les moteurs spécialisés
 
   if (mode === "education") {
-    let moduleName = "Accompagnement pédagogique";
-    let explanation = "Votre demande est orientée vers le moteur pédagogique.";
+  let moduleName = "Accompagnement pédagogique";
+  let explanation = "";
+  let answer = "";
 
-    if (
-      message.includes("exercice") ||
-      message.includes("corrige") ||
-      message.includes("resoudre") ||
-      message.includes("calcul")
-    ) {
-      moduleName = "Résolution d'exercices";
-      explanation = "Le module devra analyser l'exercice, identifier les données, présenter la méthode et expliquer chaque étape de la solution.";
-    }
-    else if (
-      message.includes("cours") ||
-      message.includes("explique") ||
-      message.includes("definition") ||
-      message.includes("comprendre")
-    ) {
-      moduleName = "Explication des cours";
-      explanation = "Le module devra fournir une explication progressive, des définitions, des exemples et un résumé.";
-    }
-    else if (
-      message.includes("qcm") ||
-      message.includes("quiz") ||
-      message.includes("examen")
-    ) {
-      moduleName = "Évaluation et examens";
-      explanation = "Le module devra préparer des questions, proposer plusieurs réponses et fournir une correction expliquée.";
-    }
+  // BIOLOGIE CELLULAIRE
+  if (
+    message.includes("procaryote") ||
+    message.includes("eucaryote")
+  ) {
+    moduleName = "Biologie cellulaire";
 
-    response.innerHTML = `
-      <div class="panel">
-        <h3>🎓 WiderAI Éducation</h3>
-        <h4>${escapeHTML(moduleName)}</h4>
-        <p>${escapeHTML(explanation)}</p>
-        <p>Votre question a été orientée vers le bon module.</p>
-        <p><small>Le moteur de génération pédagogique complet sera connecté progressivement.</small></p>
-      </div>
+    answer = `
+      <h4>Cellules procaryotes et eucaryotes</h4>
+
+      <p><strong>1. Cellule procaryote</strong></p>
+      <p>Une cellule procaryote est une cellule qui ne possède pas de noyau délimité par une membrane. Son matériel génétique se trouve dans le cytoplasme, dans une région appelée nucléoïde.</p>
+      <p><strong>Exemple :</strong> les bactéries.</p>
+
+      <p><strong>2. Cellule eucaryote</strong></p>
+      <p>Une cellule eucaryote possède un véritable noyau entouré d'une enveloppe nucléaire. Elle contient également des organites spécialisés.</p>
+      <p><strong>Exemples :</strong> les cellules animales, végétales et les cellules des champignons.</p>
+
+      <h4>3. Les principales différences</h4>
+      <ul>
+        <li>Procaryote : absence de véritable noyau.</li>
+        <li>Eucaryote : présence d'un véritable noyau.</li>
+        <li>Procaryote : organisation généralement plus simple.</li>
+        <li>Eucaryote : présence d'organites membranaires.</li>
+      </ul>
+
+      <h4>4. À retenir</h4>
+      <p>La différence fondamentale concerne l'organisation du matériel génétique et la présence ou non d'un noyau délimité par une membrane.</p>
     `;
-    return;
+  }
+
+  // DEFINITION DE LA CELLULE
+  else if (
+    message.includes("definition de la cellule") ||
+    message.includes("qu'est ce qu'une cellule") ||
+    message.includes("quest ce qu'une cellule")
+  ) {
+    moduleName = "Biologie cellulaire";
+
+    answer = `
+      <h4>Définition de la cellule</h4>
+      <p>La cellule est l'unité structurale, fonctionnelle et fondamentale des êtres vivants.</p>
+      <p>Elle est constituée notamment d'une membrane plasmique, d'un cytoplasme et de matériel génétique.</p>
+      <p>Certains organismes sont constitués d'une seule cellule, tandis que d'autres en possèdent plusieurs milliards.</p>
+      <h4>Exemples</h4>
+      <ul>
+        <li>Une bactérie est généralement unicellulaire.</li>
+        <li>L'être humain est pluricellulaire.</li>
+      </ul>
+    `;
+  }
+
+  // PHOTOSYNTHESE
+  else if (message.includes("photosynthese")) {
+    moduleName = "Biologie végétale";
+
+    answer = `
+      <h4>La photosynthèse</h4>
+      <p>La photosynthèse est un processus par lequel les organismes chlorophylliens utilisent l'énergie lumineuse pour fabriquer de la matière organique à partir notamment de l'eau et du dioxyde de carbone.</p>
+      <p>Elle se déroule principalement dans les chloroplastes des cellules végétales.</p>
+      <p><strong>Éléments nécessaires :</strong> lumière, eau, dioxyde de carbone et pigments chlorophylliens.</p>
+      <p><strong>Résultat :</strong> production de matière organique et libération de dioxygène.</p>
+    `;
+  }
+
+  // MITOSE
+  else if (message.includes("mitose")) {
+    moduleName = "Biologie cellulaire";
+
+    answer = `
+      <h4>La mitose</h4>
+      <p>La mitose est une division cellulaire qui permet généralement de produire deux cellules filles possédant le même nombre de chromosomes que la cellule mère.</p>
+      <h4>Les principales étapes</h4>
+      <ol>
+        <li>Prophase</li>
+        <li>Métaphase</li>
+        <li>Anaphase</li>
+        <li>Télophase</li>
+      </ol>
+      <p>La cytocinèse correspond ensuite à la séparation du cytoplasme.</p>
+    `;
+  }
+
+  // RESOLUTION D'EXERCICES
+  else if (
+    message.includes("exercice") ||
+    message.includes("corrige") ||
+    message.includes("resoudre") ||
+    message.includes("calcul")
+  ) {
+    moduleName = "Résolution d'exercices";
+
+    answer = `
+      <p>Je vais t'accompagner dans la résolution de ton exercice.</p>
+      <ol>
+        <li>Identifions les données de l'énoncé.</li>
+        <li>Déterminons ce qu'il faut rechercher.</li>
+        <li>Choisissons la méthode adaptée.</li>
+        <li>Résolvons étape par étape.</li>
+        <li>Vérifions le résultat.</li>
+      </ol>
+      <p>Envoie maintenant l'énoncé complet de ton exercice.</p>
+    `;
+  }
+
+  // QCM ET EVALUATIONS
+  else if (
+    message.includes("qcm") ||
+    message.includes("quiz") ||
+    message.includes("examen")
+  ) {
+    moduleName = "Évaluation et examens";
+
+    answer = `
+      <p>Bienvenue dans le module d'évaluation de WiderAI.</p>
+      <p>Je peux t'aider à préparer tes examens avec des questions, des propositions de réponses et des explications.</p>
+      <p>Précise la matière et le chapitre à évaluer.</p>
+    `;
+  }
+
+  // AUTRES QUESTIONS
+  else {
+    moduleName = "Compréhension pédagogique";
+
+    answer = `
+      <p>J'ai bien reçu ta question :</p>
+      <p><strong>${escapeHTML(question)}</strong></p>
+      <p>Je ne possède pas encore une réponse suffisamment fiable dans ma base pédagogique actuelle.</p>
+      <p>Précise la matière, ton niveau d'étude et la notion concernée pour mieux orienter ta demande.</p>
+    `;
+  }
+
+  response.innerHTML = `
+    <div class="panel">
+      <h3>🎓 WiderAI Éducation</h3>
+      <h4>${escapeHTML(moduleName)}</h4>
+      ${answer}
+      <p><small>WiderAI Éducation V1 — Base pédagogique évolutive.</small></p>
+    </div>
+  `;
+
+  return;
+}
   }
 
   // 4. Moteur de recherche scientifique
