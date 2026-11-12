@@ -580,7 +580,83 @@ function research() {
   show("Recherche scientifique",`<div class="panel"><h3>Un espace pour la recherche</h3><p>WiderWay ambitionne de faciliter l'accès aux connaissances scientifiques, aux travaux universitaires et aux publications.</p><p>Les fonctions de dépôt et de consultation des publications seront développées dans une prochaine étape.</p></div>`);
 }
 function community() {
-  show("Communauté WiderWay",`<div class="panel"><h3>Apprendre et partager</h3><p>Un espace destiné aux étudiants, enseignants et chercheurs pour partager leurs connaissances et leurs expériences.</p></div>`);
+  show("Communauté WiderWay", `
+    <div class="panel">
+      <h2>Bienvenue dans la communauté WiderWay !</h2>
+      <p>
+        Un espace ouvert aux étudiants, enseignants, chercheurs
+        et passionnés de savoir du Burkina Faso, d'Afrique
+        et du monde entier.
+      </p>
+      <p><strong>Apprendre · Partager · Collaborer · Innover</strong></p>
+    </div>
+
+    <div class="panel">
+      <h3>Notre communauté</h3>
+      <p>
+        Ici, chacun peut partager ses connaissances,
+        poser des questions, découvrir des idées et
+        participer à des projets éducatifs et scientifiques.
+      </p>
+    </div>
+
+    <div class="panel">
+      <h3>Espaces communautaires</h3>
+
+      <div class="panel">
+        <h4>👥 Membres</h4>
+        <p>Découvrez les étudiants, enseignants et chercheurs.</p>
+      </div>
+
+      <div class="panel">
+        <h4>💬 Discussions</h4>
+        <p>Échangez des idées, posez des questions et partagez vos expériences.</p>
+      </div>
+
+      <div class="panel">
+        <h4>🎓 Groupes scientifiques</h4>
+        <p>Retrouvez des espaces consacrés à la biologie, la géologie,
+        la chimie, la physique, les mathématiques et l'informatique.</p>
+      </div>
+
+      <div class="panel">
+        <h4>🔬 Projets collaboratifs</h4>
+        <p>Présentez vos idées et recherchez des personnes
+        intéressées par vos projets.</p>
+      </div>
+
+      <div class="panel">
+        <h4>📅 Événements</h4>
+        <p>Découvrez les conférences, séminaires, concours
+        et rencontres scientifiques.</p>
+      </div>
+
+      <div class="panel">
+        <h4>📚 Ressources partagées</h4>
+        <p>Découvrez les documents, références et supports
+        pédagogiques partagés.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>Notre vision</h3>
+      <p>
+        Construire un réseau international de partage du savoir
+        où les connaissances circulent librement et où chacun
+        peut contribuer au développement de l'éducation
+        et de la recherche scientifique.
+      </p>
+    </div>
+
+    <div class="panel">
+      <h3>Un espace en construction</h3>
+      <p>
+        Les fonctionnalités de création de comptes,
+        de publications, de commentaires et de groupes
+        interactifs seront intégrées progressivement.
+      </p>
+    </div>
+  `);
 }
 function about() {
   show("À propos de WiderWay",`<div class="panel"><h3>Notre vision</h3><p>WiderWay est une initiative éducative et scientifique qui vise à rendre le savoir plus accessible.</p><h3>Notre engagement</h3><p>Gratuité, partage des connaissances, collaboration et ouverture scientifique.</p></div>`);
@@ -1632,5 +1708,19 @@ async function widerAISend(mode) {
 }
 
 </script>
+ <!-- Connexion de WiderWay à Supabase -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script> 
+const SUPABASE_URL = "https://otbdxjghasqvdjhlwgyx.supabase.co";
+const SUPABASE_KEY = "sb_publishable_Tt2F7T6IK3dhAj3F6iUMhg_Yz1Tw0xw";
+
+window.widerSupabase = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
+console.log("WiderWay est connecté à Supabase !");
+</script> 
 </body>
 </html>
