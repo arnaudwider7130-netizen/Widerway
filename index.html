@@ -1364,33 +1364,110 @@ else if (
 }
 else if (
   message === "comment ca va" ||
-  message === "comment vas tu"
-) {
-  answer = "Je fonctionne correctement, merci ! Que souhaitez-vous découvrir aujourd'hui ?";
-}
+async function widerAISend(mode) {
+  const question = document.getElementById("widerAIQuestion").value.trim();
+  const response = document.getElementById("widerAIResponse");
 
-if (answer) {
-  response.innerHTML = `
-    <div class="panel">
-      <h3>🤖 WiderAI</h3>
-      <p>${answer}</p>
-    </div>
-  `;
-  return;
-}
+  if (!question) {
+    response.innerHTML = "<p>Veuillez écrire une question.</p>";
+    return;
+  }
 
-  if (mode === "education") {
+  // 1. Compréhension du message
+  const message = question
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[!?.,;:]/g, "")
+    .trim();
+
+  // 2. Moteur conversationnel
+  let answer = "";
+
+  if (/^(bonjour|bonsoir|salut|hello|coucou)$/.test(message)) {
+    answer = "Bonjour ! Bienvenue sur WiderAI. Comment puis-je vous aider aujourd'hui ?";
+  }
+  else if (/^(merci|merci beaucoup)$/.test(message)) {
+    answer = "Avec plaisir ! WiderAI est là pour vous accompagner dans votre apprentissage et vos recherches.";
+  }
+  else if (
+    message.includes("qui es tu") ||
+    message.includes("comment tu t'appelles")
+  ) {
+    answer = "Je suis WiderAI, l'assistant intelligent du projet WiderWay. Je suis conçu pour accompagner l'éducation et la recherche scientifique.";
+  }
+  else if (
+    message.includes("qui t'a cree") ||
+    message.includes("qui ta cree") ||
+    message.includes("qui est ton createur") ||
+    message.includes("qui t'a developpe")
+  ) {
+    answer = "Je suis WiderAI, une intelligence artificielle conçue dans le cadre du projet WiderWay, initié par Arnaud Ouedraogo. Ma mission est de rendre l'éducation et la recherche scientifique plus accessibles.";
+  }
+  else if (
+    message.includes("comment ca va") ||
+    message.includes("comment vas tu")
+  ) {
+    answer = "Je fonctionne correctement, merci ! Que souhaitez-vous apprendre aujourd'hui ?";
+  }
+
+  if (answer) {
     response.innerHTML = `
       <div class="panel">
-        <h3>🎓 WiderAI Éducation</h3>
-        <p>Votre question a bien été reçue.</p>
-        <p>Le moteur pédagogique intelligent sera connecté dans une prochaine étape.</p>
+        <h3>🤖 WiderAI</h3>
+        <p>${escapeHTML(answer)}</p>
       </div>
     `;
     return;
   }
 
-  response.innerHTML = "<p>🔎 Recherche scientifique en cours...</p>";
+  // 3. Orientation vers les moteurs spécialisés
+
+  if (mode === "education") {
+    let moduleName = "Accompagnement pédagogique";
+    let explanation = "Votre demande est orientée vers le moteur pédagogique.";
+
+    if (
+      message.includes("exercice") ||
+      message.includes("corrige") ||
+      message.includes("resoudre") ||
+      message.includes("calcul")
+    ) {
+      moduleName = "Résolution d'exercices";
+      explanation = "Le module devra analyser l'exercice, identifier les données, présenter la méthode et expliquer chaque étape de la solution.";
+    }
+    else if (
+      message.includes("cours") ||
+      message.includes("explique") ||
+      message.includes("definition") ||
+      message.includes("comprendre")
+    ) {
+      moduleName = "Explication des cours";
+      explanation = "Le module devra fournir une explication progressive, des définitions, des exemples et un résumé.";
+    }
+    else if (
+      message.includes("qcm") ||
+      message.includes("quiz") ||
+      message.includes("examen")
+    ) {
+      moduleName = "Évaluation et examens";
+      explanation = "Le module devra préparer des questions, proposer plusieurs réponses et fournir une correction expliquée.";
+    }
+
+    response.innerHTML = `
+      <div class="panel">
+        <h3>🎓 WiderAI Éducation</h3>
+        <h4>${escapeHTML(moduleName)}</h4>
+        <p>${escapeHTML(explanation)}</p>
+        <p>Votre question a été orientée vers le bon module.</p>
+        <p><small>Le moteur de génération pédagogique complet sera connecté progressivement.</small></p>
+      </div>
+    `;
+    return;
+  }
+
+  // 4. Moteur de recherche scientifique
+  response.innerHTML = "<p>🔎 WiderAI Recherche : recherche scientifique en cours...</p>";
 
   try {
     const params = new URLSearchParams({
@@ -1399,8 +1476,8 @@ if (answer) {
     });
 
     const url = "https://api.crossref.org/works?" + params.toString();
-
     const result = await fetch(url);
+
     if (!result.ok) {
       throw new Error("Service temporairement indisponible.");
     }
@@ -1415,19 +1492,25 @@ if (answer) {
 
     let html = `
       <div class="panel">
-        <h3>🔬 Résultats scientifiques</h3>
+        <h3>🔬 WiderAI Recherche</h3>
         <p>${articles.length} publications trouvées.</p>
     `;
 
     articles.forEach((article, index) => {
       const title = article.title?.[0] || "Titre non disponible";
+
       const authors = (article.author || [])
         .slice(0, 3)
         .map(a => [a.given, a.family].filter(Boolean).join(" "))
         .filter(Boolean)
         .join(", ") || "Auteurs non indiqués";
 
-      const year = article.published?.["date-parts"]?.[0]?.[0] || "Date non indiquée";
+      const year =
+        article.published?.["date-parts"]?.[0]?.[0] ||
+        article["published-online"]?.["date-parts"]?.[0]?.[0] ||
+        article["published-print"]?.["date-parts"]?.[0]?.[0] ||
+        "Date non indiquée";
+
       const journal = article["container-title"]?.[0] || "Publication non précisée";
       const doi = article.DOI || "";
 
@@ -1452,7 +1535,7 @@ if (answer) {
 
     html += `
         <p><small>Source bibliographique : Crossref.
-        Les résultats sont des références, pas nécessairement des textes intégraux gratuits.</small></p>
+        Les références ne garantissent pas l'accès gratuit au texte intégral.</small></p>
       </div>
     `;
 
