@@ -692,84 +692,171 @@ function about() {
       <p><strong>WhatsApp :</strong></p>
       <p>
         <a href="https://wa.me/22674752537"
-           target="_blank" rel="noopener">
-          <strong>Écrire à WiderWay sur WhatsApp</strong>
-        </a>
-      </p>
+function community() {
+  show("Communauté WiderWay", `
+    <div class="panel">
+      <h2>Bienvenue dans la communauté WiderWay !</h2>
+      <p>Un espace ouvert aux étudiants, enseignants, chercheurs et passionnés de savoir.</p>
+      <p><strong>Apprendre · Partager · Collaborer · Innover</strong></p>
     </div>
 
     <div class="panel">
-      <h3>Envoyer un message</h3>
+      <h3>Créer un compte</h3>
+      <form id="widerRegisterForm">
+        <label>Nom complet ou pseudonyme</label>
+        <input id="widerFullName" required placeholder="Ton nom ou pseudonyme">
 
-      <form action="https://formsubmit.co/Arnaudwider7130@gmail.com"
-            method="POST">
-
-        <input type="hidden" name="_subject"
-          value="Nouveau message - WiderWay">
-
-        <input type="hidden" name="_template"
-          value="table">
-
-        <input type="text" name="_honey"
-          style="display:none">
-
-        <label>Nom complet</label>
-        <input type="text" name="name"
-          placeholder="Votre nom complet" required>
+        <label>Nom d'utilisateur</label>
+        <input id="widerUsername" required placeholder="Exemple : wider123">
 
         <label>Adresse e-mail</label>
-        <input type="email" name="email"
-          placeholder="Votre adresse e-mail" required>
+        <input id="widerRegisterEmail" type="email" required placeholder="Ton e-mail">
 
-        <label>Motif du contact</label>
-        <select name="motif" required>
-          <option value="">Choisir un motif</option>
-          <option>Question pédagogique</option>
-          <option>Recherche scientifique</option>
-          <option>Partenariat</option>
-          <option>Contribution à WiderWay</option>
-          <option>Signalement d'un problème</option>
-          <option>Suggestion</option>
-          <option>Autre</option>
+        <label>Mot de passe</label>
+        <input id="widerRegisterPassword" type="password" minlength="6" required placeholder="Au moins 6 caractères">
+
+        <label>Ton profil</label>
+        <select id="widerRole">
+          <option>Étudiant</option>
+          <option>Enseignant</option>
+          <option>Chercheur</option>
+          <option>Passionné de savoir</option>
         </select>
 
-        <label>Objet du message</label>
-        <input type="text" name="objet"
-          placeholder="Objet du message" required>
+        <label>Petite présentation (facultatif)</label>
+        <textarea id="widerBio" placeholder="Présente brièvement tes intérêts..."></textarea>
 
-        <label>Votre message</label>
-        <textarea name="message" rows="6"
-          placeholder="Écrivez votre message ici..."
-          required></textarea>
-
-        <button type="submit">Envoyer le message</button>
+        <button type="submit">Créer mon compte</button>
       </form>
     </div>
 
     <div class="panel">
-      <h3>Contribuer à WiderWay</h3>
-      <p>
-        Étudiants, enseignants, chercheurs et passionnés
-        de savoir peuvent contribuer au développement
-        de notre plateforme.
-      </p>
-      <ul>
-        <li>Proposer des cours et des exercices.</li>
-        <li>Partager des ressources scientifiques.</li>
-        <li>Proposer des projets de recherche.</li>
-        <li>Participer à des partenariats éducatifs.</li>
-      </ul>
+      <h3>Se connecter</h3>
+      <form id="widerLoginForm">
+        <label>Adresse e-mail</label>
+        <input id="widerLoginEmail" type="email" required placeholder="Ton e-mail">
+
+        <label>Mot de passe</label>
+        <input id="widerLoginPassword" type="password" required placeholder="Ton mot de passe">
+
+        <button type="submit">Se connecter</button>
+      </form>
     </div>
 
-    <div class="panel" style="text-align:center;">
-      <h3>Notre engagement</h3>
-      <p>
-        Rendre l'éducation et la recherche scientifique
-        accessibles à tous, en Afrique et dans le monde.
-      </p>
-      <strong>WiderWay — Le savoir ouvre toutes les voies.</strong>
+    <div class="panel">
+      <h3>Informations</h3>
+      <p id="widerAuthMessage">Bienvenue sur WiderWay. Crée ton compte pour rejoindre notre communauté.</p>
     </div>
   `);
+
+  const registerForm = document.getElementById("widerRegisterForm");
+  const loginForm = document.getElementById("widerLoginForm");
+  const message = document.getElementById("widerAuthMessage");
+
+  if (!registerForm || !loginForm) return;
+
+  registerForm.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const client = window.widerSupabase;
+    if (!client) {
+      message.textContent = "Connexion à Supabase indisponible. Réessaie plus tard.";
+      return;
+    }
+
+    const fullName = document.getElementById("widerFullName").value.trim();
+    const username = document.getElementById("widerUsername").value.trim();
+    const email = document.getElementById("widerRegisterEmail").value.trim();
+    const password = document.getElementById("widerRegisterPassword").value;
+    const role = document.getElementById("widerRole").value;
+    const bio = document.getElementById("widerBio").value.trim();
+
+    message.textContent = "Création de ton compte en cours...";
+
+    const { data, error } = await client.auth.signUp({
+      email: email,
+      password: password,
+      options: {
+        data: {
+          username: username,
+          full_name: fullName,
+          role: role,
+          bio: bio
+        }
+      }
+    });
+
+    if (error) {
+      message.textContent = "Erreur : " + error.message;
+      return;
+    }
+
+    if (data.session && data.user) {
+      const { error: profileError } = await client
+        .from("profiles")
+        .upsert({
+          id: data.user.id,
+          username: username,
+          full_name: fullName,
+          role: role,
+          bio: bio
+        });
+
+      if (profileError) {
+        message.textContent = "Compte créé, mais le profil n'a pas été enregistré : " + profileError.message;
+        return;
+      }
+
+      message.textContent = "Félicitations ! Ton compte WiderWay et ton profil sont créés.";
+    } else {
+      message.textContent = "Compte créé ! Consulte ta boîte e-mail pour confirmer ton inscription, puis connecte-toi.";
+    }
+  });
+
+  loginForm.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const client = window.widerSupabase;
+    if (!client) {
+      message.textContent = "Connexion à Supabase indisponible.";
+      return;
+    }
+
+    const email = document.getElementById("widerLoginEmail").value.trim();
+    const password = document.getElementById("widerLoginPassword").value;
+
+    message.textContent = "Connexion en cours...";
+
+    const { data, error } = await client.auth.signInWithPassword({
+      email: email,
+      password: password
+    });
+
+    if (error) {
+      message.textContent = "Erreur de connexion : " + error.message;
+      return;
+    }
+
+    const user = data.user;
+    const metadata = user.user_metadata || {};
+
+    const { error: profileError } = await client
+      .from("profiles")
+      .upsert({
+        id: user.id,
+        username: metadata.username || ("membre_" + user.id.slice(0, 8)),
+        full_name: metadata.full_name || "",
+        role: metadata.role || "Étudiant",
+        bio: metadata.bio || ""
+      });
+
+    if (profileError) {
+      message.textContent = "Connexion réussie, mais problème de profil : " + profileError.message;
+      return;
+    }
+
+    message.textContent = "Bienvenue sur WiderWay ! Tu es connecté.";
+  });
 }
 function coming(value) {
   show("Bientôt disponible",`<div class="panel"><p>La section ${escapeHTML(value)} sera développée progressivement sur WiderWay.</p></div>`);
