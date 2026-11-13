@@ -565,9 +565,91 @@ function allSubjects() {
   walk(database);
   return [...new Set(list)];
 }
+
 function library() {
-  show("Bibliothèque universitaire",`<div class="panel"><p>Rechercher une matière dans le catalogue WiderWay.</p><input id="searchInput" placeholder="Exemple : Biologie cellulaire"><button class="action" data-action="search">Rechercher</button></div><div id="searchResults"></div>`);
+  show("MISHÉA Bibliothèque", `
+
+    <div class="panel" style="text-align:center;background:#075c46;color:white;padding:25px;">
+      <h1 style="font-size:30px;">MISHÉA</h1>
+      <h3>Bibliothèque universitaire et documentaire</h3>
+      <p>La connaissance n'a pas de frontières.</p>
+      <p>Découvrez les travaux scientifiques et littéraires du Burkina Faso, d'Afrique et du monde.</p>
+    </div>
+
+    <div class="panel">
+      <h2>Rechercher dans MISHÉA</h2>
+      <p>Recherchez un livre, un auteur, un mémoire, une thèse ou un article.</p>
+
+      <input
+        id="misheaSearch"
+        type="search"
+        placeholder="Titre, auteur, discipline, mot-clé..."
+        style="width:100%;padding:14px;margin:10px 0;"
+      >
+
+      <button
+        class="action"
+        onclick="misheaSearchDocuments()"
+      >
+        Rechercher
+      </button>
+
+      <div id="misheaResults"></div>
+    </div>
+
+    <div class="panel">
+      <h2>🇧🇫 Travaux burkinabè</h2>
+      <p>Découvrez et valorisez les productions intellectuelles du Burkina Faso.</p>
+      <div class="grid">
+        <button class="action" onclick="misheaCategory('Burkina Faso','Travaux scientifiques')">Travaux scientifiques</button>
+        <button class="action" onclick="misheaCategory('Burkina Faso','Travaux littéraires')">Travaux littéraires</button>
+        <button class="action" onclick="misheaCategory('Burkina Faso','Mémoires et thèses')">Mémoires et thèses</button>
+        <button class="action" onclick="misheaCategory('Burkina Faso','Livres et ouvrages')">Livres et ouvrages</button>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>🌍 Travaux des autres pays africains</h2>
+      <p>Explorez les publications des chercheurs et auteurs africains.</p>
+      <button class="action" onclick="misheaCategory('Afrique','Tous les travaux')">
+        Explorer l'Afrique
+      </button>
+    </div>
+
+    <div class="panel">
+      <h2>🌐 Publications internationales</h2>
+      <p>Accédez aux ressources documentaires provenant du monde entier.</p>
+      <button class="action" onclick="misheaCategory('International','Tous les travaux')">
+        Explorer les publications internationales
+      </button>
+    </div>
+
+    <div class="panel">
+      <h2>📚 Explorer par discipline</h2>
+      <div class="grid">
+        ${[
+          "Sciences et technologies",
+          "Lettres et langues",
+          "Droit et sciences politiques",
+          "Économie et gestion",
+          "Santé et médecine",
+          "Agriculture et environnement",
+          "Sciences humaines et sociales",
+          "Arts et communication",
+          "Sciences de l'éducation"
+        ].map(d => `<button class="action" onclick="misheaCategory('Toutes régions','${d}')">${d}</button>`).join("")}
+      </div>
+    </div>
+
+    <div class="panel" style="text-align:center;">
+      <h3>MISHÉA Bibliothèque</h3>
+      <p>Conserver, découvrir et valoriser les travaux scientifiques et littéraires.</p>
+      <p>Une bibliothèque ouverte au savoir.</p>
+    </div>
+
+  `);
 }
+
 function search() {
   const input=document.getElementById("searchInput"),results=document.getElementById("searchResults");
   if(!input||!results)return;
