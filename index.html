@@ -650,6 +650,112 @@ function library() {
   `);
 }
 
+const misheaDocuments = [
+  {
+    title: "Exemple de travail sur les sols",
+    author: "Auteur à compléter",
+    country: "Burkina Faso",
+    discipline: "Géologie",
+    type: "Travaux scientifiques",
+    year: "2025",
+    source: ""
+  },
+  {
+    title: "Exemple de travail sur la littérature africaine",
+    author: "Auteur à compléter",
+    country: "Sénégal",
+    discipline: "Lettres et langues",
+    type: "Travaux littéraires",
+    year: "2024",
+    source: ""
+  },
+  {
+    title: "Exemple de publication internationale",
+    author: "Auteur à compléter",
+    country: "International",
+    discipline: "Biologie",
+    type: "Travaux scientifiques",
+    year: "2023",
+    source: ""
+  }
+];
+
+function misheaSearchDocuments() {
+  const input = document.getElementById("misheaSearch");
+  const results = document.getElementById("misheaResults");
+
+  if (!input || !results) return;
+
+  const query = input.value.toLowerCase().trim();
+
+  if (!query) {
+    results.innerHTML = "<p>Entre un titre, un auteur ou une discipline.</p>";
+    return;
+  }
+
+  const matches = misheaDocuments.filter(doc => {
+    const content = [
+      doc.title,
+      doc.author,
+      doc.country,
+      doc.discipline,
+      doc.type,
+      doc.year
+    ].join(" ").toLowerCase();
+
+    return content.includes(query);
+  });
+
+  if (!matches.length) {
+    results.innerHTML = "<p>Aucun document trouvé dans le catalogue actuel.</p>";
+    return;
+  }
+
+  results.innerHTML = matches.map(doc => `
+    <div class="resource">
+      <h3>${escapeHTML(doc.title)}</h3>
+      <p><strong>Auteur :</strong> ${escapeHTML(doc.author)}</p>
+      <p><strong>Pays :</strong> ${escapeHTML(doc.country)}</p>
+      <p><strong>Discipline :</strong> ${escapeHTML(doc.discipline)}</p>
+      <p><strong>Type :</strong> ${escapeHTML(doc.type)}</p>
+      <p><strong>Année :</strong> ${escapeHTML(doc.year)}</p>
+    </div>
+  `).join("");
+}
+
+function misheaCategory(country, category) {
+  const results = document.getElementById("misheaResults");
+  if (!results) return;
+
+  const matches = misheaDocuments.filter(doc => {
+    const countryMatch =
+      country === "Toutes régions" ||
+      doc.country === country ||
+      (country === "Afrique" &&
+       ["Burkina Faso", "Sénégal"].includes(doc.country));
+
+    const categoryMatch =
+      category === "Tous les travaux" ||
+      doc.type === category ||
+      doc.discipline === category;
+
+    return countryMatch && categoryMatch;
+  });
+
+  if (!matches.length) {
+    results.innerHTML = "<p>Aucun document disponible dans cette catégorie pour le moment.</p>";
+    return;
+  }
+
+  results.innerHTML = matches.map(doc => `
+    <div class="resource">
+      <h3>${escapeHTML(doc.title)}</h3>
+      <p>${escapeHTML(doc.author)} · ${escapeHTML(doc.country)}</p>
+      <p>${escapeHTML(doc.type)} · ${escapeHTML(doc.discipline)}</p>
+    </div>
+  `).join("");
+}
+
 function search() {
   const input=document.getElementById("searchInput"),results=document.getElementById("searchResults");
   if(!input||!results)return;
