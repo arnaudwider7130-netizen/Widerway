@@ -680,47 +680,69 @@ const misheaDocuments = [
   }
 ];
 
-function misheaSearchDocuments() {
+
+async function misheaSearchDocuments() {
   const input = document.getElementById("misheaSearch");
   const results = document.getElementById("misheaResults");
 
   if (!input || !results) return;
 
-  const query = input.value.toLowerCase().trim();
+  const query = input.value.trim();
 
   if (!query) {
     results.innerHTML = "<p>Entre un titre, un auteur ou une discipline.</p>";
     return;
   }
 
-  const matches = misheaDocuments.filter(doc => {
-    const content = [
-      doc.title,
-      doc.author,
-      doc.country,
-      doc.discipline,
-      doc.type,
-      doc.year
-    ].join(" ").toLowerCase();
-
-    return content.includes(query);
-  });
-
-  if (!matches.length) {
-    results.innerHTML = "<p>Aucun document trouvé dans le catalogue actuel.</p>";
+  if (!window.widerSupabase) {
+    results.innerHTML = "<p>Connexion à la bibliothèque indisponible.</p>";
     return;
   }
 
-  results.innerHTML = matches.map(doc => `
-    <div class="resource">
-      <h3>${escapeHTML(doc.title)}</h3>
-      <p><strong>Auteur :</strong> ${escapeHTML(doc.author)}</p>
-      <p><strong>Pays :</strong> ${escapeHTML(doc.country)}</p>
-      <p><strong>Discipline :</strong> ${escapeHTML(doc.discipline)}</p>
-      <p><strong>Type :</strong> ${escapeHTML(doc.type)}</p>
-      <p><strong>Année :</strong> ${escapeHTML(doc.year)}</p>
-    </div>
-  `).join("");
+  results.innerHTML = "<p>Recherche en cours...</p>";
+
+  try {
+    const safeQuery = query.replace(/[,%()]/g, " ").trim();
+
+    const { data, error } = await window.widerSupabase
+      .from("mishea_documents")
+      .select("id,title,authors,country,discipline,document_type,publication_year,abstract,source_url")
+      .eq("is_published", true)
+      .or(
+        `title.ilike.%${safeQuery}%,authors.ilike.%${safeQuery}%,country.ilike.%${safeQuery}%,discipline.ilike.%${safeQuery}%,document_type.ilike.%${safeQuery}%`
+      )
+      .limit(30);
+
+    if (error) throw error;
+
+    if (!data || data.length === 0) {
+      results.innerHTML =
+        "<p>Aucun document publié ne correspond à cette recherche.</p>";
+      return;
+    }
+
+    data.sort((a, b) =>
+      (a.country === "Burkina Faso" ? 0 : 1) -
+      (b.country === "Burkina Faso" ? 0 : 1)
+    );
+
+    results.innerHTML = data.map(doc => `
+      <div class="resource">
+        <h3>${escapeHTML(doc.title || "Sans titre")}</h3>
+        <p><strong>Auteur :</strong> ${escapeHTML(doc.authors || "Non renseigné")}</p>
+        <p><strong>Pays :</strong> ${escapeHTML(doc.country || "Non renseigné")}</p>
+        <p><strong>Discipline :</strong> ${escapeHTML(doc.discipline || "Non renseignée")}</p>
+        <p><strong>Type :</strong> ${escapeHTML(doc.document_type || "Non renseigné")}</p>
+        <p><strong>Année :</strong> ${escapeHTML(String(doc.publication_year || "Non renseignée"))}</p>
+        <p>${escapeHTML(doc.abstract || "")}</p>
+      </div>
+    `).join("");
+
+  } catch (error) {
+    console.error("Erreur MISHÉA :", error);
+    results.innerHTML =
+      "<p>Une erreur est survenue pendant la recherche. Réessaie.</p>";
+  }
 }
 
 function misheaCategory(country, category) {
