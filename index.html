@@ -1573,7 +1573,7 @@ function widerAI() {
         align-items: center;
         justify-content: space-between;
         padding: 15px;
-        background: #ffffff;
+        background: white;
         border-radius: 16px;
         margin-bottom: 25px;
         box-shadow: 0 3px 15px #00000010;
@@ -1611,15 +1611,13 @@ function widerAI() {
         text-align: left;
         color: #1e3a8a;
         font-size: 16px;
-        transition: .2s;
       }
       .wa-card:hover {
         background: #eff6ff;
-        transform: translateY(-3px);
       }
       .wa-card strong {
         display: block;
-        margin-bottom: 8px;
+        margin: 8px 0;
       }
       .wa-footer {
         text-align: center;
@@ -1628,7 +1626,9 @@ function widerAI() {
         margin-top: 25px;
       }
       @media(max-width:500px) {
-        .wa-grid { grid-template-columns: 1fr; }
+        .wa-grid {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
 
@@ -1655,39 +1655,54 @@ function widerAI() {
           Votre espace intelligent d'éducation,
           de découverte et de recherche scientifique.
         </p>
-        <p><strong>Apprendre · Comprendre · Découvrir</strong></p>
+        <strong>Apprendre · Comprendre · Découvrir</strong>
       </div>
 
-      <h3 style="margin-bottom:15px">
-        Que souhaitez-vous explorer ?
-      </h3>
+      <h3>Que souhaitez-vous explorer ?</h3>
 
-    
-<div class="wa-grid">
+      <div class="wa-grid">
 
-  <button class="wa-card"
-    onclick="widerAISelect('echange')">
-    <div style="font-size:30px">💬</div>
-    <strong>WiderAI Échange</strong>
-    <span>Discutez librement avec votre assistant intelligent.</span>
-  </button>
+        <button class="wa-card"
+          onclick="widerAISelect('echange')">
+          <div style="font-size:30px">💬</div>
+          <strong>WiderAI Échange</strong>
+          <span>Discutez librement avec votre assistant intelligent.</span>
+        </button>
 
-  <button class="wa-card"
-    onclick="widerAISelect('education')">
-    <div style="font-size:30px">🎓</div>
-    <strong>WiderAI Éducation</strong>
-    <span>Apprenez, comprenez et entraînez-vous.</span>
-  </button>
+        <button class="wa-card"
+          onclick="widerAISelect('education')">
+          <div style="font-size:30px">🎓</div>
+          <strong>WiderAI Éducation</strong>
+          <span>Apprenez, comprenez et entraînez-vous.</span>
+        </button>
 
-  <button class="wa-card"
-    onclick="widerAISelect('recherche')">
-    <div style="font-size:30px">🔬</div>
-    <strong>WiderAI Recherche</strong>
-    <span>Explorez les connaissances scientifiques.</span>
-  </button>
+        <button class="wa-card"
+          onclick="widerAISelect('recherche')">
+          <div style="font-size:30px">🔬</div>
+          <strong>WiderAI Recherche</strong>
+          <span>Explorez les connaissances scientifiques.</span>
+        </button>
 
-</div>);
-  }
+      </div>
+
+      <div id="widerAIWorkspace" style="margin-top:25px">
+        <div class="wa-hero">
+          <h3>Votre espace de connaissance</h3>
+          <p>Choisissez un espace pour commencer.</p>
+        </div>
+      </div>
+
+      <div class="wa-footer">
+        WiderWay © 2026 · Tous les savoirs, accessibles à tous.
+      </div>
+
+    </div>
+  `);
+}
+
+
+
+
 function widerAISelect(mode) {
   const workspace = document.getElementById("widerAIWorkspace");
 
