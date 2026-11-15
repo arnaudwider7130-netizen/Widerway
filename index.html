@@ -1760,6 +1760,40 @@ async function widerAISend(mode) {
     `;
   }
 
+  // GRAVITATION
+  else if (
+    message.includes("gravite") ||
+    message.includes("gravitation") ||
+    message.includes("pesanteur")
+  ) {
+    moduleName = "Physique";
+
+    answer = `
+      <h4>La gravitation</h4>
+
+      <p>La gravitation est une interaction attractive qui existe entre deux corps possédant une masse.</p>
+
+      <h4>1. La gravitation universelle</h4>
+      <p>Selon la loi de Newton, deux corps s'attirent mutuellement. Plus leurs masses sont importantes, plus cette attraction est forte.</p>
+
+      <h4>2. La formule</h4>
+      <p><strong>F = G × (m1 × m2) / d²</strong></p>
+
+      <ul>
+        <li>F : force gravitationnelle en newtons (N).</li>
+        <li>G : constante gravitationnelle.</li>
+        <li>m1 et m2 : masses des deux corps en kilogrammes.</li>
+        <li>d : distance entre leurs centres en mètres.</li>
+      </ul>
+
+      <h4>3. Exemple</h4>
+      <p>La Terre attire les objets vers son centre. C'est cette attraction qui explique notamment leur poids à proximité de sa surface.</p>
+
+      <h4>À retenir</h4>
+      <p>La gravitation joue un rôle essentiel dans le mouvement des planètes, des satellites et des corps célestes.</p>
+    `;
+  }
+
   // RESOLUTION D'EXERCICES
   else if (
     message.includes("exercice") ||
