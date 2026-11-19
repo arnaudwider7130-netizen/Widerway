@@ -1764,8 +1764,7 @@ async function widerAISend(mode) {
         <p>${escapeHTML(data.message || "Réponse reçue.")}</p>
       </div>
     `;
-  } catch (error) {
-    response.innerHTML = "<p>Impossible de contacter WiderAI. Réessayez.</p>";
+  } catch (error) {response.innerHTML = `<p>Erreur WiderAI : ${escapeHTML(error.message || String(error))}</p>`;
     console.error(error);
   }
 
