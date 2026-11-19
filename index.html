@@ -1709,19 +1709,22 @@ function widerAISelect(mode) {
   if (!workspace) return;
 
   const education = mode === "education";
+const exchange = mode === "echange";
+const research = mode === "recherche";
 
   workspace.innerHTML = `
-    <h3>${education ? "🎓 WiderAI Éducation" : "🔬 WiderAI Recherche"}</h3>
+    <h3>${exchange ? "🤖 WiderAI Échange" : education ? "🎓 WiderAI Éducation" : "🔬 WiderAI Recherche"}</h3>
 
     <p>
-      ${education
-        ? "Posez vos questions sur vos cours, demandez des explications ou des exercices."
-        : "Recherchez des publications, des auteurs et des informations scientifiques."}
-    </p>
+      ${exchange
+  ? "Discutez librement avec WiderAI et posez toutes vos questions."
+  : education
+    ? "Posez vos questions sur vos cours, demandez des explications ou des exercices."
+    : "Recherchez des publications, des auteurs et des informations scientifiques."}
 
     <textarea
       id="widerAIQuestion"
-      placeholder="Écrivez votre question ici..."
+      placeholder="${exchange ? "Écrivez votre message à WiderAI..." : "Écrivez votre question ici..."}"
       style="width:100%;min-height:110px;padding:12px"
     ></textarea>
 
@@ -1848,7 +1851,7 @@ async function widerAISend(mode) {
     `;
   }
 
-  // PHOTOSYNTHESE
+  //gg PHOTOSYNTHESE
   else if (message.includes("photosynthese")) {
     moduleName = "Biologie végétale";
 
