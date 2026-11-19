@@ -1737,6 +1737,39 @@ const research = mode === "recherche";
   }
 async function widerAISend(mode) {
   const question = document.getElementById("widerAIQuestion").value.trim();
+  if (mode === "echange") {
+  const response = document.getElementById("widerAIResponse");
+
+  if (!question) {
+    response.innerHTML = "<p>Écrivez un message avant d'envoyer.</p>";
+    return;
+  }
+
+  response.innerHTML = "<p>WiderAI réfléchit...</p>";
+
+  try {
+    const { data, error } = await window.widerSupabase.functions.invoke(
+      "wider-chat",
+      {
+        body: { question: question }
+      }
+    );
+
+    if (error) throw error;
+
+    response.innerHTML = `
+      <div class="panel">
+        <h3>🤖 WiderAI</h3>
+        <p>${escapeHTML(data.message || "Réponse reçue.")}</p>
+      </div>
+    `;
+  } catch (error) {
+    response.innerHTML = "<p>Impossible de contacter WiderAI. Réessayez.</p>";
+    console.error(error);
+  }
+
+  return;
+}
   const response = document.getElementById("widerAIResponse");
 
   if (!question) {
