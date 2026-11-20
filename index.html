@@ -2118,9 +2118,11 @@ const SUPABASE_KEY ="sb_publishable_TLNW5y8moYMXSSoUdkDvCw_AKf6U9ql";
 window.widerSupabase = window.supabase.createClient(
   console.log("Client Supabase :", window.widerSupabase);
   SUPABASE_URL,
-  SUPABASE_KEY
+  SUPABASE_KEY);
+  console.log("Supabase disponible :", typeof window.supabase);
+console.log("Client WiderAI :", typeof window.widerSupabase);
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-);window.widerSupabaseClient = window.widerSupabase;
+window.widerSupabaseClient = window.widerSupabase;
 console.log("WiderSupabase prêt :", !!window.widerSupabase);
 
 console.log("WiderWay est connecté à Supabase !");
