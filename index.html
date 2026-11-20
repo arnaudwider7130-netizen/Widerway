@@ -1749,7 +1749,7 @@ async function widerAISend(mode) {
   response.innerHTML = "<p>WiderAI réfléchit...</p>";
 
   try {
-    const { data, error } = await window.widerSupabase.functions.invoke(
+    const { data, error } = await window.window.widerSupabaseClient.functions.invoke(
       "wider-chat",
       {
         body: { question: question }
@@ -2119,7 +2119,8 @@ window.widerSupabase = window.supabase.createClient(
   console.log("Client Supabase :", window.widerSupabase);
   SUPABASE_URL,
   SUPABASE_KEY
-);
+);window.widerSupabaseClient = window.widerSupabase;
+console.log("WiderSupabase prêt :", !!window.widerSupabase);
 
 console.log("WiderWay est connecté à Supabase !");
 </script> 
