@@ -2116,6 +2116,7 @@ async function widerAISend(mode) {
 const SUPABASE_URL = "https://soscmfbkswopcqiievfs.supabase.co";
 const SUPABASE_KEY ="sb_publishable_TLNW5y8moYMXSSoUdkDvCw_AKf6U9ql";
 window.widerSupabase = window.supabase.createClient(
+  console.log("Client Supabase :", window.widerSupabase);
   SUPABASE_URL,
   SUPABASE_KEY
 );
