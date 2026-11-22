@@ -1010,7 +1010,17 @@ window.addEventListener("popstate",()=>{
   else goHome();
 });
 history.replaceState({widerway:true},"",location.href);
-home();/* =========================================================
+home();/*const params = new URLSearchParams(window.location.search);
+const filiereDemandee = params.get("filiere");
+
+if (
+  filiereDemandee === "Sciences de la Vie et de la Terre" ||
+  filiereDemandee === "MPCI"
+) {
+  selectedCountry = "Burkina Faso";
+  selectedUniversity = "Université Joseph Ki-Zerbo";
+  field(filiereDemandee);
+} =========================================================
    WIDERWAY — CHAPITRE 2 : LEÇONS 2 À 6
    Extension pédagogique
    ========================================================= */
