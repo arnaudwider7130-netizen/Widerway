@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Découvrez les filières universitaires sur WiderWay, plateforme gratuite d'éducation et de recherche.">
+<title>Filières universitaires | WiderWay</title>
+
+<style>
+:root {
+  --vert: #075c46;
+  --vert-clair: #e9f4ef;
+  --or: #d9a441;
+  --texte: #20332d;
+  --fond: #f6f8f7;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--texte);
+  background: var(--fond);
+}
+header {
+  background: white;
+  padding: 16px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  border-bottom: 1px solid #e5ece8;
+}
+.logo {
+  color: var(--vert);
+  font-size: 25px;
+  font-weight: bold;
+}
+.logo span { color: var(--or); }
+nav a {
+  color: var(--vert);
+  text-decoration: none;
+  margin-left: 18px;
+  font-weight: bold;
+}
+.hero {
+  background: linear-gradient(120deg, #064c3b, #08785a);
+  color: white;
+  text-align: center;
+  padding: 65px 20px;
+}
+.hero h1 { font-size: 36px; margin: 0 0 15px; }
+.hero p {
+  max-width: 700px;
+  margin: auto;
+  line-height: 1.7;
+}
+.search-area {
+  max-width: 650px;
+  margin: 28px auto 0;
+}
+.search-area input {
+  width: 100%;
+  padding: 16px;
+  border: 0;
+  border-radius: 8px;
+  font-size: 16px;
+}
+main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 35px 20px;
+}
+.section-title {
+  color: var(--vert);
+  margin-bottom: 8px;
+}
+.intro {
+  color: #63736c;
+  line-height: 1.6;
+}
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 25px 0;
+}
+.filters button {
+  border: 1px solid #cbdcd3;
+  background: white;
+  color: var(--vert);
+  padding: 10px 16px;
+  border-radius: 22px;
+  cursor: pointer;
+}
+.filters button.active,
+.filters button:hover {
+  background: var(--vert);
+  color: white;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+}
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 14px rgba(0,0,0,.06);
+  transition: transform .2s;
+}
+.card:hover { transform: translateY(-4px); }
+.card img {
+  width: 100%;
+  height: 165px;
+  object-fit: cover;
+  background: var(--vert-clair);
+}
+.card-content { padding: 18px; }
+.card h3 {
+  color: var(--vert);
+  margin: 0 0 10px;
+}
+.card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #64736d;
+  min-height: 45px;
+}
+.card button {
+  background: var(--vert);
+  color: white;
+  border: 0;
+  padding: 11px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.card button:hover { background: #08785a; }
+.empty {
+  display: none;
+  text-align: center;
+  padding: 30px;
+  color: #63736c;
+}
+footer {
+  background: #073e31;
+  color: white;
+  text-align: center;
+  padding: 25px 15px;
+  margin-top: 40px;
+  line-height: 1.7;
+}
+@media(max-width:600px) {
+  .hero h1 { font-size: 27px; }
+  nav a { margin-left: 8px; font-size: 13px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Wider<span>Way</span></div>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="filieres.html">Filières</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Explore les voies du savoir</h1>
+  <p>
+    Découvre les formations universitaires, explore les disciplines
+    et construis progressivement ton parcours académique avec WiderWay.
+  </p>
+  <div class="search-area">
+    <input id="search" type="search"
+      placeholder="Rechercher une filière..."
+      oninput="filterCards()">
+  </div>
+</section>
+
+<main>
+  <h2 class="section-title">Catalogue des filières</h2>
+  <p class="intro">
+    Explore les domaines de formation et découvre les possibilités
+    d'apprentissage et de recherche scientifique.
+  </p>
+
+  <div class="filters">
+    <button class="active" onclick="filterCategory('Toutes',this)">Toutes</button>
+    <button onclick="filterCategory('Sciences',this)">Sciences</button>
+    <button onclick="filterCategory('Santé',this)">Santé</button>
+    <button onclick="filterCategory('Lettres',this)">Lettres et langues</button>
+    <button onclick="filterCategory('Droit',this)">Droit et économie</button>
+    <button onclick="filterCategory('Société',this)">Sciences humaines</button>
+  </div>
+
+  <div class="grid" id="catalogue">
+
+    <article class="card" data-category="Sciences">
+      <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=700" alt="Recherche scientifique en laboratoire">
+      <div class="card-content">
+        <h3>Sciences de la vie et de la Terre</h3>
+        <p>Biologie, géologie, écologie et sciences de l'environnement.</p>
+        <button onclick="openProgram('Sciences de la vie et de la Terre')">Découvrir</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="Sciences">
+      <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=700" alt="Étude scientifique et mathématique">
+      <div class="card-content">
+        <h3>MPCI</h3>
+        <p>Mathématiques, physique, chimie et sciences fondamentales.</p>
+        <button onclick="openProgram('MPCI')">Découvrir</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="Santé">
+      <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=700" alt="Étudiants en santé">
+      <div class="card-content">
+        <h3>Médecine</h3>
+        <p>Formation médicale, sciences cliniques et santé humaine.</p>
+        <button onclick="openProgram('Médecine')">Découvrir</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="Santé">
+      <img src="https://images.unsplash.com/photo-1576602976047-174e57a47881?w=700" alt="Pharmacie">
+      <div class="card-content">
+        <h3>Pharmacie</h3>
+        <p>Sciences du médicament et pratiques pharmaceutiques.</p>
+        <button onclick="openProgram('Pharmacie')">Découvrir</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="Santé">
+      <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=700" alt="Chirurgie dentaire">
+      <div class="card-content">
+        <h3>Chirurgie dentaire</h3>
+        <p>Santé bucco-dentaire et soins spécialisés.</p>
+        <button onclick="openProgram('Chirurgie dentaire')">Découvrir</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="Sciences">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=700" alt="Paysage géographique">
+      <div class="card-content">
+        <h3>Géographie</h3>
+        <p>Territoires, cartographie, environnement et sociétés.</p>
+        <button onclick="openProgram('Géographie')">Découvrir</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="Droit">
+      <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=700" alt="Livres de droit">
+      <div class="card-content">
+        <h3>Droit</h3>
+        <p>Droit public, droit privé et institutions juridiques.</p>
+        <button onclick="openProgram('Droit')">Découvrir</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="Lettres">
+      <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=700" alt="Étudiants en apprentissage">
+      <div class="card-content">
+        <h3>Sciences du langage</h3>
+        <p>Langues, communication, linguistique et analyse du langage.</p>
+        <button onclick="openProgram('Sciences du langage')">Découvrir</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="Société">
+      <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700" alt="Étudiants en discussion">
+      <div class="card-content">
+        <h3>Sociologie</h3>
+        <p>Étude des sociétés, des groupes et des transformations sociales.</p>
+        <button onclick="openProgram('Sociologie')">Découvrir</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="Société">
+      <img src="https://images.unsplash.com/photo-1461360370896-922624d12aa1?w=700" alt="Histoire et patrimoine">
+      <div class="card-content">
+        <h3>Histoire et archéologie</h3>
+        <p>Histoire des sociétés, patrimoine et civilisations.</p>
+        <button onclick="openProgram('Histoire et archéologie')">Découvrir</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="Droit">
+      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700" alt="Économie et gestion">
+      <div class="card-content">
+        <h3>Économie et gestion</h3>
+        <p>Économie, organisation, gestion et développement.</p>
+        <button onclick="openProgram('Économie et gestion')">Découvrir</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="Lettres">
+      <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=700" alt="Étude des langues">
+      <div class="card-content">
+        <h3>Études germaniques</h3>
+        <p>Langue allemande, littérature et cultures germaniques.</p>
+        <button onclick="openProgram('Études germaniques')">Découvrir</button>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="empty" id="empty">
+    Aucune filière ne correspond à cette recherche.
+  </div>
+</main>
+
+<footer>
+  <strong>WiderWay</strong><br>
+  Le savoir ouvre toutes les voies.<br>
+  Plateforme gratuite d'éducation et de recherche scientifique.
+</footer>
+
+<script>
+let selectedCategory = "Toutes";
+
+function filterCards() {
+  const query = document.getElementById("search").value.toLowerCase();
+  const cards = document.querySelectorAll(".card");
+  let count = 0;
+
+  cards.forEach(card => {
+    const matchesText = card.innerText.toLowerCase().includes(query);
+    const matchesCategory =
+      selectedCategory === "Toutes" ||
+      card.dataset.category === selectedCategory;
+
+    card.style.display = matchesText && matchesCategory ? "" : "none";
+    if (matchesText && matchesCategory) count++;
+  });
+
+  document.getElementById("empty").style.display =
+    count === 0 ? "block" : "none";
+}
+
+function filterCategory(category, button) {
+  selectedCategory = category;
+  document.querySelectorAll(".filters button").forEach(btn => {
+    btn.classList.remove("active");
+  });
+  button.classList.add("active");
+  filterCards();
+}
+
+function openProgram(name) {
+  alert("La page détaillée de " + name +
+    " sera construite dans la prochaine étape de WiderWay.");
+}
+</script>
+
+</body>
+</html>
