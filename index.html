@@ -264,7 +264,14 @@ function formations() {
   </div>`);
 }
 function country(value) {
-  selectedCountry=value;
+  selectedCountry=value;if (value === "Sciences de la Vie et de la Terre") {
+  selectedLevel = "";
+  selectedPath = "";
+  selectedSemester = "";
+  selectedSubject = "";
+  showSVTInterface();
+  return;
+}
   const universities=database[value];
   if(!universities){show("Bientôt disponible","<p>Les formations de cette région seront ajoutées progressivement.</p>");return;}
   let html='<div class="grid">';
@@ -287,6 +294,106 @@ function field(value) {
   Object.keys(data).forEach(levelName=>html+=makeCard(levelName,"Consulter les semestres de ce niveau.","level",levelName));
   html+='</div>';
   show(value,html,selectedUniversity+" → "+value);
+function showSVTInterface() {
+  const html = `
+  <style>
+    .svt-hero {
+      background: linear-gradient(120deg,#073b70,#087b91);
+      color:white;
+      padding:30px 22px;
+      border-radius:18px;
+      margin-bottom:22px;
+    }
+    .svt-hero h2 {font-size:27px;margin:0 0 10px}
+    .svt-hero p {line-height:1.7;max-width:650px}
+    .svt-tag {
+      display:inline-block;
+      background:#ffffff24;
+      padding:7px 13px;
+      border-radius:20px;
+      margin-bottom:12px;
+    }
+    .svt-section {margin:25px 0}
+    .svt-levels {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:15px;
+    }
+    .svt-level {
+      background:white;
+      border:1px solid #dce8ef;
+      border-radius:15px;
+      padding:20px;
+      box-shadow:0 4px 14px #12342212;
+    }
+    .svt-level h3 {color:#075b78;margin-top:0}
+    .svt-level button {
+      background:#086b91;
+      color:white;
+      border:0;
+      border-radius:9px;
+      padding:11px 17px;
+      cursor:pointer;
+      font-weight:bold;
+      width:100%;
+    }
+    .svt-info {
+      background:#edf7f5;
+      border-left:5px solid #168b69;
+      padding:17px;
+      border-radius:10px;
+      line-height:1.7;
+    }
+  </style>
+
+  <div class="svt-hero">
+    <span class="svt-tag">WiderWay · Éducation</span>
+    <h2>Sciences de la Vie et de la Terre</h2>
+    <p>
+      Explore le monde vivant, les mécanismes biologiques,
+      les écosystèmes et les phénomènes géologiques.
+      Apprends, pratique et développe tes connaissances scientifiques.
+    </p>
+    <strong>Université Joseph Ki-Zerbo · Licence</strong>
+  </div>
+
+  <div class="svt-section">
+    <h3>Choisis ton niveau d'études</h3>
+    <div class="svt-levels">
+      <div class="svt-level">
+        <h3>Licence 1</h3>
+        <p>Découvrir les fondements des sciences biologiques et géologiques.</p>
+        <button data-action="level" data-value="L1">Accéder à L1 →</button>
+      </div>
+
+      <div class="svt-level">
+        <h3>Licence 2</h3>
+        <p>Approfondir les connaissances en biologie et en géosciences.</p>
+        <button data-action="level" data-value="L2">Accéder à L2 →</button>
+      </div>
+
+      <div class="svt-level">
+        <h3>Licence 3</h3>
+        <p>Choisir une spécialisation et approfondir son parcours.</p>
+        <button data-action="level" data-value="L3">Accéder à L3 →</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="svt-section">
+    <h3>Ton espace pédagogique</h3>
+    <div class="svt-info">
+      <strong>Apprendre progressivement</strong>
+      <p>Retrouve tes matières, cours, résumés, exercices,
+      évaluations et ressources documentaires dans chaque niveau.</p>
+    </div>
+  </div>
+  `;
+
+  show("Sciences de la Vie et de la Terre", html,
+       "WiderWay → Éducation → SVT");
+}
+
 }
 function level(value) {
   selectedLevel=value; selectedPath="";
