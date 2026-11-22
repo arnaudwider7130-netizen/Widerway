@@ -352,11 +352,20 @@ function filterCategory(category, button) {
   button.classList.add("active");
   filterCards();
 }
-
 function openProgram(name) {
-  alert("La page détaillée de " + name +
-    " sera construite dans la prochaine étape de WiderWay.");
+  const filieresDisponibles = [
+    "Sciences de la Vie et de la Terre",
+    "MPCI"
+  ];
+
+  if (filieresDisponibles.includes(name)) {
+    window.location.href =
+      "index.html?filiere=" + encodeURIComponent(name);
+  } else {
+    alert("Cette filière sera bientôt disponible.");
+  }
 }
+
 </script>
 
 </body>
