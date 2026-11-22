@@ -288,12 +288,33 @@ function university(value) {
   show(value,html,selectedCountry+" → "+value);
 }
 function field(value) {
-  selectedField=value;
-  const data=database[selectedCountry][selectedUniversity][value];
-  let html='<div class="grid">';
-  Object.keys(data).forEach(levelName=>html+=makeCard(levelName,"Consulter les semestres de ce niveau.","level",levelName));
-  html+='</div>';
-  show(value,html,selectedUniversity+" → "+value);
+  selectedField = value;
+
+  selectedLevel = "";
+  selectedPath = "";
+  selectedSemester = "";
+  selectedSubject = "";
+
+  if (value === "Sciences de la Vie et de la Terre") {
+    showSVTInterface();
+    return;
+  }
+
+  const data = database[selectedCountry][selectedUniversity][value];
+  let html = '<div class="grid">';
+
+  Object.keys(data).forEach(levelName => {
+    html += makeCard(
+      levelName,
+      "Consulter les semestres de ce niveau.",
+      "level",
+      levelName
+    );
+  });
+
+  html += '</div>';
+  show(value, html, selectedUniversity + " → " + value);
+}
 function showSVTInterface() {
   const html = `
   <style>
