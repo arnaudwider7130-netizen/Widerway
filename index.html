@@ -480,27 +480,6 @@ function showMPCIInterface() {
 
   show("MPCI", html, "WiderWay → Éducation → MPCI");
 }
- 
- if (value === "MPCI") {
-  showMPCIInterface();
-  return;
-} 
-
-  const data = database[selectedCountry][selectedUniversity][value];
-  let html = '<div class="grid">';
-
-  Object.keys(data).forEach(levelName => {
-    html += makeCard(
-      levelName,
-      "Consulter les semestres de ce niveau.",
-      "level",
-      levelName
-    );
-  });
-
-  html += '</div>';
-  show(value, html, selectedUniversity + " → " + value);
-}
 function showSVTInterface() {
   const html = `
  .svt-photo {
