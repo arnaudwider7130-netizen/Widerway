@@ -299,6 +299,172 @@ function field(value) {
     showSVTInterface();
     return;
   }
+ 
+function showMPCIInterface() {
+  const html = `
+  <style>
+    .mpci-hero {
+      background: linear-gradient(120deg,#062c65,#0757a5);
+      color: white;
+      padding: 22px;
+      border-radius: 18px;
+      margin-bottom: 24px;
+    }
+
+    .mpci-hero img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 13px;
+      margin-bottom: 18px;
+    }
+
+    .mpci-hero h2 {
+      font-size: 28px;
+      margin: 8px 0;
+    }
+
+    .mpci-hero p {
+      line-height: 1.7;
+    }
+
+    .mpci-levels {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(190px,1fr));
+      gap: 16px;
+    }
+
+    .mpci-level {
+      background: white;
+      border: 1px solid #dce5f2;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 14px #12342212;
+    }
+
+    .mpci-level h3 {
+      color: #064b91;
+      margin-top: 0;
+    }
+
+    .mpci-level button {
+      width: 100%;
+      padding: 12px;
+      border: 0;
+      border-radius: 9px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .mpci-l1 button {background:#0754bd;}
+    .mpci-l2 button {background:#07834d;}
+    .mpci-l3 button {background:#7024a9;}
+
+    .mpci-tools {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .mpci-tool {
+      background: #eef4ff;
+      border: 1px solid #d8e4f5;
+      border-radius: 12px;
+      padding: 17px;
+      text-align: center;
+      color: #073b78;
+      font-weight: bold;
+    }
+
+    .mpci-info {
+      margin-top: 24px;
+      padding: 18px;
+      background: #eaf2ff;
+      border-left: 5px solid #e9b600;
+      border-radius: 10px;
+      line-height: 1.7;
+    }
+  </style>
+
+  <div class="mpci-hero">
+    <img
+      src="images/mpci-banner.png"
+      alt="Étudiants africains travaillant dans un laboratoire scientifique"
+    >
+
+    <span>WiderWay · Éducation scientifique</span>
+
+    <h2>MPCI</h2>
+
+    <h3>Mathématiques · Physique · Chimie · Informatique</h3>
+
+    <p>
+      Explore les sciences fondamentales, développe ton esprit
+      logique, expérimente et maîtrise les outils numériques.
+      Apprends, cherche et innove avec WiderWay.
+    </p>
+
+    <strong>Université Joseph Ki-Zerbo · Licence</strong>
+  </div>
+
+  <h3>Choisis ton niveau d'études</h3>
+
+  <div class="mpci-levels">
+
+    <div class="mpci-level mpci-l1">
+      <h3>Licence 1 (L1)</h3>
+      <p>Construire des bases solides dans les sciences fondamentales.</p>
+      <button data-action="level" data-value="L1">
+        Accéder à L1 →
+      </button>
+    </div>
+
+    <div class="mpci-level mpci-l2">
+      <h3>Licence 2 (L2)</h3>
+      <p>Approfondir ses connaissances et développer ses compétences.</p>
+      <button data-action="level" data-value="L2">
+        Accéder à L2 →
+      </button>
+    </div>
+
+    <div class="mpci-level mpci-l3">
+      <h3>Licence 3 (L3)</h3>
+      <p>Se spécialiser et préparer son avenir scientifique.</p>
+      <button data-action="level" data-value="L3">
+        Accéder à L3 →
+      </button>
+    </div>
+
+  </div>
+
+  <h3 style="margin-top:28px">Ton espace pédagogique</h3>
+
+  <div class="mpci-tools">
+    <div class="mpci-tool">📘<br>Cours et leçons</div>
+    <div class="mpci-tool">✏️<br>Exercices et devoirs</div>
+    <div class="mpci-tool">❓<br>QCM et quiz</div>
+    <div class="mpci-tool">📄<br>Documents</div>
+    <div class="mpci-tool">🔎<br>Recherche</div>
+  </div>
+
+  <div class="mpci-info">
+    <strong>MPCI : construisons l'avenir scientifique de l'Afrique !</strong>
+    <p>
+      Une formation pour apprendre, expérimenter,
+      raisonner et innover.
+    </p>
+  </div>
+  `;
+
+  show("MPCI", html, "WiderWay → Éducation → MPCI");
+}
+ 
+ if (value === "MPCI") {
+  showMPCIInterface();
+  return;
+} 
 
   const data = database[selectedCountry][selectedUniversity][value];
   let html = '<div class="grid">';
