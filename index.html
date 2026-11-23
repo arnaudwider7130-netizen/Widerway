@@ -317,6 +317,14 @@ function field(value) {
 }
 function showSVTInterface() {
   const html = `
+ .svt-photo {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+  margin-bottom: 18px;
+} 
   <style>
     .svt-hero {
       background: linear-gradient(120deg,#073b70,#087b91);
@@ -368,6 +376,11 @@ function showSVTInterface() {
   </style>
 
   <div class="svt-hero">
+  <img
+  class="svt-photo"
+  src="https://www.inovtechsc.com/stem-lab-setup-african-school.jpg"
+  alt="Étudiants africains en travaux pratiques dans un laboratoire"
+>
     <span class="svt-tag">WiderWay · Éducation</span>
     <h2>Sciences de la Vie et de la Terre</h2>
     <p>
