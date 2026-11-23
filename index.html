@@ -298,10 +298,28 @@ function field(value) {
   if (value === "Sciences de la Vie et de la Terre") {
     showSVTInterface();
     return;
-    if (value === "MPCI") {
-  showMPCIInterface();
-  return;
   }
+
+  if (value === "MPCI") {
+    showMPCIInterface();
+    return;
+  }
+
+  const data = database[selectedCountry][selectedUniversity][value];
+  let html = '<div class="grid">';
+
+  Object.keys(data).forEach(levelName => {
+    html += makeCard(
+      levelName,
+      "Consulter les semestres de ce niveau.",
+      "level",
+      levelName
+    );
+  });
+
+  html += '</div>';
+  show(value, html, selectedUniversity + " → " + value);
+}
 function showMPCIInterface() {
   const html = `
   <style>
