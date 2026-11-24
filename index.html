@@ -2063,7 +2063,7 @@ async function widerAISend(mode) {
   response.innerHTML = "<p>WiderAI réfléchit...</p>";
 
   try {
-    const { data, error } = await.window.widerSupabaseClient.functions.invoke(
+    const { data, error } = await window.widerSupabaseClient.functions.invoke(
       "wider-chat",
       {
         body: { question: question }
