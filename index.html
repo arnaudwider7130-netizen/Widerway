@@ -871,88 +871,302 @@ function allSubjects() {
 }
 
 function library() {
-  show("MISHÉA Bibliothèque", `
+  show("MISHÉA — Bibliothèque numérique", `
 
-    <div class="panel" style="text-align:center;background:#075c46;color:white;padding:25px;">
-      <h1 style="font-size:30px;">MISHÉA</h1>
-      <h3>Bibliothèque universitaire et documentaire</h3>
-      <p>La connaissance n'a pas de frontières.</p>
-      <p>Découvrez les travaux scientifiques et littéraires du Burkina Faso, d'Afrique et du monde.</p>
-    </div>
+  <style>
+    .mishea {
+      --m-green:#087653;
+      --m-dark:#064b37;
+      --m-gold:#d5aa45;
+      --m-bg:#f4f8f5;
+      color:#20372d;
+    }
 
-    <div class="panel">
-      <h2>Rechercher dans MISHÉA</h2>
-      <p>Recherchez un livre, un auteur, un mémoire, une thèse ou un article.</p>
+    .mishea-hero {
+      background:linear-gradient(120deg,#064b37,#087653);
+      color:white;
+      padding:35px 25px;
+      border-radius:20px;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .mishea-brand {
+      font-size:13px;
+      letter-spacing:3px;
+      color:#f2d58a;
+      font-weight:bold;
+    }
+
+    .mishea-hero h1 {
+      font-size:38px;
+      margin:10px 0;
+      letter-spacing:2px;
+    }
+
+    .mishea-hero p {
+      max-width:650px;
+      margin:10px auto;
+      line-height:1.8;
+    }
+
+    .mishea-search {
+      background:white;
+      padding:22px;
+      border-radius:16px;
+      margin:-20px 15px 25px;
+      position:relative;
+      box-shadow:0 8px 25px #12332215;
+    }
+
+    .mishea-search h3 {
+      color:#064b37;
+      margin-top:0;
+    }
+
+    .mishea-search button {
+      background:#087653;
+      color:white;
+      border:0;
+      padding:12px 22px;
+      border-radius:8px;
+      font-weight:bold;
+      cursor:pointer;
+    }
+
+    .mishea-heading {
+      color:#064b37;
+      margin:30px 0 5px;
+      font-size:22px;
+    }
+
+    .mishea-subtitle {
+      color:#718078;
+      font-size:14px;
+    }
+
+    .mishea-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+      gap:15px;
+      margin-top:18px;
+    }
+
+    .mishea-card {
+      background:white;
+      border:1px solid #e0eae3;
+      border-radius:14px;
+      padding:20px;
+      transition:.2s;
+    }
+
+    .mishea-card:hover {
+      transform:translateY(-3px);
+      box-shadow:0 7px 20px #12332212;
+      border-color:#087653;
+    }
+
+    .mishea-icon {
+      font-size:30px;
+      margin-bottom:8px;
+    }
+
+    .mishea-card h3 {
+      color:#07563d;
+      font-size:17px;
+      margin:5px 0;
+    }
+
+    .mishea-card p {
+      color:#718078;
+      font-size:13px;
+      min-height:40px;
+    }
+
+    .mishea-card button {
+      width:100%;
+      background:#edf6f0;
+      color:#07563d;
+      border:1px solid #d5e8dc;
+      border-radius:8px;
+      padding:10px;
+      font-weight:bold;
+      cursor:pointer;
+    }
+
+    .mishea-results {
+      background:white;
+      border:1px solid #e0eae3;
+      border-radius:14px;
+      padding:18px;
+      margin-top:18px;
+    }
+
+    .mishea-note {
+      background:#edf6f0;
+      border-left:4px solid #d5aa45;
+      border-radius:10px;
+      padding:18px;
+      margin-top:28px;
+    }
+
+    @media(max-width:600px) {
+      .mishea-hero h1 {font-size:30px;}
+      .mishea-hero {padding:28px 17px;}
+      .mishea-search {margin:-12px 5px 20px;}
+    }
+  </style>
+
+  <div class="mishea">
+
+    <section class="mishea-hero">
+      <div class="mishea-brand">WIDERWAY · SAVOIR · CULTURE · RECHERCHE</div>
+      <h1>MISHÉA</h1>
+      <h3>Bibliothèque universitaire et numérique</h3>
+      <p>
+        Découvre, explore et valorise les connaissances
+        scientifiques et littéraires du Burkina Faso,
+        de l'Afrique et du monde.
+      </p>
+      <p><strong>La connaissance n'a pas de frontières.</strong></p>
+    </section>
+
+    <section class="mishea-search">
+      <h3>🔎 Que souhaites-tu découvrir ?</h3>
+      <p class="small">
+        Livres, mémoires, thèses, articles scientifiques,
+        travaux universitaires...
+      </p>
 
       <input
         id="misheaSearch"
         type="search"
         placeholder="Titre, auteur, discipline, mot-clé..."
-        style="width:100%;padding:14px;margin:10px 0;"
       >
 
-      <button
-        class="action"
-        onclick="misheaSearchDocuments()"
-      >
-        Rechercher
+      <button onclick="misheaSearchDocuments()">
+        Rechercher →
       </button>
+    </section>
 
-      <div id="misheaResults"></div>
-    </div>
+    <h2 class="mishea-heading">Explorer les collections</h2>
+    <p class="mishea-subtitle">
+      Les productions intellectuelles par région.
+    </p>
 
-    <div class="panel">
-      <h2>🇧🇫 Travaux burkinabè</h2>
-      <p>Découvrez et valorisez les productions intellectuelles du Burkina Faso.</p>
-      <div class="grid">
-        <button class="action" onclick="misheaCategory('Burkina Faso','Travaux scientifiques')">Travaux scientifiques</button>
-        <button class="action" onclick="misheaCategory('Burkina Faso','Travaux littéraires')">Travaux littéraires</button>
-        <button class="action" onclick="misheaCategory('Burkina Faso','Mémoires et thèses')">Mémoires et thèses</button>
-        <button class="action" onclick="misheaCategory('Burkina Faso','Livres et ouvrages')">Livres et ouvrages</button>
+    <div class="mishea-grid">
+
+      <div class="mishea-card">
+        <div class="mishea-icon">🇧🇫</div>
+        <h3>Burkina Faso</h3>
+        <p>Valoriser les travaux des étudiants, chercheurs et auteurs burkinabè.</p>
+        <button onclick="misheaCategory('Burkina Faso','Tous les travaux')">
+          Explorer →
+        </button>
       </div>
-    </div>
 
-    <div class="panel">
-      <h2>🌍 Travaux des autres pays africains</h2>
-      <p>Explorez les publications des chercheurs et auteurs africains.</p>
-      <button class="action" onclick="misheaCategory('Afrique','Tous les travaux')">
-        Explorer l'Afrique
-      </button>
-    </div>
-
-    <div class="panel">
-      <h2>🌐 Publications internationales</h2>
-      <p>Accédez aux ressources documentaires provenant du monde entier.</p>
-      <button class="action" onclick="misheaCategory('International','Tous les travaux')">
-        Explorer les publications internationales
-      </button>
-    </div>
-
-    <div class="panel">
-      <h2>📚 Explorer par discipline</h2>
-      <div class="grid">
-        ${[
-          "Sciences et technologies",
-          "Lettres et langues",
-          "Droit et sciences politiques",
-          "Économie et gestion",
-          "Santé et médecine",
-          "Agriculture et environnement",
-          "Sciences humaines et sociales",
-          "Arts et communication",
-          "Sciences de l'éducation"
-        ].map(d => `<button class="action" onclick="misheaCategory('Toutes régions','${d}')">${d}</button>`).join("")}
+      <div class="mishea-card">
+        <div class="mishea-icon">🌍</div>
+        <h3>Afrique</h3>
+        <p>Découvrir les publications et les savoirs du continent africain.</p>
+        <button onclick="misheaCategory('Afrique','Tous les travaux')">
+          Explorer →
+        </button>
       </div>
+
+      <div class="mishea-card">
+        <div class="mishea-icon">🌐</div>
+        <h3>International</h3>
+        <p>Explorer les connaissances et publications internationales.</p>
+        <button onclick="misheaCategory('International','Tous les travaux')">
+          Explorer →
+        </button>
+      </div>
+
     </div>
 
-    <div class="panel" style="text-align:center;">
-      <h3>MISHÉA Bibliothèque</h3>
-      <p>Conserver, découvrir et valoriser les travaux scientifiques et littéraires.</p>
-      <p>Une bibliothèque ouverte au savoir.</p>
+    <h2 class="mishea-heading">Les ressources documentaires</h2>
+    <p class="mishea-subtitle">
+      Choisis le type de document que tu recherches.
+    </p>
+
+    <div class="mishea-grid">
+
+      <div class="mishea-card">
+        <div class="mishea-icon">📚</div>
+        <h3>Livres et ouvrages</h3>
+        <p>Ouvrages scientifiques, universitaires et littéraires.</p>
+        <button onclick="misheaCategory('Toutes régions','Livres et ouvrages')">Explorer</button>
+      </div>
+
+      <div class="mishea-card">
+        <div class="mishea-icon">🎓</div>
+        <h3>Mémoires et thèses</h3>
+        <p>Travaux académiques et recherches universitaires.</p>
+        <button onclick="misheaCategory('Toutes régions','Mémoires et thèses')">Explorer</button>
+      </div>
+
+      <div class="mishea-card">
+        <div class="mishea-icon">🔬</div>
+        <h3>Travaux scientifiques</h3>
+        <p>Études, publications et productions scientifiques.</p>
+        <button onclick="misheaCategory('Toutes régions','Travaux scientifiques')">Explorer</button>
+      </div>
+
+      <div class="mishea-card">
+        <div class="mishea-icon">✍️</div>
+        <h3>Travaux littéraires</h3>
+        <p>Œuvres, études littéraires et productions culturelles.</p>
+        <button onclick="misheaCategory('Toutes régions','Travaux littéraires')">Explorer</button>
+      </div>
+
     </div>
 
+    <h2 class="mishea-heading">Explorer par discipline</h2>
+
+    <div class="mishea-grid">
+      ${[
+        "Sciences et technologies",
+        "Lettres et langues",
+        "Droit et sciences politiques",
+        "Économie et gestion",
+        "Santé et médecine",
+        "Agriculture et environnement",
+        "Sciences humaines et sociales",
+        "Arts et communication",
+        "Sciences de l'éducation"
+      ].map(d => `
+        <div class="mishea-card">
+          <h3>${d}</h3>
+          <button onclick="misheaCategory('Toutes régions','${d}')">
+            Consulter →
+          </button>
+        </div>
+      `).join("")}
+    </div>
+
+    <h2 class="mishea-heading">Résultats documentaires</h2>
+
+    <div class="mishea-results" id="misheaResults">
+      <p class="small">
+        Les résultats de tes recherches apparaîtront ici.
+        Choisis une collection ou lance une recherche.
+      </p>
+    </div>
+
+    <div class="mishea-note">
+      <strong>📖 MISHÉA — Une bibliothèque ouverte au savoir</strong>
+      <p>
+        Conserver, partager et valoriser les connaissances
+        pour favoriser l'éducation et la recherche scientifique.
+      </p>
+      <p class="small">Un espace documentaire de WiderWay.</p>
+    </div>
+
+  </div>
   `);
-}
+  }
 
 const misheaDocuments = [
   {
