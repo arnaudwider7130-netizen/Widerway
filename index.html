@@ -332,29 +332,6 @@ function country(value) {
     show(value, html, "Formations → " + value);
     return;
   }
-
-  const universities = database[value];
-
-  if (!universities) {
-    show("Bientôt disponible",
-      "<p>Les formations de cette région seront ajoutées progressivement.</p>");
-    return;
-  }
-
-  let html = '<div class="grid">';
-
-  Object.keys(universities).forEach(name => {
-    html += makeCard(
-      name,
-      "Consulter les filières disponibles.",
-      "university",
-      name
-    );
-  });
-
-  html += '</div>';
-  show(value, html, "Formations → " + value);
-}
   const universities=database[value];
   if(!universities){show("Bientôt disponible","<p>Les formations de cette région seront ajoutées progressivement.</p>");return;}
   let html='<div class="grid">';
