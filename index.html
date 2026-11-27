@@ -173,6 +173,56 @@ const complementaryResources = {
     ]
   }
 };
+ const universitiesBurkina = [
+  {
+    name: "Université Joseph Ki-Zerbo",
+    sigle: "UJKZ",
+    type: "Généraliste",
+    banner: "image/ujkz-banner.jpg"
+  },
+  {
+    name: "Université Nazi Boni",
+    sigle: "UNB",
+    type: "Généraliste",
+    banner: "image/unb-banner.jpg"
+  },
+  {
+    name: "Université Norbert Zongo",
+    sigle: "UNZ",
+    type: "Généraliste",
+    banner: "image/unz-banner.jpg"
+  },
+  {
+    name: "Université Virtuelle du Burkina Faso",
+    sigle: "UV-BF",
+    type: "Généraliste",
+    banner: "image/uvbf-banner.jpg"
+  },
+  {
+    name: "Université Lédéa Bernard OUEDRAOGO",
+    sigle: "ULBO",
+    type: "Spécialisée",
+    banner: "image/ulbo-banner.jpg"
+  },
+  {
+    name: "Université Daniel Ouezzin COULIBALY",
+    sigle: "UDOC",
+    type: "Spécialisée",
+    banner: "image/udoc-banner.jpg"
+  },
+  {
+    name: "Université Yembila Abdoulaye TOGUYENI",
+    sigle: "UYAT",
+    type: "Spécialisée",
+    banner: "image/uyat-banner.jpg"
+  },
+  {
+    name: "Université Thomas SANKARA",
+    sigle: "UTS",
+    type: "Spécialisée",
+    banner: "image/uts-banner.jpg"
+  }
+];
 
 /* =========================================================
    2. ÉTAT ET OUTILS DE NAVIGATION
@@ -264,13 +314,46 @@ function formations() {
   </div>`);
 }
 function country(value) {
-  selectedCountry=value;if (value === "Sciences de la Vie et de la Terre") {
-  selectedLevel = "";
-  selectedPath = "";
-  selectedSemester = "";
-  selectedSubject = "";
-  showSVTInterface();
-  return;
+  selectedCountry = value;
+
+  if (value === "Burkina Faso") {
+    let html = '<div class="grid">';
+
+    universitiesBurkina.forEach(university => {
+      html += makeCard(
+        university.name,
+        university.type + " · " + university.sigle,
+        "university",
+        university.name
+      );
+    });
+
+    html += '</div>';
+    show(value, html, "Formations → " + value);
+    return;
+  }
+
+  const universities = database[value];
+
+  if (!universities) {
+    show("Bientôt disponible",
+      "<p>Les formations de cette région seront ajoutées progressivement.</p>");
+    return;
+  }
+
+  let html = '<div class="grid">';
+
+  Object.keys(universities).forEach(name => {
+    html += makeCard(
+      name,
+      "Consulter les filières disponibles.",
+      "university",
+      name
+    );
+  });
+
+  html += '</div>';
+  show(value, html, "Formations → " + value);
 }
   const universities=database[value];
   if(!universities){show("Bientôt disponible","<p>Les formations de cette région seront ajoutées progressivement.</p>");return;}
